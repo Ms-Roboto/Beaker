@@ -1,0 +1,595 @@
+// {{{ 2 "SubmethodForwardDeclaration" ""
+private function TestCheckFloatValue(  ) void ;
+private function TestCheckIntegerValue(  ) void ;
+private function TestCheckValueInArray(  ) void ;
+private function TestTrace(  ) void ;
+private function TestTraceArray(  ) void ;
+function OnAbort(  ) void ;
+// }} ""
+// {{{ 5 "OnAbort" "Begin"
+function OnAbort(  ) void {
+// }} ""
+// {{ 5 "OnAbort" "InitLocals"
+// }} ""
+// {{{ 5 "OnAbort" "End"
+}
+// }} ""
+// {{{ 5 "TestCheckIntegerValue" "Begin"
+private function TestCheckIntegerValue(  ) void {
+// }} ""
+private variable strFunctionName;
+private variable blnSuccess;
+private variable intMinusFortyTwo;
+private variable intFourtyTwo;
+private variable intZero;
+private variable strFortyTwo;
+// {{ 5 "TestCheckIntegerValue" "InitLocals"
+// }} ""
+strFunctionName = GetFunctionName();
+// {{{ 41 1 0 "b10e00cc_e526_4d1f_a9127eeaee4c9d10" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Hamilton_DriverTools::ExtractFunctionName(strFunctionName, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 42 1 0 "4e766047_b07e_4aa3_a9b1c719b0a67255" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::START, strFunctionName, _strModuleName, "Check 42 in all four configurations");
+// }} ""
+// {{ 43 1 0 "4d4a5d5b_050b_47ac_b01b4895bc318f7d" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+intFourtyTwo = 42;
+// }} ""
+// {{{ 44 1 0 "7b1bea4d_3524_48aa_8e0a88e5ff2a9d17" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckIntegerValue(intFourtyTwo, "intFourtyTwo", Hamilton_DriverTools::VALUE_RANGE::POSITIVE, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 45 1 0 "57de2bcf_0667_4b26_820257974b3137bd" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckIntegerValue(intFourtyTwo, "intFourtyTwo", Hamilton_DriverTools::VALUE_RANGE::POSITIVE_ZERO, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 46 1 0 "543d6de6_e9bd_43a3_855a0020f1254bab" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckIntegerValue(intFourtyTwo, "intFourtyTwo", Hamilton_DriverTools::VALUE_RANGE::NEGATIVE, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 47 1 0 "375a61ba_6402_4768_9be81c7ed94536c0" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckIntegerValue(intFourtyTwo, "intFourtyTwo", Hamilton_DriverTools::VALUE_RANGE::NEGATIVE_ZERO, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 48 1 0 "fdd1d114_35aa_4ad4_b270645b7db70b4b" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::COMPLETE, strFunctionName, _strModuleName, "Check 42 in all four configurations");
+// }} ""
+// {{ 49 1 0 "c080b35c_9eba_4502_ac400ce32ea9a503" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+intZero = 0;
+// }} ""
+// {{{ 50 1 0 "79b59d6a_6d31_4d77_96cebc2a1122c2a0" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::START, strFunctionName, _strModuleName, "Check 0 in all four configurations");
+// }} ""
+// {{{ 51 1 0 "0528baf1_40a4_4e8d_b57fa32dde541600" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckIntegerValue(intZero, "intZero", Hamilton_DriverTools::VALUE_RANGE::POSITIVE, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 52 1 0 "fa0d0bba_f931_47e3_8b731cb69b9a8831" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckIntegerValue(intZero, "intZero", Hamilton_DriverTools::VALUE_RANGE::POSITIVE_ZERO, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 53 1 0 "606ef6ce_3e70_4b0d_b6fec20795750ffa" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckIntegerValue(intZero, "intZero", Hamilton_DriverTools::VALUE_RANGE::NEGATIVE, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 54 1 0 "33d9bbbf_e8bb_443b_90081495ca8a20bd" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckIntegerValue(intZero, "intZero", Hamilton_DriverTools::VALUE_RANGE::NEGATIVE_ZERO, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 55 1 0 "96a0b1df_c02d_4bf8_8cbd3b22b0ec9f47" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::COMPLETE, strFunctionName, _strModuleName, "Check 0 in all four configurations");
+// }} ""
+// {{{ 56 1 0 "b556c9ef_fd75_495e_8f3e4edf810862cd" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::START, strFunctionName, _strModuleName, "Check -42 in all four configurations");
+// }} ""
+// {{ 57 1 0 "b626b24b_284a_4eba_90fbb2fa2bc2be90" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+intMinusFortyTwo = -42;
+// }} ""
+// {{{ 58 1 0 "9788f5a5_7814_481c_8d133bbcd40ad2d1" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckIntegerValue(intMinusFortyTwo, "intMinusFortyTwo", Hamilton_DriverTools::VALUE_RANGE::POSITIVE, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 59 1 0 "2b14c61f_6938_48c7_92c6d7ce153f5da5" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckIntegerValue(intMinusFortyTwo, "intMinusFortyTwo", Hamilton_DriverTools::VALUE_RANGE::POSITIVE_ZERO, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 60 1 0 "8e93d553_1b8a_40e6_8820bfa9b86a19ad" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckIntegerValue(intMinusFortyTwo, "intMinusFortyTwo", Hamilton_DriverTools::VALUE_RANGE::NEGATIVE, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 61 1 0 "6237c723_3724_467f_ba34643eb25bcb75" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckIntegerValue(intMinusFortyTwo, "intMinusFortyTwo", Hamilton_DriverTools::VALUE_RANGE::NEGATIVE_ZERO, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 62 1 0 "19ae4922_1ab4_490e_a00de6d7319c402a" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::COMPLETE, strFunctionName, _strModuleName, "Check -42 in all four configurations");
+// }} ""
+// {{ 63 1 0 "f6d4736b_f496_484c_8464f9cbe1e515ec" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+strFortyTwo = "42";
+// }} ""
+// {{{ 64 1 0 "2910cb6e_99d1_4ab4_86af0ee2e29da82c" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::START, strFunctionName, _strModuleName, "Check '42' in all four configurations");
+// }} ""
+// {{{ 65 1 0 "015d8598_7507_4da9_823cd8aabd4e83f1" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckIntegerValue(strFortyTwo, "strFortyTwo", Hamilton_DriverTools::VALUE_RANGE::POSITIVE, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 66 1 0 "ec7ccee5_d956_4657_a4d690cf273166a6" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckIntegerValue(strFortyTwo, "strFortyTwo", Hamilton_DriverTools::VALUE_RANGE::POSITIVE_ZERO, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 67 1 0 "430c9a6a_c199_45b2_8d77c6058aa9e6d3" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckIntegerValue(strFortyTwo, "strFortyTwo", Hamilton_DriverTools::VALUE_RANGE::NEGATIVE, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 68 1 0 "f1ebe447_f68a_454a_b9814f6ad54f2443" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckIntegerValue(strFortyTwo, "strFortyTwo", Hamilton_DriverTools::VALUE_RANGE::NEGATIVE_ZERO, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 69 1 0 "04ff6056_7ece_4be3_945a14f1564bd556" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::COMPLETE, strFunctionName, _strModuleName, "Check '42' in all four configurations");
+// }} ""
+// {{{ 5 "TestCheckIntegerValue" "End"
+}
+// }} ""
+// {{{ 5 "TestCheckFloatValue" "Begin"
+private function TestCheckFloatValue(  ) void {
+// }} ""
+private variable fltZero;
+private variable strFunctionName;
+private variable fltFourtyTwo;
+private variable blnSuccess;
+private variable strFortyTwo;
+private variable fltMinusFortyTwo;
+// {{ 5 "TestCheckFloatValue" "InitLocals"
+// }} ""
+strFunctionName = GetFunctionName();
+// {{{ 10 1 0 "cff05ee8_67ae_45d9_9e74267176469a3f" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Hamilton_DriverTools::ExtractFunctionName(strFunctionName, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 11 1 0 "c9b72cc8_9a21_423d_97d2d2e8b0433a13" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::START, strFunctionName, _strModuleName, "Check 42.1234 in all four configurations");
+// }} ""
+// {{ 12 1 0 "4d07f74e_6966_484e_8d2fba1d5672fa97" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+fltFourtyTwo = 42.1234;
+// }} ""
+// {{{ 13 1 0 "ac7b97ce_27b4_4f72_9decef3a7a865029" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckFloatValue(fltFourtyTwo, "fltFourtyTwo", Hamilton_DriverTools::VALUE_RANGE::POSITIVE, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 14 1 0 "4fb5a818_29e0_4e0d_a7d18358a806f331" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckFloatValue(fltFourtyTwo, "fltFourtyTwo", Hamilton_DriverTools::VALUE_RANGE::POSITIVE_ZERO, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 15 1 0 "d2a9e26b_0776_4270_9e8a503f8b3d769f" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckFloatValue(fltFourtyTwo, "fltFourtyTwo", Hamilton_DriverTools::VALUE_RANGE::NEGATIVE, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 16 1 0 "3e5f840a_58e4_4d83_8c6dfb53f67c8797" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckFloatValue(fltFourtyTwo, "fltFourtyTwo", Hamilton_DriverTools::VALUE_RANGE::NEGATIVE_ZERO, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 17 1 0 "55c3edd3_4e13_4b2b_863252af960ecef0" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::COMPLETE, strFunctionName, _strModuleName, "Check 42.1234 in all four configurations");
+// }} ""
+// {{{ 18 1 0 "64badeca_2f9a_4ba0_af28a2b9225d8b84" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::START, strFunctionName, _strModuleName, "Check 0.0 in all four configurations");
+// }} ""
+// {{ 19 1 0 "1ace0e49_8c48_4a17_996aaa7539bbedf8" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+fltZero = 0.0;
+// }} ""
+// {{{ 20 1 0 "a5eddfd8_3e00_4d01_9a124d0e480d69a6" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckFloatValue(fltZero, "fltZero", Hamilton_DriverTools::VALUE_RANGE::POSITIVE, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 21 1 0 "72763eb9_db9f_49d1_87729cecc10eaa72" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckFloatValue(fltZero, "fltZero", Hamilton_DriverTools::VALUE_RANGE::POSITIVE_ZERO, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 22 1 0 "ef29e6e9_94c4_4e4f_acde7bf38a28fe9e" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckFloatValue(fltZero, "fltZero", Hamilton_DriverTools::VALUE_RANGE::NEGATIVE, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 23 1 0 "6a9666d7_0af9_46e6_a4bc9dcbd5bf7a85" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckFloatValue(fltZero, "fltZero", Hamilton_DriverTools::VALUE_RANGE::NEGATIVE_ZERO, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 24 1 0 "fed364c8_df39_440f_b9df2613973a89c4" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::COMPLETE, strFunctionName, _strModuleName, "Check 0.0 in all four configurations");
+// }} ""
+// {{{ 25 1 0 "e1daf4ea_f820_4487_a1c972f8571f7ae0" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::START, strFunctionName, _strModuleName, "Check -42.1234 in all four configurations");
+// }} ""
+// {{ 26 1 0 "b15209a9_7fde_40ea_9f951bed236503a4" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+fltMinusFortyTwo = -42.1234;
+// }} ""
+// {{{ 27 1 0 "42686407_51c5_49ea_8a202d25f3f3b258" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckFloatValue(fltMinusFortyTwo, "fltMinusFortyTwo", Hamilton_DriverTools::VALUE_RANGE::POSITIVE, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 28 1 0 "1ab12e01_5ad5_450c_bc81d491f3e6d2af" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckFloatValue(fltMinusFortyTwo, "fltMinusFortyTwo", Hamilton_DriverTools::VALUE_RANGE::POSITIVE_ZERO, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 29 1 0 "9b6b0c4f_026b_4106_b360b878214a137b" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckFloatValue(fltMinusFortyTwo, "fltMinusFortyTwo", Hamilton_DriverTools::VALUE_RANGE::NEGATIVE, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 30 1 0 "18d25777_ebaa_4dfc_841a5e26e09c54ee" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckFloatValue(fltMinusFortyTwo, "fltMinusFortyTwo", Hamilton_DriverTools::VALUE_RANGE::NEGATIVE_ZERO, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 31 1 0 "500cfed7_68e2_4cdd_82b2f3705c679eeb" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::COMPLETE, strFunctionName, _strModuleName, "Check -42.1234 in all four configurations");
+// }} ""
+// {{{ 32 1 0 "1ee53fb1_3f2a_4587_891b86558a4f2900" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::START, strFunctionName, _strModuleName, "Check '42' in all four configurations");
+// }} ""
+// {{ 33 1 0 "0a1caff5_986b_4a6f_b3a590cbc2b1b42b" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+strFortyTwo = "42";
+// }} ""
+// {{{ 34 1 0 "d273342e_cc7c_4c17_af472f1068aa76c4" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckFloatValue(strFortyTwo, "strFortyTwo", Hamilton_DriverTools::VALUE_RANGE::POSITIVE, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 35 1 0 "2b6cdbeb_d432_481c_ad7978764e67f7d2" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckFloatValue(strFortyTwo, "strFortyTwo", Hamilton_DriverTools::VALUE_RANGE::POSITIVE_ZERO, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 36 1 0 "36b1b4bd_6f3c_4833_902b895496dc28cd" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckFloatValue(strFortyTwo, "strFortyTwo", Hamilton_DriverTools::VALUE_RANGE::NEGATIVE, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 37 1 0 "f2af97e2_be74_40b9_b5cc41cb9d7e7e82" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckFloatValue(strFortyTwo, "strFortyTwo", Hamilton_DriverTools::VALUE_RANGE::NEGATIVE_ZERO, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 38 1 0 "5c172561_35c2_460c_a4c6d9e91659a63c" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::COMPLETE, strFunctionName, _strModuleName, "Check '42' in all four configurations");
+// }} ""
+// {{{ 5 "TestCheckFloatValue" "End"
+}
+// }} ""
+// {{{ 5 "TestTrace" "Begin"
+private function TestTrace(  ) void {
+// }} ""
+private variable strFunctionName;
+private variable arrvarTraceTest[];
+private variable intLoopCounterCreateArray;
+private variable arrvarSmall[];
+// {{ 5 "TestTrace" "InitLocals"
+// }} ""
+strFunctionName = GetFunctionName();
+// {{{ 125 1 0 "6cbab823_5b99_4104_8b1391dc2ce32e11" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Hamilton_DriverTools::ExtractFunctionName(strFunctionName, strFunctionName, _strModuleName);
+// }} ""
+// {{ 126 1 0 "30ab84ab_9f7c_470e_816a6af0dab025ed" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrvarTraceTest.SetSize(0);
+// }} ""
+// {{ 127 1 0 "0c60423b_be43_4050_b2c8134d5cab23f8" "{B31F3532-5D80-11d4-A5EB-0050DA737D89}"
+{
+for(intLoopCounterCreateArray = 0; intLoopCounterCreateArray < 10;)
+{
+intLoopCounterCreateArray = intLoopCounterCreateArray + 1;
+// }} ""
+// {{ 128 1 0 "8ce9bf35_a75f_491d_be7a7358fcec0771" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrvarTraceTest.AddAsLast(42);
+// }} ""
+// {{ 129 1 0 "185e6ede_3ef5_4732_8673e6ef98576719" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrvarTraceTest.AddAsLast(42.345);
+// }} ""
+// {{ 130 1 0 "ba789083_2bfe_4cdb_bad4e83efb0c88a2" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrvarTraceTest.AddAsLast("a string");
+// }} ""
+// {{ 131 1 0 "cecb4159_2f9e_4bf6_99dcc490c2a7538d" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrvarTraceTest.AddAsLast(ASWGLOBAL::BOOL::FALSE);
+// }} ""
+// {{ 132 1 0 "728133b0_882b_4bb0_8c53a3b8e2d5d0c2" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrvarTraceTest.AddAsLast(ASWGLOBAL::BOOL::TRUE);
+// }} ""
+// {{ 133 1 0 "23248a55_1857_458e_bc99fa55985a303b" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrvarSmall.AddAsLast(intLoopCounterCreateArray);
+// }} ""
+// {{ 134 1 0 "0c60423b_be43_4050_b2c8134d5cab23f8" "{B31F3532-5D80-11d4-A5EB-0050DA737D89}"
+}
+}
+// }} ""
+// {{{ 135 1 0 "02377b03_409f_4cd8_b2527d277384e9a9" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Hamilton_DriverTools::StatusTrace(Hamilton_DriverTools::ACTION::START, TRACE_LEVEL_DEBUG, "Test of function StatusTrace", strFunctionName, _intReferenceTraceLevel, _strModuleName);
+// }} ""
+// {{{ 136 1 0 "4458f928_3ba7_4a84_8205b423801e6d08" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Hamilton_DriverTools::StatusTraceArray(Hamilton_DriverTools::ACTION::START, TRACE_LEVEL_DEBUG, arrvarTraceTest, "arrvarTraceTest", strFunctionName, _intReferenceTraceLevel, _strModuleName);
+// }} ""
+// {{{ 137 1 0 "e5a56c39_82df_431f_a9c1f501306bd5dd" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Hamilton_DriverTools::TraceArrayFaceToFace(Hamilton_DriverTools::ACTION::PROGRESS, TRACE_LEVEL_DEBUG, "arrvarTraceTest", arrvarTraceTest, "arrvarSmall", arrvarSmall, strFunctionName, _intReferenceTraceLevel, _strModuleName);
+// }} ""
+// {{{ 5 "TestTrace" "End"
+}
+// }} ""
+// {{{ 5 "TestTraceArray" "Begin"
+private function TestTraceArray(  ) void {
+// }} ""
+private variable arrStrResponses[];
+private variable arrStrParameters[];
+private variable arrStrCommands[];
+private variable strFunctionName;
+// {{ 5 "TestTraceArray" "InitLocals"
+// }} ""
+strFunctionName = GetFunctionName();
+// {{{ 140 1 0 "41aa15db_a9d4_4353_8049b002d309699a" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Hamilton_DriverTools::ExtractFunctionName(strFunctionName, strFunctionName, _strModuleName);
+// }} ""
+// {{{ 141 1 0 "73f779b7_a4fe_4a89_af1aa0b1952f9666" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::START, strFunctionName, _strModuleName, "Test trace of 3 arrays with action complete with error");
+// }} ""
+// {{ 142 1 0 "f2c4457c_9abb_49cf_96d0b7ae82ee54ad" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrStrCommands.SetSize(0);
+// }} ""
+// {{ 143 1 0 "d5b114df_76d2_49aa_943c1c943ec87109" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrStrCommands.AddAsLast(Translate("N1RF"));
+// }} ""
+// {{ 144 1 0 "4179eb16_3cac_4750_9528900adff3a7b6" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrStrCommands.AddAsLast(Translate("N1QT"));
+// }} ""
+// {{ 145 1 0 "823d6dcb_90db_492e_9029900b76baaa87" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrStrCommands.AddAsLast(Translate("N1XI"));
+// }} ""
+// {{ 146 1 0 "3eb2c5f7_10ff_473e_a04ecc32b6b7b232" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrStrParameters.SetSize(0);
+// }} ""
+// {{ 147 1 0 "e5873d51_3fa9_4519_881e7e029f8d0c52" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrStrParameters.AddAsLast(Translate(""));
+// }} ""
+// {{ 148 1 0 "8603f906_bd74_4ebc_a02b3bd757b0a6c0" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrStrParameters.AddAsLast(Translate(""));
+// }} ""
+// {{ 149 1 0 "a481fa4c_bb1f_4064_bb0455bdc2cc2a09" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrStrParameters.AddAsLast(Translate("xv1000xs3400,xr200"));
+// }} ""
+// {{ 150 1 0 "ec8cd6a6_c331_4d3c_b722d9db8e391ac3" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrStrResponses.SetSize(0);
+// }} ""
+// {{ 151 1 0 "018f7dcd_e689_4534_80e22ee9a943c60a" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrStrResponses.AddAsLast(Translate("RFer00"));
+// }} ""
+// {{ 152 1 0 "981c0503_407d_445b_8a46349b0731df34" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrStrResponses.AddAsLast(Translate("QTer00\"09981878/80/00001\""));
+// }} ""
+// {{ 153 1 0 "4fca9587_1cad_4664_aa92899aaaf16904" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrStrResponses.AddAsLast(Translate("XIer61"));
+// }} ""
+// {{{ 154 1 0 "6b243e5e_96e2_4cdf_b7efeec295c0ea5f" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Hamilton_DriverTools::StatusAddArray("Command", arrStrCommands);
+// }} ""
+// {{{ 155 1 0 "569e076c_d076_4bd4_97fac0081cb50593" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Hamilton_DriverTools::StatusAddArray("Parameter", arrStrParameters);
+// }} ""
+// {{{ 156 1 0 "000a53f8_108f_4865_b06a2185dd59af05" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Hamilton_DriverTools::StatusAddArray("Response", arrStrResponses);
+// }} ""
+// {{{ 157 1 0 "34f65e22_bfcb_4efd_8abc5786bdce52b8" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Hamilton_DriverTools::StatusTraceArrays(Hamilton_DriverTools::ACTION::COMPLETE_WITH_ERROR, TRACE_LEVEL_RELEASE, strFunctionName, _intReferenceTraceLevel, _strModuleName);
+// }} ""
+// {{{ 158 1 0 "3bb7c8f3_38d3_459c_acb1b1b7d291a978" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::COMPLETE, strFunctionName, _strModuleName, "Test trace of 3 arrays with action complete with error");
+// }} ""
+// {{{ 159 1 0 "e0e2f134_65f9_4bc1_bf055b52419fd294" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::START, strFunctionName, _strModuleName, "Test trace of 3 arrays of unequal size with action complete");
+// }} ""
+// {{ 160 1 0 "8642419f_5fc8_4afe_b056c137a28a9986" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrStrCommands.SetSize(0);
+// }} ""
+// {{ 161 1 0 "f11ba689_2402_4423_96f2106676e93adb" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrStrCommands.AddAsLast(Translate("N1RF"));
+// }} ""
+// {{ 162 1 0 "9f3775aa_c1b4_4731_a4275c50d4ff99bd" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrStrCommands.AddAsLast(Translate("N1QT"));
+// }} ""
+// {{ 163 1 0 "dcb02283_ac97_4c10_9438c03f0a2d979e" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrStrCommands.AddAsLast(Translate("N1XI"));
+// }} ""
+// {{ 164 1 0 "2462b27b_5efb_4737_a0f247acc332325a" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrStrParameters.SetSize(0);
+// }} ""
+// {{ 165 1 0 "f1233711_07ff_4255_b06837d3ea9cf3b5" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrStrParameters.AddAsLast(Translate("xv1000xs3400,xr200"));
+// }} ""
+// {{ 166 1 0 "d6896aea_5d94_4ad5_9af31b19821cebf6" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrStrResponses.SetSize(0);
+// }} ""
+// {{ 167 1 0 "91b8e288_c284_44ca_86e5440a66b06eae" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrStrResponses.AddAsLast(Translate("RFer00"));
+// }} ""
+// {{ 168 1 0 "83b22e59_339f_45cf_be1492baebfb8160" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrStrResponses.AddAsLast(Translate("QTer00\"09981878/80/00001\""));
+// }} ""
+// {{{ 169 1 0 "373cbded_94a1_4730_a3fe1a7a7ab9d446" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Hamilton_DriverTools::StatusAddArray("Command", arrStrCommands);
+// }} ""
+// {{{ 170 1 0 "bbdfd4ac_d446_44b6_b48d902eca48e29c" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Hamilton_DriverTools::StatusAddArray("Parameter", arrStrParameters);
+// }} ""
+// {{{ 171 1 0 "25a176a0_c47c_4319_b5e808ea1c4048c6" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Hamilton_DriverTools::StatusAddArray("Response", arrStrResponses);
+// }} ""
+// {{{ 172 1 0 "c6be9e6b_e5af_4773_bfa961755c15377a" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Hamilton_DriverTools::StatusTraceArrays(Hamilton_DriverTools::ACTION::COMPLETE, TRACE_LEVEL_DEBUG, strFunctionName, _intReferenceTraceLevel, _strModuleName);
+// }} ""
+// {{{ 173 1 0 "5c31d07e_d05e_46d0_928e9eb43c0267e3" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::COMPLETE, strFunctionName, _strModuleName, "Test trace of 3 arrays of unequal size with action complete");
+// }} ""
+// {{{ 174 1 0 "30e3b9f4_9137_4fca_a899c34b32c1afea" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::START, strFunctionName, _strModuleName, "Test trace of 3 arrays of unequal size (1 empty) with action progress");
+// }} ""
+// {{ 175 1 0 "1649594e_4b57_463d_b6b6798f69dd47a5" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrStrResponses.SetSize(0);
+// }} ""
+// {{{ 176 1 0 "8935dcfb_628d_4922_a4674cce07a36c76" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Hamilton_DriverTools::StatusAddArray("Command", arrStrCommands);
+// }} ""
+// {{{ 177 1 0 "8cd42d38_79f2_4845_87eef998e9b24979" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Hamilton_DriverTools::StatusAddArray("Parameter", arrStrParameters);
+// }} ""
+// {{{ 178 1 0 "1bfc7016_d6f6_4af0_8b72fa5d4e9bebd5" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Hamilton_DriverTools::StatusAddArray("Response", arrStrResponses);
+// }} ""
+// {{{ 179 1 0 "548e2421_c17f_4780_9e5820b8ee182ce2" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Hamilton_DriverTools::StatusTraceArrays(Hamilton_DriverTools::ACTION::PROGRESS, TRACE_LEVEL_DEBUG, strFunctionName, _intReferenceTraceLevel, _strModuleName);
+// }} ""
+// {{{ 180 1 0 "ec4dca1d_15bc_4a9a_959e6f6b96be266d" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::COMPLETE, strFunctionName, _strModuleName, "Test trace of 3 arrays of unequal size (1 empty) with action progress");
+// }} ""
+// {{{ 181 1 0 "7efc1aa5_d13e_47c5_bd088ff0f879bc03" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::START, strFunctionName, _strModuleName, "Test trace of 1 empty array with action error");
+// }} ""
+// {{ 182 1 0 "916a7082_ab2c_4d48_975697853fc4aacb" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrStrResponses.SetSize(0);
+// }} ""
+// {{{ 183 1 0 "aaa3051a_c890_4a5c_9d8fec0d5f6cdfb7" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Hamilton_DriverTools::StatusAddArray("Response", arrStrResponses);
+// }} ""
+// {{{ 184 1 0 "aada4d4b_a304_43bb_9d1ce39b90f0d337" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Hamilton_DriverTools::StatusTraceArrays(Hamilton_DriverTools::ACTION::ERROR, TRACE_LEVEL_DEBUG, strFunctionName, _intReferenceTraceLevel, _strModuleName);
+// }} ""
+// {{{ 185 1 0 "da81815c_94c7_4717_a6442cde8006dfc5" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::COMPLETE, strFunctionName, _strModuleName, "Test trace of 1 empty array with action error");
+// }} ""
+// {{{ 5 "TestTraceArray" "End"
+}
+// }} ""
+// {{{ 5 "TestCheckValueInArray" "Begin"
+private function TestCheckValueInArray(  ) void {
+// }} ""
+private variable varValue;
+private variable blnSuccess;
+private variable arrVarAllowedValues[];
+private variable strFunctionName;
+// {{ 5 "TestCheckValueInArray" "InitLocals"
+// }} ""
+strFunctionName = GetFunctionName();
+// {{{ 72 1 0 "d92af5cf_fc28_4972_93a3bfc40a6d9cf6" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Hamilton_DriverTools::ExtractFunctionName(strFunctionName, strFunctionName, _strModuleName);
+// }} ""
+// {{ 73 1 0 "c19d0198_3b2a_4a8e_8c062a0cac800ed2" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrVarAllowedValues.SetSize(0);
+// }} ""
+// {{ 74 1 0 "e7910d8f_9dce_4e04_bb3c50483cec34b8" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrVarAllowedValues.AddAsLast(9600);
+// }} ""
+// {{ 75 1 0 "53c9089a_7a2c_44d4_9ec28f5b6420f732" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrVarAllowedValues.AddAsLast(19200);
+// }} ""
+// {{ 76 1 0 "048bd344_c988_427d_ad71efaaaf392c0a" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrVarAllowedValues.AddAsLast(38400);
+// }} ""
+// {{{ 77 1 0 "afea008d_0947_492d_92a4b2032430e16b" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::START, strFunctionName, _strModuleName, "Check allowed  integer value in integer array");
+// }} ""
+// {{ 78 1 0 "7af6cce2_0125_49fe_92cbab5a157b3919" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+varValue = 9600;
+// }} ""
+// {{{ 79 1 0 "6c2ba3bb_31cd_43f2_af7c08d4b5eb46ef" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckValueInArray(varValue, "varValue", Hamilton_DriverTools::VALUE_TYPE::INTEGER, arrVarAllowedValues, "TestCheckValueInArray", _strModuleName);
+// }} ""
+// {{{ 80 1 0 "33c8ce86_e0cb_4fdc_acd4637a5bf626c1" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, TRACELEVEL::ACTION::COMPLETE, strFunctionName, _strModuleName, blnSuccess);
+// }} ""
+// {{{ 81 1 0 "8ea4490a_64b1_4e9a_ac2734785fc05863" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::START, strFunctionName, _strModuleName, "Check allowed  string value in integer array");
+// }} ""
+// {{ 82 1 0 "c83802f6_9cad_46bb_aaf5dd809823a5fe" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+varValue = "38400";
+// }} ""
+// {{{ 83 1 0 "37ab99dc_4bad_4a29_9a78084b6d1c8d8c" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckValueInArray(varValue, "varValue", Hamilton_DriverTools::VALUE_TYPE::INTEGER, arrVarAllowedValues, "TestCheckValueInArray", _strModuleName);
+// }} ""
+// {{{ 84 1 0 "b601a0e3_859e_4117_a050f9f24270331b" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, TRACELEVEL::ACTION::COMPLETE, strFunctionName, _strModuleName, blnSuccess);
+// }} ""
+// {{{ 85 1 0 "b1b8d6f6_7ae5_4361_9407d09d78a7d227" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::START, strFunctionName, _strModuleName, "Check allowed  integer value in integer array but with allowed values of wrong type");
+// }} ""
+// {{ 86 1 0 "3021868e_9a1e_410a_9de562ab4af16e37" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+varValue = 9600;
+// }} ""
+// {{ 87 1 0 "aac15f13_370f_4b04_a1ebdc0a194e5bd6" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrVarAllowedValues.AddAsLast("Hallo");
+// }} ""
+// {{ 88 1 0 "7edfc008_5cf2_4517_a52bf776c67e3599" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrVarAllowedValues.AddAsLast(23.45);
+// }} ""
+// {{{ 89 1 0 "22598aab_cb6e_4850_b9af36399af1d839" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckValueInArray(varValue, "varValue", Hamilton_DriverTools::VALUE_TYPE::INTEGER, arrVarAllowedValues, "TestCheckValueInArray", _strModuleName);
+// }} ""
+// {{{ 90 1 0 "4c2f5bf3_35a9_4a57_b3d2d3405cf47223" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, TRACELEVEL::ACTION::COMPLETE, strFunctionName, _strModuleName, blnSuccess);
+// }} ""
+// {{{ 91 1 0 "3bea86e5_d6f9_4b6d_88b09645a9522dc8" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::START, strFunctionName, _strModuleName, "Check not allowed  integer value in integer array but with allowed values of wrong type");
+// }} ""
+// {{ 92 1 0 "6029d12f_55e1_4974_9a6eb0d99fde1133" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+varValue = 9601;
+// }} ""
+// {{{ 93 1 0 "1eec6dcc_919d_438e_89c3f8142dcb34ba" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckValueInArray(varValue, "varValue", Hamilton_DriverTools::VALUE_TYPE::INTEGER, arrVarAllowedValues, "TestCheckValueInArray", _strModuleName);
+// }} ""
+// {{{ 94 1 0 "7a6470a5_98ac_4500_ad5796cb8a16fc92" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, TRACELEVEL::ACTION::COMPLETE, strFunctionName, _strModuleName, blnSuccess);
+// }} ""
+// {{{ 95 1 0 "cfd462e7_3f09_43e0_9b025d3abf815220" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::START, strFunctionName, _strModuleName, "Check allowed  string value in string array");
+// }} ""
+// {{ 96 1 0 "54e3a77b_663b_43f3_9e22c7d849ded2a7" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+varValue = "38400";
+// }} ""
+// {{ 97 1 0 "007d22c0_2da4_464d_957906499d6b940d" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrVarAllowedValues.SetSize(0);
+// }} ""
+// {{ 98 1 0 "9310c21b_a3f7_4e7c_93c72fb38c343bc4" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrVarAllowedValues.AddAsLast("9600");
+// }} ""
+// {{ 99 1 0 "0ebca34a_2ed0_4233_87a2c83db0a3605e" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrVarAllowedValues.AddAsLast("19200");
+// }} ""
+// {{ 100 1 0 "a522af0f_0904_4f5d_80042ced7202549e" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrVarAllowedValues.AddAsLast("38400");
+// }} ""
+// {{{ 101 1 0 "f67a958b_c554_4da8_9fa51bc5f47fffa9" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckValueInArray(varValue, "varValue", Hamilton_DriverTools::VALUE_TYPE::STRING, arrVarAllowedValues, "TestCheckValueInArray", _strModuleName);
+// }} ""
+// {{{ 102 1 0 "08c64d41_1632_46ab_80d7baf133266a44" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, TRACELEVEL::ACTION::COMPLETE, strFunctionName, _strModuleName, blnSuccess);
+// }} ""
+// {{{ 103 1 0 "d05f7023_bc12_4c9d_9b5467e0946f51bd" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::START, strFunctionName, _strModuleName, "Check allowed  integer value in string array");
+// }} ""
+// {{ 104 1 0 "9ae92c27_793f_4f83_a074277f5538ea9e" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+varValue = 9600;
+// }} ""
+// {{{ 105 1 0 "6d02038a_99a3_49b5_8dfd786955584586" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckValueInArray(varValue, "varValue", Hamilton_DriverTools::VALUE_TYPE::STRING, arrVarAllowedValues, "TestCheckValueInArray", _strModuleName);
+// }} ""
+// {{{ 106 1 0 "5b23535f_5357_4c48_8d25eeda3498c1a4" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, TRACELEVEL::ACTION::COMPLETE, strFunctionName, _strModuleName, blnSuccess);
+// }} ""
+// {{{ 107 1 0 "f7e2a8a9_15fd_4a26_a2e514b8d5336ec8" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::START, strFunctionName, _strModuleName, "Check not allowed  string value in string array");
+// }} ""
+// {{ 108 1 0 "ec1e1e37_9194_4316_ad23250e3b5cb713" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+varValue = "57600";
+// }} ""
+// {{{ 109 1 0 "a78bb4a8_f90b_467f_98cf9d9882f7a3a3" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckValueInArray(varValue, "varValue", Hamilton_DriverTools::VALUE_TYPE::STRING, arrVarAllowedValues, "TestCheckValueInArray", _strModuleName);
+// }} ""
+// {{{ 110 1 0 "df2eb8f9_17a4_4455_a5fb97e3d8b8dbaa" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, TRACELEVEL::ACTION::COMPLETE, strFunctionName, _strModuleName, blnSuccess);
+// }} ""
+// {{{ 111 1 0 "d320cfd6_06d6_413d_a66a734972f4d446" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::START, strFunctionName, _strModuleName, "Check allowed  float value in float array");
+// }} ""
+// {{ 112 1 0 "0e2e6359_5158_47ed_9e5f4183773509cc" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+varValue = 2.345;
+// }} ""
+// {{ 113 1 0 "3a018253_2edd_4ab7_b7ddeb54bbb97eb8" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrVarAllowedValues.SetSize(0);
+// }} ""
+// {{ 114 1 0 "9c1b003a_ae2e_4baa_b0074c7a63bc9946" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrVarAllowedValues.AddAsLast(1.234);
+// }} ""
+// {{ 115 1 0 "6b982847_9856_42a3_b27b281bc0449e43" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrVarAllowedValues.AddAsLast(2.345);
+// }} ""
+// {{ 116 1 0 "629cc9d7_3c1f_425a_82ae82bb1c33bd03" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrVarAllowedValues.AddAsLast(3.456);
+// }} ""
+// {{{ 117 1 0 "f8e9dca8_c63d_40cc_aa98916f7c2eb467" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckValueInArray(varValue, "varValue", Hamilton_DriverTools::VALUE_TYPE::FLOAT, arrVarAllowedValues, "TestCheckValueInArray", _strModuleName);
+// }} ""
+// {{{ 118 1 0 "e58cc660_54af_44fc_a79af8c9ba1640c7" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, TRACELEVEL::ACTION::COMPLETE, strFunctionName, _strModuleName, blnSuccess);
+// }} ""
+// {{{ 119 1 0 "1021c6e3_547e_4cb1_96a8263f371d86dd" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, Hamilton_DriverTools::ACTION::START, strFunctionName, _strModuleName, "Check not allowed  float value in float array");
+// }} ""
+// {{ 120 1 0 "13950a01_2583_4370_b5e938c24bb2c7d5" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+varValue = 4.567;
+// }} ""
+// {{{ 121 1 0 "df97ee1b_cc95_4935_96e6d6f0eb006cc5" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Hamilton_DriverTools::CheckValueInArray(varValue, "varValue", Hamilton_DriverTools::VALUE_TYPE::FLOAT, arrVarAllowedValues, "TestCheckValueInArray", _strModuleName);
+// }} ""
+// {{{ 122 1 0 "858b2936_2262_4dc5_b5146a0a875dc913" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+TRACELEVEL::TraceAction(TRACE_LEVEL_DEBUG, TRACELEVEL::ACTION::COMPLETE, strFunctionName, _strModuleName, blnSuccess);
+// }} ""
+// {{{ 5 "TestCheckValueInArray" "End"
+}
+// }} ""
+/* {{ 2 "SubmethodInsertLine" "" */ // }} ""
+// $$author=BHuf$$valid=1$$time=2022-02-10 12:49$$checksum=3c46a5e9$$length=083$$

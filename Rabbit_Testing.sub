@@ -1,0 +1,87 @@
+// {{{ 2 "SubmethodForwardDeclaration" ""
+private function Close_Door(  ) void ;
+private function Open_Door(  ) void ;
+private function Read_Plate(  ) void ;
+function OnAbort(  ) void ;
+// }} ""
+// {{{ 5 "OnAbort" "Begin"
+function OnAbort(  ) void {
+// }} ""
+// {{ 5 "OnAbort" "InitLocals"
+// }} ""
+// {{{ 5 "OnAbort" "End"
+}
+// }} ""
+// {{{ 5 "Open_Door" "Begin"
+private function Open_Door(  ) void {
+// }} ""
+// {{ 5 "Open_Door" "InitLocals"
+// }} ""
+// {{ 35 1 0 "f81b761d_c39a_4346_b36badbc3b4e0e21" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+str_correlationID = Translate("");
+// }} ""
+// {{ 36 1 0 "b4d1123b_fa76_428d_b752a6659a583197" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+o_str_message = Translate("Door_Open");
+// }} ""
+// {{{ 37 1 0 "6de7221e_909c_4ec7_a79660e080d58d25" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+return_obj = HSLRabbitMQLib::SendMessage(o_obj_cytation, Translate("Cytation_Return"), HSLRabbitMQLib::EXCHANGE::DEFAULT, o_str_message, o_str_headers, str_correlationID, str_error);
+// }} ""
+// {{{ 5 "Open_Door" "End"
+}
+// }} ""
+// {{{ 5 "Close_Door" "Begin"
+private function Close_Door(  ) void {
+// }} ""
+// {{ 5 "Close_Door" "InitLocals"
+// }} ""
+// {{ 31 1 0 "5babafe0_7c4b_4c31_8d8369cb236a0ca1" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+str_correlationID = Translate("");
+// }} ""
+// {{ 32 1 0 "ed37d250_f9f5_4847_a82f6134c060ba88" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+o_str_message = Translate("Door_Closed");
+// }} ""
+// {{{ 33 1 0 "19d85c36_e9aa_4727_bb361bbb16bcb223" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+return_obj = HSLRabbitMQLib::SendMessage(o_obj_cytation, Translate("Cytation_Return"), HSLRabbitMQLib::EXCHANGE::DEFAULT, o_str_message, o_str_headers, str_correlationID, str_error);
+// }} ""
+// {{{ 5 "Close_Door" "End"
+}
+// }} ""
+// {{{ 5 "Read_Plate" "Begin"
+private function Read_Plate(  ) void {
+// }} ""
+private timer timer2;
+// {{ 5 "Read_Plate" "InitLocals"
+// }} ""
+// {{ 39 1 0 "53d35213_8ba8_4327_9e98e22e76d4b240" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+str_correlationID = Translate("");
+// }} ""
+// {{ 40 1 0 "c58beb44_3d1d_4aba_a85f51329d930752" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+o_str_message = Translate("Reading");
+// }} ""
+// {{{ 41 1 0 "ad9d508d_ddd0_4023_82db5956f08960d0" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+return_obj = HSLRabbitMQLib::SendMessage(o_obj_cytation, Translate("Cytation_Return"), HSLRabbitMQLib::EXCHANGE::DEFAULT, o_str_message, o_str_headers, str_correlationID, str_error);
+// }} ""
+// {{ 42 1 0 "93f0d819_9071_4580_bf31da85ad6eb395" "{B31F353E-5D80-11d4-A5EB-0050DA737D89}"
+timer2.SetTimerViewName("");
+if( 0 == timer2.SetTimer(4) )
+{
+    MECC::RaiseRuntimeErrorEx(-1355939584, MECC::IDS::stepNameTimerStart, MECC::IDS::errorStepFailed, "", "HxMetEdCompCmd");
+}
+// }} ""
+// {{ 43 1 0 "10a8fc3f_0a2b_43ea_b2356842b8ab4731" "{B31F353F-5D80-11d4-A5EB-0050DA737D89}"
+if( 0 == timer2.WaitTimer(hslTrue, hslTrue) )
+{
+    MECC::RaiseRuntimeErrorEx(-1339162368, MECC::IDS::stepNameTimerWait, MECC::IDS::errorStepFailed, "", "HxMetEdCompCmd");
+}
+// }} ""
+// {{ 44 1 0 "68b8c12d_1133_4bc1_8f31692a96680339" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+o_str_message = Translate("Done_Reading");
+// }} ""
+// {{{ 45 1 0 "9a4e7426_640c_42c4_babc88fa6a7db417" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+return_obj = HSLRabbitMQLib::SendMessage(o_obj_cytation, Translate("Cytation_Return"), HSLRabbitMQLib::EXCHANGE::DEFAULT, o_str_message, o_str_headers, str_correlationID, str_error);
+// }} ""
+// {{{ 5 "Read_Plate" "End"
+}
+// }} ""
+/* {{ 2 "SubmethodInsertLine" "" */ // }} ""
+// $$author=celltx1$$valid=0$$time=2026-03-19 16:41$$checksum=c4b9f56f$$length=086$$

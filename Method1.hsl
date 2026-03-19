@@ -1,0 +1,65 @@
+ namespace _Method { #include "Agilent Gen5 Interface\\Agilent Gen5 Interface.hsl" } 
+ namespace _Method { #include "ASWStandard\\ASWGlobal\\ASWGlobal.hsl" } 
+/* {{ 2 "LibraryInsertLine" "" */ // }} ""
+variable o_CytationID;
+variable arr_str_platetypes[];
+variable int_readstatus;
+variable int_gradient;
+variable int_setpoint;
+/* {{ 2 "VariableInsertLine" "" */ // }} ""
+// {{ 2 "TemplateIncludeBlock" ""
+ namespace _Method { #include "HSLMETEDLib.hs_" } 
+ namespace _Method { #include "HSLMECCLib.hs_" } 
+// }} ""
+// {{{ 2 "LocalSubmethodInclude" ""
+ namespace _Method {  #include __filename__ ".sub"  } 
+// }} ""
+/* {{ 2 "ProcessInsertLine" "" */ // }} ""
+// {{{ 5 "main" "Begin"
+namespace _Method { method main(  ) void {
+// }} ""
+// {{ 5 "main" "InitLocals"
+// }} ""
+// {{ 2 "AutoInitBlock" ""
+::RegisterAbortHandler( "OnAbort");
+// }} ""
+// {{ 1 1 0 "1352db77_b0ca_499d_b1c6d9a4d3b7cf41" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arr_str_platetypes.SetSize(0);
+// }} ""
+// {{{ 2 1 0 "f531de6e_317a_4d03_a35eaae1bc0dec80" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Agilent_Gen5_Interface::Connect(Agilent_Gen5_Interface::ReaderType::Cytation5, ASWGLOBAL::BOOL::TRUE, Translate("2504170C"), 3, 9600, ASWGLOBAL::BOOL::FALSE, o_CytationID);
+// }} ""
+/* {{ 1 "" "0" */ if(0){  /* }} "" */
+// {{{ 3 1 0 "19d6d481_b120_4853_925de5644c7914d6" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Agilent_Gen5_Interface::GetPlateTypeNames(o_CytationID, 6, arr_str_platetypes);
+// }} ""
+/* {{ 1 "" "1" */ } /* }} "" */
+// {{{ 4 1 0 "6fddc92a_71b7_4748_8742a4acadda893b" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Agilent_Gen5_Interface::CarrierOut(o_CytationID);
+// }} ""
+// {{{ 5 1 0 "5ff5232f_7239_4ba2_9e6feaff345663a3" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Agilent_Gen5_Interface::CarrierInWithPlate(o_CytationID, Translate("6 WELL PLATE"), ASWGLOBAL::BOOL::FALSE);
+// }} ""
+/* {{ 1 "" "0" */ if(0){  /* }} "" */
+// {{{ 6 1 0 "f96a3c17_135d_4069_90a04b7402a4388e" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Agilent_Gen5_Interface::CarrierIn(o_CytationID);
+// }} ""
+/* {{ 1 "" "1" */ } /* }} "" */
+// {{{ 7 1 0 "2df42236_031f_4a24_a0d8c8d3d5e8d30b" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Agilent_Gen5_Interface::GetTemperatureSetPoint(o_CytationID, int_setpoint, int_gradient);
+// }} ""
+// {{{ 8 1 0 "4cac9a42_6292_40e0_b357eedb35d5e304" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Agilent_Gen5_Interface::StartSimulatedReadPlate(o_CytationID);
+// }} ""
+// {{{ 9 1 0 "28632ae3_ea7b_490d_9aa8553ea385be61" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Agilent_Gen5_Interface::GetReadStatus(o_CytationID, int_readstatus);
+// }} ""
+// {{{ 10 1 0 "35853de3_14e7_41cc_aa72b83d7405a826" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Agilent_Gen5_Interface::Disconnect(o_CytationID);
+// }} ""
+// {{ 2 "AutoExitBlock" ""
+// }} ""
+// {{{ 5 "main" "End"
+} }
+// }} ""
+// $$author=celltx1$$valid=0$$time=2026-03-12 15:36$$checksum=cfcb6c4a$$length=086$$

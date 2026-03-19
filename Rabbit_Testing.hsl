@@ -1,0 +1,143 @@
+ namespace _Method { #include "HSLRabbitMQ\\HSLRabbitMQLib.hsl" } 
+ namespace _Method { #include "HSLJson\\HSLJson.hsl" } 
+ namespace _Method { #include "ASWStandard\\ASWGlobal\\ASWGlobal.hsl" } 
+/* {{ 2 "LibraryInsertLine" "" */ // }} ""
+object o_obj_vantage;
+object o_obj_cytation;
+variable str_reply;
+variable bln_attachment;
+variable str_error;
+variable return_obj;
+variable str_message;
+variable str_correlationID;
+variable json_header;
+variable o_str_message;
+variable o_str_headers;
+variable loopCounter1;
+timer timer1;
+/* {{ 2 "VariableInsertLine" "" */ // }} ""
+// {{ 2 "TemplateIncludeBlock" ""
+ namespace _Method { #include "HSLMETEDLib.hs_" } 
+ namespace _Method { #include "HSLMECCLib.hs_" } 
+ namespace _Method { #include "templates\\HSLPipetteWizard.hsl" } 
+ namespace _Method { #include "HSLSchedCCLib.hs_" } 
+// }} ""
+// {{{ 2 "LocalSubmethodInclude" ""
+ namespace _Method {  #include __filename__ ".sub"  } 
+// }} ""
+/* {{ 2 "ProcessInsertLine" "" */ // }} ""
+// {{{ 5 "main" "Begin"
+namespace _Method { method main(  ) void {
+// }} ""
+// {{ 5 "main" "InitLocals"
+// }} ""
+// {{ 2 "AutoInitBlock" ""
+::RegisterAbortHandler( "OnAbort");
+// }} ""
+// {{{ 1 1 0 "8f2e7b26_110e_4885_9076a1dc7be54925" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+return_obj = HSLJsonLib::Create(o_obj_cytation);
+// }} ""
+// {{{ 2 1 0 "feea2746_9c6f_4ff3_bc11a4058867ea7d" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+return_obj = HSLJsonLib::Create(o_obj_vantage);
+// }} ""
+// {{{ 3 1 0 "dd61a5f2_7888_4e6c_b5f4cfb0dae67b44" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+HSLRabbitMQLib::Connect(o_obj_vantage, Translate("10.39.192.186"), 5672, Translate("lab_automation"), Translate("muppet_labs"), Translate("Cytation_Send"), HSLRabbitMQLib::EXCHANGE::DEFAULT, HSLRabbitMQLib::EXCHANGE_TYPES::DIRECT);
+// }} ""
+// {{ 4 1 0 "f853b2a7_6201_40c2_8f7d061501fda467" "{F07B0071-8EFC-11d4-A3BA-002035848439}"
+MECC::TraceComment(Translate("=================================\nConnect 1 successfull\n================================="));
+// }} ""
+// {{{ 5 1 0 "73824c69_a81b_47f3_b2aff9ca7731c20c" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+HSLRabbitMQLib::Connect(o_obj_cytation, Translate("10.39.192.186"), 5672, Translate("lab_automation"), Translate("muppet_labs"), Translate("Cytation_Return"), HSLRabbitMQLib::EXCHANGE::DEFAULT, HSLRabbitMQLib::EXCHANGE_TYPES::DIRECT);
+// }} ""
+// {{ 6 1 0 "99bc6261_80dc_4d08_a918402e7d05ddc6" "{F07B0071-8EFC-11d4-A3BA-002035848439}"
+MECC::TraceComment(Translate("=================================\nConnect 2 successfull\n================================="));
+// }} ""
+// {{ 7 1 0 "54611fbe_cfa4_41ac_9ba1c27c5151ffdc" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+o_str_headers = Translate("Header for outgoing message");
+// }} ""
+// {{ 8 1 0 "793d5133_d5b9_411e_91fce41eca3bbef8" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+o_str_message = Translate("Body for outgoing message");
+// }} ""
+// {{ 9 1 0 "101adf16_8476_4d1a_b0ad438ece16f58a" "{B31F3532-5D80-11d4-A5EB-0050DA737D89}"
+{
+loopCounter1 = 0;
+while (1 == 1)
+{
+loopCounter1 = loopCounter1 + 1;
+// }} ""
+// {{{ 10 1 0 "738a2aa0_5285_4b84_9c2dcef33fe90dd9" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+HSLRabbitMQLib::GetMessage(o_obj_vantage, 9999, str_message, json_header, str_reply, str_correlationID, bln_attachment, str_error);
+// }} ""
+Trace( "Header is " , json_header, " Message is  ", str_message, " Correlation ID is  ", str_correlationID);
+// {{ 12 1 0 "e2c94560_209c_4997_90bcbf4ed59b42d6" "{F07B0071-8EFC-11d4-A3BA-002035848439}"
+MECC::TraceComment(Translate("=================================\nGet message was successful\n================================="));
+// }} ""
+// {{ 13 1 0 "e21a5fa3_d4c6_4777_8d0c236881009a5c" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (str_message == "Open")
+{
+// }} ""
+// {{{ 14 1 0 "017005e9_7fa3_41e5_b2b8dc6ee131eee1" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+Open_Door();
+// }} ""
+// {{ 15 1 0 "e21a5fa3_d4c6_4777_8d0c236881009a5c" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 16 1 0 "a2081379_2191_4925_b0461c11a194cbcd" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (str_message == "Read")
+{
+// }} ""
+// {{{ 17 1 0 "4ae03203_9629_4a42_be8c02eef50df413" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+Read_Plate();
+// }} ""
+// {{ 18 1 0 "a2081379_2191_4925_b0461c11a194cbcd" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 19 1 0 "f63c08d0_3146_47d5_8f7be09ffbab5ec7" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (str_message == "Close")
+{
+// }} ""
+// {{{ 20 1 0 "ab45dff7_1745_40a3_845a677e804fa401" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+Close_Door();
+// }} ""
+// {{ 21 1 0 "f63c08d0_3146_47d5_8f7be09ffbab5ec7" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 22 1 0 "e0ec188f_dd31_4a5f_b018528dcdcfb1af" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (str_message == "End")
+{
+// }} ""
+// {{ 23 1 0 "fd7d1821_87a4_4e99_9fd829e485a264ee" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+o_str_message = Translate("Completed");
+// }} ""
+// {{{ 24 1 0 "e40b54c5_005d_43a2_87ce8f73a00c3615" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+return_obj = HSLRabbitMQLib::SendMessage(o_obj_cytation, Translate("Cytation_Return"), HSLRabbitMQLib::EXCHANGE::DEFAULT, o_str_message, o_str_headers, str_correlationID, str_error);
+// }} ""
+// {{ 25 1 0 "aab30060_21f4_4d2a_b2c238aa2c89e082" "{930D6C31-8EFB-11d4-A3BA-002035848439}"
+abort;
+// }} ""
+// {{ 26 1 0 "e0ec188f_dd31_4a5f_b018528dcdcfb1af" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 27 1 0 "38199064_8c0b_48cc_90933280b3584808" "{B31F353E-5D80-11d4-A5EB-0050DA737D89}"
+timer1.SetTimerViewName("");
+if( 0 == timer1.SetTimer(3) )
+{
+    MECC::RaiseRuntimeErrorEx(-1355939584, MECC::IDS::stepNameTimerStart, MECC::IDS::errorStepFailed, "", "HxMetEdCompCmd");
+}
+// }} ""
+// {{ 28 1 0 "35d795df_ccb7_4028_b1d5c6f89b391959" "{B31F353F-5D80-11d4-A5EB-0050DA737D89}"
+if( 0 == timer1.WaitTimer(hslTrue, hslFalse) )
+{
+    MECC::RaiseRuntimeErrorEx(-1339162368, MECC::IDS::stepNameTimerWait, MECC::IDS::errorStepFailed, "", "HxMetEdCompCmd");
+}
+// }} ""
+// {{ 29 1 0 "101adf16_8476_4d1a_b0ad438ece16f58a" "{B31F3532-5D80-11d4-A5EB-0050DA737D89}"
+}
+}
+// }} ""
+// {{ 2 "AutoExitBlock" ""
+// }} ""
+// {{{ 5 "main" "End"
+} }
+// }} ""
+// $$author=celltx1$$valid=0$$time=2026-03-19 16:41$$checksum=9af7e617$$length=086$$

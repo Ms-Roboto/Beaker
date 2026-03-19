@@ -1,0 +1,2546 @@
+ namespace _Method { #include "ASWStandard\\TraceLevel\\TraceLevel.hsl" } 
+ namespace _Method { #include "Agilent Gen5 Interface\\Agilent Gen5 Interface.hsl" } 
+ namespace _Method { #include "ASWStandard\\ASWGlobal\\ASWGlobal.hsl" } 
+ namespace _Method { #include "Hamilton DriverTools\\Hamilton DriverTools.hsl" } 
+/* {{ 2 "LibraryInsertLine" "" */ // }} ""
+variable _strMethodName;
+variable _arrIntDeviceIDs[];
+variable _experimentInitialized;
+variable _plateInitialized;
+variable arrIntReaderTypes[];
+variable intSelectedReader;
+variable intSelectedPort;
+variable intSelectedBaudRate;
+variable arrIntPortNumbers[];
+variable arrStrPortNames[];
+/* {{ 2 "VariableInsertLine" "" */ // }} ""
+// {{ 2 "TemplateIncludeBlock" ""
+ namespace _Method { #include "HSLMETEDLib.hs_" } 
+ namespace _Method { #include "HSLMECCLib.hs_" } 
+// }} ""
+// {{{ 2 "LocalSubmethodInclude" ""
+ namespace _Method {  #include __filename__ ".sub"  } 
+// }} ""
+/* {{ 2 "ProcessInsertLine" "" */ // }} ""
+// {{{ 5 "main" "Begin"
+namespace _Method { method main(  ) void {
+// }} ""
+private variable blnSuccess;
+private variable blnSimulationMode;
+private variable intDialogReturn;
+private dialog customDialogB919FE11D5A1495aB1A2C6242FABCEB7;
+private variable blnGoOnEnabled;
+private variable intSelectedIndex;
+private variable strDialogTitle;
+private variable loopCounter1;
+private variable intTraceLevel;
+private variable loopCounter4;
+private variable strFilePath;
+private variable intDeviceID;
+private variable arrStrPlateTypeNames[];
+private dialog customDialogE4C8A7175F484ddc85D16570AAF64063;
+private dialog customDialog8972E28004E14547881E71ADFFF4B829;
+private dialog customDialogC20D5246265C4536B269E80012B0F879;
+private dialog customDialog56782A25DA514aa5B1A550046B05B454;
+private dialog customDialogC7C96A245667427cA66331470F6ABB92;
+private dialog customDialogB06205BED28F45e0AAE9DE8777AA2C2F;
+private dialog customDialogAD724D6DD7E04487BE3486D1D5719668;
+private dialog customDialog7A78E357A33B495b8FBD1B1313AEC4CE;
+private dialog customDialog6C7564F0BEBB4fcfBA7D6BA0BEE2A582;
+private dialog customDialogE4622B80407E43f2A6230CAB17EEF007;
+private dialog customDialog89B7860BCDF2419193D652084924C41B;
+private dialog customDialog014442913236401c8026CCDEC3C7335C;
+private dialog customDialog00AA549D29BC4242A5595AFD22912A6F;
+private dialog customDialogA11939EC24184bc8A8225CA8F7FE47CF;
+private dialog customDialog88E547403711403482A3E594B2F1DBDE;
+private dialog customDialog68E69F9F136B43ceB91902F510C154C6;
+private dialog customDialog536814EC2C364de3AD96583DB76D4F80;
+private dialog customDialog286192F1314A4fd4919063F6D331BCA0;
+private dialog customDialog08821F5D14774c9bBA0134FF1C3B2247;
+private dialog customDialogF5526F577AB4444dBAE614B7E18A6582;
+private dialog customDialogD1D9F7137F844463946A0705AE16BEE6;
+private dialog customDialogCF4C53E8192F49e8B587B475DBD99939;
+private dialog customDialog73B4BFF154E3414cB39CB064331CF740;
+private dialog customDialogBB92B86809024fb4B3C603F58979E67D;
+private dialog customDialog3EE79E3BEDB147d8A49CA60CCC0FCEA9;
+private dialog customDialogC96ACE5E09D3456587FF639E19BF06AE;
+private dialog customDialog81D14B7F0B42461284C14AF636A5133B;
+private dialog customDialog5A58F581DF0A4baeA2B3E7374D7452BC;
+private dialog customDialogFA0A2DF1F4DC4a7b9C6F0165F660CBB5;
+private dialog customDialog77095DE308C440289B75D14D5362008C;
+private dialog customDialog74105E9AC688499c9E6D537C8492461F;
+private dialog customDialog1F912D48C9C64991B3F9A6BA4D402812;
+private dialog customDialogC4AC36641D994b45B2F0231B90985C31;
+private dialog customDialogB21A0A4C1B034dd9B63CC0F9A6F159D3;
+private dialog customDialogA899CA26F5264cc6834E33A6364D318B;
+private dialog customDialog19D565F4B18E4b649AD087EC0F9D7E63;
+private dialog customDialogFCD609CAFCD3485eB28B094F3E8039CC;
+private dialog customDialogA2B10199D7A2455f8CD7BC4C534C1B7A;
+private dialog customDialog91DF4427D688490c8998C27E0DC928E3;
+private dialog customDialog8DB236B7A46449718292E0C97ED109F5;
+private dialog customDialog64A2789F24704f2e9B5DA5DC98C7A517;
+private dialog customDialog57FD75D27E8A457f92D678FD792EDB13;
+private dialog customDialogD87E6FA6F3F740b08D250B33CCC518CF;
+private dialog customDialog765122FB122C4eefB91BB737837CB34A;
+private dialog customDialog39564C1CA203466b8C6B8001AB57DB71;
+private dialog customDialog38F9FB887D9A4de6B97346593814B1E6;
+private dialog customDialog016D178E6BDB4a62A1DE5010FFAE43CA;
+private dialog customDialogADFAA904B0F64a30B9472711C20624A7;
+private dialog customDialog4D84E49558D548f0A13D9225671C7D52;
+private dialog customDialogEB4E636EDE5E4bfe8613C4D2D6E962AC;
+private dialog customDialogBDD261EFBB8145c4BB626640A248090A;
+private dialog customDialogB8D93A14E54347e29141FD54FA752C5B;
+private dialog customDialogF24ED69921F04e3dA4DAAE67AEF6EE77;
+private dialog customDialogC97B4FCE9D0244fd9EC5CF580BED30E2;
+private dialog customDialog18253B919F68449cB4BA40D6B7587693;
+private dialog customDialogE448FD75907F42f2982155E80F6A606F;
+private dialog customDialogDE5EAE67BD724a648BBF00991663FC18;
+private dialog customDialogCDBEF1CDC8DA4ea4920C2FE7B779B989;
+private dialog customDialog54ACE614E87B4026BF98358DA5065FBA;
+private dialog customDialog5328CB67CB31488cB0CB8F8562A230AB;
+private dialog customDialog4C75E872A75F4233AC0B8FA4496DC196;
+private variable strWellReferenceXML;
+private variable intNumberOfROIs;
+private variable blnSetProcedure;
+private variable blnGetDataSetResults;
+private variable blnCarrierIn;
+private variable strDataSetResults;
+private variable intErrorIndex;
+private variable blnStartSimulatedReadPlate;
+private variable blnPrintReport;
+private variable blnGetPlateLayout;
+private variable blnFileOperations;
+private variable blnAddAuditTrailRecord;
+private variable strPlateDefinition;
+private variable intBaudRate;
+private variable blnExportPlateData;
+private variable blnAddPlate;
+private variable strProtocolDefinition;
+private variable strDescription;
+private variable intErrorCode;
+private variable blnGetExportBuilderNames;
+private variable strSerialNumber;
+private variable strPlateId;
+private variable blnUseDataSetNameFromList;
+private variable blnStartReadFromFile;
+private variable blnSaveExperiment;
+private variable blnResumeReadPlate;
+private variable blnLidOnPlate;
+private variable ErrorCode;
+private variable strSampleDescription;
+private variable strExportFilePath;
+private variable intRetrieveRawDataStatus;
+private variable blnRunReaderControlCommand;
+private variable blnNewExperiment;
+private variable blnGetDataSetROIsInWell;
+private variable blnGetDataSetNames;
+private variable strSampleIdentification;
+private variable blnOpenExperiment;
+private variable blnGetDeviceStatus;
+private variable blnGetDataSetInfo;
+private variable blnDeletePlate;
+private variable strPlateLayout;
+private variable strComment;
+private variable intRunReaderControlCommand;
+private variable intPlateIndex;
+private variable blnUseExportNamesFromList;
+private variable blnSetTemperatureSetPoint;
+private variable blnSetSampleIdentification;
+private variable blnIncubatorState;
+private variable blnGetPlateTypeNames;
+private variable blnGetPictureExportNames;
+private variable blnGetMovieExportNames;
+private variable blnDisplayImagingLiveModeDialog;
+private variable intTemperatureSetPoint;
+private variable intComPort;
+private variable blnExperimentOperations;
+private variable blnCarrierOperations;
+private variable blnAutoExecuteOnly;
+private variable intProtocolDefinitionType;
+private variable blnPlateOperations;
+private variable strPictureExportName;
+private variable intDeviceStatus;
+private variable blnGetSampleIdentification;
+private variable blnGetRawDataSetInfo;
+private variable blnGetRawData;
+private variable blnGetPlateTypeDefinition;
+private variable blnExportPicture;
+private variable blnCarrierOut;
+private variable strProcedure;
+private variable strDataSetName;
+private variable intExportType;
+private variable blnSetSampleDescription;
+private variable blnSetPlateLayout;
+private variable blnReaderErrorOperations;
+private variable ReaderError;
+private variable strProtocolId;
+private variable strMovieExportName;
+private variable strDataSetInfo;
+private variable loopCounter2;
+private variable fltCurrentTemperature;
+private variable blnResumeSimulatedReadPlate;
+private variable blnImportSampleIDs;
+private variable blnGetImageFolderPaths;
+private variable blnCarrierInWithPlate;
+private variable strResultIndexes;
+private variable strExportInformation;
+private variable intPlateTypeSelection;
+private variable intExportTypeIndex;
+private variable blnUseBuilderNameFromList;
+private variable blnTemperatureOperations;
+private variable blnStartReadPlate;
+private variable blnShowPrintDialog;
+private variable blnGetSampleDescription;
+private variable blnGetReportBuilderNames;
+private variable blnGetReadStatus;
+private variable blnGetCurrentTemperature;
+private variable blnConnectUsingUSB;
+private variable intReadStatus;
+private variable blnMiscellaneousOperations;
+private variable strListSeparator;
+private variable strErrorMessage;
+private variable strBuilderName;
+private variable intTemperatureStatus;
+private variable blnSelectPlate;
+private variable blnAbortReadPlate;
+private variable ErrorMessage;
+private variable strPlateBarcode;
+private variable strExperimentPathName;
+private variable intGradient;
+private variable blnSaveAs;
+private variable blnSave;
+private variable blnGetTemperatureSetPoint;
+private variable blnExportMovie;
+private variable blnCloseExperiment;
+private variable arrStrDataSetNames[];
+private variable arrIntSpectrumSteps[];
+private variable arrIntVerticalReads[];
+private variable arrStrImageFolderPaths[];
+private variable arrIntDecimalPlaces[];
+private variable arrIntDisplayMilliseconds[];
+private variable arrIntSpectrumStarts[];
+private variable arrIntHorizontalReads[];
+private variable arrFltReadValues[];
+private variable arrIntVerticalIndex[];
+private variable arrIntSecondaryStatus[];
+private variable arrIntPrimaryStatus[];
+private variable arrIntKineticReads[];
+private variable arrIntColumns[];
+private variable arrStrBuilderNames[];
+private variable arrIntWavelengthIndex[];
+private variable arrIntHorizontalIndex[];
+private variable arrStrPictureExportNames[];
+private variable arrStrMovieExportNames[];
+private variable arrIntRows[];
+private variable arrIntKineticIntervalMilliseconds[];
+private variable arrIntSpectrumWavelengths[];
+private variable arrIntKineticIndex[];
+// {{ 5 "main" "InitLocals"
+// }} ""
+// {{ 2 "AutoInitBlock" ""
+::RegisterAbortHandler( "OnAbort");
+// }} ""
+// {{ 1 1 0 "4d76d979_1027_4ebb_bddba042c840219c" "{586C3429-F931-405f-9938-928E22C90BFA}"
+
+// }} ""
+_strMethodName = GetMethodFileName();
+// {{ 3 1 0 "08fbff05_68e4_48ea_bc80b0b9bd96de35" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+blnGoOnEnabled = ASWGLOBAL::BOOL::FALSE;
+// }} ""
+// {{ 4 1 0 "37f85ea5_88a9_468e_90ad18343060fd9f" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+strDialogTitle = "Agilent Gen5 Interface";
+// }} ""
+// {{ 5 1 0 "15b41618_1f51_41c5_8b60708f095eefd4" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+_experimentInitialized = ASWGLOBAL::BOOL::FALSE;
+// }} ""
+// {{ 6 1 0 "6cfd85c0_7f18_44d9_8c1cacd0d08c1e4e" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+_plateInitialized = ASWGLOBAL::BOOL::FALSE;
+// }} ""
+// {{ 7 1 0 "6d7917be_bfa6_4185_a04ca2e61cb430a7" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+ErrorCode = 1;
+// }} ""
+// {{ 8 1 0 "519bf87b_5cdc_4837_b6b1981cfc28b344" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+ErrorMessage = 2;
+// }} ""
+// {{ 9 1 0 "2a991c4b_3e90_44d0_9b353962626a5c5c" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+ReaderError = 3;
+// }} ""
+// {{ 10 1 0 "80462e9a_9f9e_467b_a635116052d6ffa9" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrIntReaderTypes.SetSize(0);
+// }} ""
+// {{ 11 1 0 "ed8a2c56_8c36_4bff_9c5337a9a0c27603" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrStrImageFolderPaths.SetSize(0);
+// }} ""
+// {{ 12 1 0 "f9eb3210_3143_4828_b5741d56f2aaa1c3" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrStrPictureExportNames.SetSize(0);
+// }} ""
+// {{ 13 1 0 "8af4ada4_c361_481f_99b77627d3123b1e" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrStrMovieExportNames.SetSize(0);
+// }} ""
+// {{ 14 1 0 "2d015782_4460_4a59_914d6cfa0fca9ef2" "{586C3429-F931-405f-9938-928E22C90BFA}"
+
+// }} ""
+// {{ 15 1 0 "bd6ad562_6868_40fa_be710523dc56659e" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrIntReaderTypes.SetSize(0);
+// }} ""
+// {{ 16 1 0 "5971ecd2_919d_4c20_a18c0427635d470c" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrIntReaderTypes.AddAsLast(Agilent_Gen5_Interface::ReaderType::Plug_n_Play);
+// }} ""
+// {{ 17 1 0 "ee040c00_1eb6_4cdb_875793cd27b41aca" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrIntReaderTypes.AddAsLast(Agilent_Gen5_Interface::ReaderType::ELx800);
+// }} ""
+// {{ 18 1 0 "ff49510a_a33b_44fa_8bb9ebe508f97105" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrIntReaderTypes.AddAsLast(Agilent_Gen5_Interface::ReaderType::ELx808);
+// }} ""
+// {{ 19 1 0 "915a87c7_7b1b_4aa7_a31e6e4e12b867b8" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrIntReaderTypes.AddAsLast(Agilent_Gen5_Interface::ReaderType::Synergy_HT);
+// }} ""
+// {{ 20 1 0 "14923afa_402d_4832_ad5023a4f2597fe5" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrIntReaderTypes.AddAsLast(Agilent_Gen5_Interface::ReaderType::FLx800);
+// }} ""
+// {{ 21 1 0 "e01a7f0b_d244_4a08_94ddb84ee5c98cb3" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrIntReaderTypes.AddAsLast(Agilent_Gen5_Interface::ReaderType::Powerwave);
+// }} ""
+// {{ 22 1 0 "80f17da1_d36a_44f5_b4388e6517e7880e" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrIntReaderTypes.AddAsLast(Agilent_Gen5_Interface::ReaderType::Clarity_OLE);
+// }} ""
+// {{ 23 1 0 "e37b856f_98ae_4927_87441efeab09b562" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrIntReaderTypes.AddAsLast(Agilent_Gen5_Interface::ReaderType::Synergy2);
+// }} ""
+// {{ 24 1 0 "ba84d49d_fde9_440c_a84c9b2dd7add0e9" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrIntReaderTypes.AddAsLast(Agilent_Gen5_Interface::ReaderType::PowerWaveXS_2);
+// }} ""
+// {{ 25 1 0 "55476904_166d_490a_b0d61c4230ad4ce7" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrIntReaderTypes.AddAsLast(Agilent_Gen5_Interface::ReaderType::Synergy_Mx);
+// }} ""
+// {{ 26 1 0 "92d05a5e_6f6b_402a_ab622fa947098671" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrIntReaderTypes.AddAsLast(Agilent_Gen5_Interface::ReaderType::Epoch);
+// }} ""
+// {{ 27 1 0 "3a9ebf6b_555c_4654_b3328dd097eda2c8" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrIntReaderTypes.AddAsLast(Agilent_Gen5_Interface::ReaderType::Synergy_H4);
+// }} ""
+// {{ 28 1 0 "66610ed9_5294_4b1a_9f5dbed7b307ffcf" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrIntReaderTypes.AddAsLast(Agilent_Gen5_Interface::ReaderType::Synergy_H1);
+// }} ""
+// {{ 29 1 0 "cce94792_13dd_44f8_9f9882a25c20a80a" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrIntReaderTypes.AddAsLast(Agilent_Gen5_Interface::ReaderType::Eon);
+// }} ""
+// {{ 30 1 0 "ce87bc41_0e50_4f3c_a12853faa5299379" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrIntReaderTypes.AddAsLast(Agilent_Gen5_Interface::ReaderType::Synergy_Neo);
+// }} ""
+// {{ 31 1 0 "777b5db2_5d34_4b13_a0ea4087f9e50477" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrIntReaderTypes.AddAsLast(Agilent_Gen5_Interface::ReaderType::Cytation3);
+// }} ""
+// {{ 32 1 0 "b199090e_adde_4220_b85e55a8f1100ab0" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrIntReaderTypes.AddAsLast(Agilent_Gen5_Interface::ReaderType::Synergy_HTX);
+// }} ""
+// {{ 33 1 0 "75c48a4e_dcde_4769_9b27972c909c25fc" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrIntReaderTypes.AddAsLast(Agilent_Gen5_Interface::ReaderType::Cytation5);
+// }} ""
+// {{ 34 1 0 "bd2d181f_e74d_4ccc_8314ad5b5cfccd6a" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrIntReaderTypes.AddAsLast(Agilent_Gen5_Interface::ReaderType::Epoch_2);
+// }} ""
+// {{ 35 1 0 "dafb9824_74df_4ccf_96716d96fe47d79e" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrIntReaderTypes.AddAsLast(Agilent_Gen5_Interface::ReaderType::Synergy_Neo2);
+// }} ""
+// {{ 36 1 0 "0eace247_90e6_4d76_835ba3d48f91e786" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrIntReaderTypes.AddAsLast(Agilent_Gen5_Interface::ReaderType::Lionheart_FX);
+// }} ""
+// {{ 37 1 0 "cc31367f_0ad2_4381_a29745af34af05ce" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrIntReaderTypes.AddAsLast(Agilent_Gen5_Interface::ReaderType::BioTek_800TS);
+// }} ""
+// {{ 38 1 0 "656f514e_72f2_4185_8a8433607571c9a1" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrIntReaderTypes.AddAsLast(Agilent_Gen5_Interface::ReaderType::Cytation1);
+// }} ""
+// {{ 39 1 0 "298a651c_b582_4a60_aee2f77dcb16b5fa" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrIntReaderTypes.AddAsLast(Agilent_Gen5_Interface::ReaderType::Synergy_LX);
+// }} ""
+// {{ 40 1 0 "970aee1f_ba5b_46e0_b3a99b998fd5fe43" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrIntReaderTypes.AddAsLast(Agilent_Gen5_Interface::ReaderType::Lionheart_LX);
+// }} ""
+// {{ 41 1 0 "6a26d64a_1148_4ad2_8a3841cc71678a70" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrIntReaderTypes.AddAsLast(Agilent_Gen5_Interface::ReaderType::Cytation7);
+// }} ""
+// {{ 42 1 0 "b5372339_bf56_41c5_86abad01612396d7" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrIntReaderTypes.AddAsLast(Agilent_Gen5_Interface::ReaderType::LogPhase_600);
+// }} ""
+// {{ 43 1 0 "0ab387dd_9bff_4abb_b1146b335afa9a57" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+arrIntReaderTypes.AddAsLast(Agilent_Gen5_Interface::ReaderType::Cytation_C10);
+// }} ""
+// {{ 44 1 0 "2d015782_4460_4a59_914d6cfa0fca9ef2" "{586C3429-F931-405f-9938-928E22C90BFA}"
+
+// }} ""
+// {{ 45 1 0 "c445fc07_4a61_4b1c_a5d0cd1f8dd19221" "{586C3429-F931-405f-9938-928E22C90BFA}"
+
+// }} ""
+// {{ 46 1 0 "f7fcf5ab_e45c_4a96_b182f771347359ec" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrStrPlateTypeNames.SetSize(0);
+// }} ""
+// {{ 47 1 0 "0222ddb1_5ef3_479b_99d4200fa61db1d1" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrStrBuilderNames.SetSize(0);
+// }} ""
+// {{ 48 1 0 "03b9fbbc_78f8_4ab6_a308115b8156f9bf" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrStrDataSetNames.SetSize(0);
+// }} ""
+// {{ 49 1 0 "1b01442a_e5a2_4835_9bce0018b08a5e03" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrIntDecimalPlaces.SetSize(0);
+// }} ""
+// {{ 50 1 0 "ed230494_e8a2_499d_babfafd67242e642" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrIntKineticReads.SetSize(0);
+// }} ""
+// {{ 51 1 0 "512e19c8_56ef_4f4a_ac1b105bda4f3d16" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrIntKineticIntervalMilliseconds.SetSize(0);
+// }} ""
+// {{ 52 1 0 "644f33d0_0136_4dbe_89430dd5ea9f8875" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrIntDisplayMilliseconds.SetSize(0);
+// }} ""
+// {{ 53 1 0 "4daf6eec_90ae_4051_9b6b82f8061e46d6" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrIntSpectrumWavelengths.SetSize(0);
+// }} ""
+// {{ 54 1 0 "fcbff0fb_d21f_4f3a_b9c4ab41f88aed46" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrIntSpectrumStarts.SetSize(0);
+// }} ""
+// {{ 55 1 0 "bb50d377_1563_4d99_8bb84f9bbc010f25" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrIntSpectrumSteps.SetSize(0);
+// }} ""
+// {{ 56 1 0 "4b5d0b11_4875_435f_9e9b242ba4225717" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrIntHorizontalReads.SetSize(0);
+// }} ""
+// {{ 57 1 0 "ef2a0cdd_d9e3_42c8_80aec1b00739a164" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrIntVerticalReads.SetSize(0);
+// }} ""
+// {{ 58 1 0 "c445fc07_4a61_4b1c_a5d0cd1f8dd19221" "{586C3429-F931-405f-9938-928E22C90BFA}"
+
+// }} ""
+// {{ 59 1 0 "68267ae4_984a_484c_8805b022ce3d412e" "{586C3429-F931-405f-9938-928E22C90BFA}"
+
+// }} ""
+// {{ 60 1 0 "69b26732_fa8e_4d03_956feb312118fc87" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrIntRows.SetSize(0);
+// }} ""
+// {{ 61 1 0 "2dea3cf7_2b18_4d2b_af3af0fd80aefb1e" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrIntColumns.SetSize(0);
+// }} ""
+// {{ 62 1 0 "1d670b3f_23be_4337_b756f3bcdfba1784" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrIntKineticIndex.SetSize(0);
+// }} ""
+// {{ 63 1 0 "55c24e9f_2f9b_4f57_a18095ade29653fd" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrIntWavelengthIndex.SetSize(0);
+// }} ""
+// {{ 64 1 0 "829dec49_42c3_4fd6_a5f790ae234231dc" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrIntHorizontalIndex.SetSize(0);
+// }} ""
+// {{ 65 1 0 "77a72466_c73f_4f83_a0009f94379dc33e" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrIntVerticalIndex.SetSize(0);
+// }} ""
+// {{ 66 1 0 "12fa0d88_fa32_43a1_8a433fbaa22bd546" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrIntPrimaryStatus.SetSize(0);
+// }} ""
+// {{ 67 1 0 "e0fdd927_cd4e_4092_ba883af6d7515f8a" "{4900C1F7-0FB7-4033-8253-760BDB9354DC}"
+arrFltReadValues.SetSize(0);
+// }} ""
+// {{ 68 1 0 "68267ae4_984a_484c_8805b022ce3d412e" "{586C3429-F931-405f-9938-928E22C90BFA}"
+
+// }} ""
+// {{ 69 1 0 "a21e93a3_9a4a_42e9_b586fac8c4ab7dca" "{586C3429-F931-405f-9938-928E22C90BFA}"
+
+// }} ""
+// {{{ 70 1 0 "67bd5b0a_b59e_4932_8ae686c65afcc1cd" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Hamilton_DriverTools::GetAvailablePortNames("Initialize", _strMethodName, arrStrPortNames);
+// }} ""
+// {{{ 71 1 0 "428e5501_f63a_479f_b60e9e5f688bc481" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Hamilton_DriverTools::GetAvailablePortNumbers("Initialize", _strMethodName, arrIntPortNumbers);
+// }} ""
+// {{ 72 1 0 "a21e93a3_9a4a_42e9_b586fac8c4ab7dca" "{586C3429-F931-405f-9938-928E22C90BFA}"
+
+// }} ""
+// {{ 73 1 0 "4d76d979_1027_4ebb_bddba042c840219c" "{586C3429-F931-405f-9938-928E22C90BFA}"
+
+// }} ""
+// {{ 74 1 0 "86d30bad_00c2_4860_a241f1062b733264" "{586C3429-F931-405f-9938-928E22C90BFA}"
+
+// }} ""
+// {{ 75 1 0 "582e63ed_871c_4139_99f86c2926746e48" "{B31F3532-5D80-11d4-A5EB-0050DA737D89}"
+{
+loopCounter1 = 0;
+while (ASWGLOBAL::BOOL::TRUE == ASWGLOBAL::BOOL::TRUE)
+{
+loopCounter1 = loopCounter1 + 1;
+// }} ""
+// {{ 76 1 0 "25c2f04e_b4df_4f05_81c119502d7dccfe" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialogB21A0A4C1B034dd9B63CC0F9A6F159D3.InitCustomDialog( "25c2f04e_b4df_4f05_81c119502d7dccfe" );
+customDialogB21A0A4C1B034dd9B63CC0F9A6F159D3.SetCustomDialogArrayProperty( "serialPort.ItemsSource", arrStrPortNames );
+customDialogB21A0A4C1B034dd9B63CC0F9A6F159D3.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialogB21A0A4C1B034dd9B63CC0F9A6F159D3.SetCustomDialogProperty( "btnCustomDialogGoOn.IsEnabled", blnGoOnEnabled );
+customDialogB21A0A4C1B034dd9B63CC0F9A6F159D3.ShowCustomDialog();
+intDialogReturn = customDialogB21A0A4C1B034dd9B63CC0F9A6F159D3.GetCustomDialogProperty( "ReturnValue" );
+intTraceLevel = customDialogB21A0A4C1B034dd9B63CC0F9A6F159D3.GetCustomDialogProperty( "numeric1.Value" );
+strSerialNumber = customDialogB21A0A4C1B034dd9B63CC0F9A6F159D3.GetCustomDialogProperty( "textBox1.Text" );
+blnSimulationMode = customDialogB21A0A4C1B034dd9B63CC0F9A6F159D3.GetCustomDialogProperty( "checkBox1.IsChecked" );
+intTraceLevel = customDialogB21A0A4C1B034dd9B63CC0F9A6F159D3.GetCustomDialogProperty( "numeric3.Value" );
+blnConnectUsingUSB = customDialogB21A0A4C1B034dd9B63CC0F9A6F159D3.GetCustomDialogProperty( "radioButton1.IsChecked" );
+intSelectedReader = customDialogB21A0A4C1B034dd9B63CC0F9A6F159D3.GetCustomDialogProperty( "readerType.SelectedIndex" );
+intSelectedPort = customDialogB21A0A4C1B034dd9B63CC0F9A6F159D3.GetCustomDialogProperty( "serialPort.SelectedIndex" );
+intSelectedBaudRate = customDialogB21A0A4C1B034dd9B63CC0F9A6F159D3.GetCustomDialogProperty( "serialSpeed.SelectedIndex" );
+// }} ""
+// {{{ 77 1 0 "a237c63d_9412_4bbc_bb7fc47c3ed3da24" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Connect");
+// }} ""
+// {{ 78 1 0 "5b728961_68ad_4280_bf54c88e6fd44a18" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{{ 79 1 0 "4caf5ab6_643a_415b_bc3cac56b9bb9495" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::Connect(arrIntReaderTypes.ElementAt( intSelectedReader -1), blnConnectUsingUSB, strSerialNumber, intComPort, intBaudRate, blnSimulationMode, intDeviceID);
+// }} ""
+// {{{ 80 1 0 "4ddb19ab_2811_4f8c_bed5c4f6c56d9141" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "Connect");
+// }} ""
+// {{{ 81 1 0 "88f47635_0eae_4bcc_8bc3e137070ab936" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::SetTraceLevel(intDeviceID, intTraceLevel);
+// }} ""
+// {{{ 82 1 0 "db3e9984_0b8d_4579_8ab0fb9fd12b4736" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "SetTraceLevel");
+// }} ""
+// {{ 83 1 0 "5b728961_68ad_4280_bf54c88e6fd44a18" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 84 1 0 "1e4a6c87_6bb1_43ed_ac45a6c072af5eef" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::IGNORE)
+{
+// }} ""
+// {{ 85 1 0 "6832b69c_33f3_4afa_ba5cce84c640a3a6" "{B31F3533-5D80-11d4-A5EB-0050DA737D89}"
+break;
+// }} ""
+// {{ 86 1 0 "1e4a6c87_6bb1_43ed_ac45a6c072af5eef" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 87 1 0 "53214295_dc65_4892_94d084417562ecd7" "{F17B7626-27CB-47f1-8477-8C4158339A6D}"
+_arrIntDeviceIDs.AddAsLast(intDeviceID);
+// }} ""
+// {{ 88 1 0 "d1f49f77_3384_43f3_8be580bb248803f5" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+blnGoOnEnabled = ASWGLOBAL::BOOL::TRUE;
+// }} ""
+// {{ 89 1 0 "582e63ed_871c_4139_99f86c2926746e48" "{B31F3532-5D80-11d4-A5EB-0050DA737D89}"
+}
+}
+// }} ""
+// {{ 90 1 0 "86d30bad_00c2_4860_a241f1062b733264" "{586C3429-F931-405f-9938-928E22C90BFA}"
+
+// }} ""
+// {{ 91 1 0 "486e1116_3d82_4f76_9b3193dc0802f7c9" "{586C3429-F931-405f-9938-928E22C90BFA}"
+
+// }} ""
+// {{ 92 1 0 "9fa792ed_846d_4b98_a39019d97cb314d5" "{B31F3532-5D80-11d4-A5EB-0050DA737D89}"
+{
+loopCounter4 = 0;
+while (ASWGLOBAL::BOOL::TRUE == ASWGLOBAL::BOOL::TRUE)
+{
+loopCounter4 = loopCounter4 + 1;
+// }} ""
+// {{ 93 1 0 "db0951fe_99e8_472d_b37fda7a2f28ed1f" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialogB919FE11D5A1495aB1A2C6242FABCEB7.InitCustomDialog( "db0951fe_99e8_472d_b37fda7a2f28ed1f" );
+customDialogB919FE11D5A1495aB1A2C6242FABCEB7.SetCustomDialogArrayProperty( "comboBox1.ItemsSource", _arrIntDeviceIDs );
+customDialogB919FE11D5A1495aB1A2C6242FABCEB7.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialogB919FE11D5A1495aB1A2C6242FABCEB7.SetCustomDialogProperty( "btnCustomDialogGoOn.IsEnabled", blnGoOnEnabled );
+customDialogB919FE11D5A1495aB1A2C6242FABCEB7.ShowCustomDialog();
+intDialogReturn = customDialogB919FE11D5A1495aB1A2C6242FABCEB7.GetCustomDialogProperty( "ReturnValue" );
+intSelectedIndex = customDialogB919FE11D5A1495aB1A2C6242FABCEB7.GetCustomDialogProperty( "comboBox1.SelectedIndex" );
+blnCarrierOperations = customDialogB919FE11D5A1495aB1A2C6242FABCEB7.GetCustomDialogProperty( "radioButton1.IsChecked" );
+blnExperimentOperations = customDialogB919FE11D5A1495aB1A2C6242FABCEB7.GetCustomDialogProperty( "radioButton2.IsChecked" );
+blnPlateOperations = customDialogB919FE11D5A1495aB1A2C6242FABCEB7.GetCustomDialogProperty( "radioButton3.IsChecked" );
+blnFileOperations = customDialogB919FE11D5A1495aB1A2C6242FABCEB7.GetCustomDialogProperty( "radioButton4.IsChecked" );
+blnTemperatureOperations = customDialogB919FE11D5A1495aB1A2C6242FABCEB7.GetCustomDialogProperty( "radioButton5.IsChecked" );
+blnMiscellaneousOperations = customDialogB919FE11D5A1495aB1A2C6242FABCEB7.GetCustomDialogProperty( "radioButton6.IsChecked" );
+blnReaderErrorOperations = customDialogB919FE11D5A1495aB1A2C6242FABCEB7.GetCustomDialogProperty( "radioButton7.IsChecked" );
+// }} ""
+// {{{ 94 1 0 "24a824b5_36b0_42ef_830d62cc88eda9d6" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, Translate("Select Task"));
+// }} ""
+// {{ 95 1 0 "979cc0d1_3f8e_42d8_9cfe0181a250f95c" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::IGNORE)
+{
+// }} ""
+// {{ 96 1 0 "a2a4e7e2_7701_41dc_8dc2c83dc0dcad57" "{B31F3533-5D80-11d4-A5EB-0050DA737D89}"
+break;
+// }} ""
+// {{ 97 1 0 "979cc0d1_3f8e_42d8_9cfe0181a250f95c" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 98 1 0 "dce58f86_23fd_46ab_b081b208d8449a9f" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+intDeviceID = _arrIntDeviceIDs.ElementAt( intSelectedIndex -1);
+// }} ""
+// {{ 99 1 0 "c2109856_5469_4aef_aab607b393e001bd" "{F07B0071-8EFC-11d4-A3BA-002035848439}"
+
+// }} ""
+// {{ 100 1 0 "a155f51b_df2d_4979_93fbdc7747894a6e" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnCarrierOperations == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 101 1 0 "f46718d9_1370_4f1c_98c08692059c27f4" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialogCDBEF1CDC8DA4ea4920C2FE7B779B989.InitCustomDialog( "f46718d9_1370_4f1c_98c08692059c27f4" );
+customDialogCDBEF1CDC8DA4ea4920C2FE7B779B989.SetCustomDialogArrayProperty( "comboBox1.ItemsSource", arrStrPlateTypeNames );
+customDialogCDBEF1CDC8DA4ea4920C2FE7B779B989.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialogCDBEF1CDC8DA4ea4920C2FE7B779B989.ShowCustomDialog();
+intDialogReturn = customDialogCDBEF1CDC8DA4ea4920C2FE7B779B989.GetCustomDialogProperty( "ReturnValue" );
+blnLidOnPlate = customDialogCDBEF1CDC8DA4ea4920C2FE7B779B989.GetCustomDialogProperty( "checkBox1.IsChecked" );
+blnCarrierOut = customDialogCDBEF1CDC8DA4ea4920C2FE7B779B989.GetCustomDialogProperty( "radioButton2.IsChecked" );
+intSelectedIndex = customDialogCDBEF1CDC8DA4ea4920C2FE7B779B989.GetCustomDialogProperty( "comboBox1.SelectedIndex" );
+blnCarrierIn = customDialogCDBEF1CDC8DA4ea4920C2FE7B779B989.GetCustomDialogProperty( "radioButton1.IsChecked" );
+blnCarrierInWithPlate = customDialogCDBEF1CDC8DA4ea4920C2FE7B779B989.GetCustomDialogProperty( "radioButton3.IsChecked" );
+// }} ""
+// {{{ 102 1 0 "bf52764f_75ca_4f9a_95419a1a4ec999c0" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Carrier Operations");
+// }} ""
+// {{ 103 1 0 "0e177c14_bb9b_407c_93c9df130053097f" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{ 104 1 0 "19f9ea4d_2a0f_4ec3_96968c74ed4d59e0" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnCarrierOut == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{{ 105 1 0 "b9fc6060_ec29_4cc5_8b451397c1ef88d8" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::CarrierOut(intDeviceID);
+// }} ""
+// {{{ 106 1 0 "427692c1_ae5a_4423_9021ec32993e4665" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, ":CarrierOut");
+// }} ""
+// {{ 107 1 0 "19f9ea4d_2a0f_4ec3_96968c74ed4d59e0" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 108 1 0 "a14fb000_0dd9_4dfa_86d1697f0b194759" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnCarrierIn == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{{ 109 1 0 "e94c3dbc_0b44_4b4c_b3e2684b6c5fca33" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::CarrierIn(intDeviceID);
+// }} ""
+// {{{ 110 1 0 "5725deb6_cd5c_4b1f_8538c9ef4fb61dbe" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "CarrierIn");
+// }} ""
+// {{ 111 1 0 "a14fb000_0dd9_4dfa_86d1697f0b194759" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 112 1 0 "f64e8377_768e_436f_a7c14f5d8b9b7223" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnCarrierInWithPlate == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{{ 113 1 0 "bb67f4f2_d680_47af_bab3aea524946e1c" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::CarrierInWithPlate(intDeviceID, arrStrPlateTypeNames.ElementAt( intSelectedIndex -1), blnLidOnPlate);
+// }} ""
+// {{{ 114 1 0 "1b5b06bd_35d0_4db1_a5e9eb6eec7592cb" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "CarrierInWithPlate");
+// }} ""
+// {{ 115 1 0 "f64e8377_768e_436f_a7c14f5d8b9b7223" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 116 1 0 "0e177c14_bb9b_407c_93c9df130053097f" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 117 1 0 "a155f51b_df2d_4979_93fbdc7747894a6e" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 118 1 0 "b9dc9438_0794_4544_94700a9a062c6d83" "{F07B0071-8EFC-11d4-A3BA-002035848439}"
+
+// }} ""
+// {{ 119 1 0 "9f40f704_94a3_42fa_b8690b3b95bed885" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnExperimentOperations == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 120 1 0 "8879106d_cf92_4a4b_ba62bebff6b5ba00" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog64A2789F24704f2e9B5DA5DC98C7A517.InitCustomDialog( "8879106d_cf92_4a4b_ba62bebff6b5ba00" );
+customDialog64A2789F24704f2e9B5DA5DC98C7A517.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog64A2789F24704f2e9B5DA5DC98C7A517.SetCustomDialogProperty( "radioButton3.IsEnabled", _experimentInitialized );
+customDialog64A2789F24704f2e9B5DA5DC98C7A517.SetCustomDialogProperty( "radioButton4.IsEnabled", _experimentInitialized );
+customDialog64A2789F24704f2e9B5DA5DC98C7A517.SetCustomDialogProperty( "radioButton5.IsEnabled", _experimentInitialized );
+customDialog64A2789F24704f2e9B5DA5DC98C7A517.SetCustomDialogProperty( "radioButton6.IsEnabled", _experimentInitialized );
+customDialog64A2789F24704f2e9B5DA5DC98C7A517.SetCustomDialogProperty( "radioButton7.IsEnabled", _experimentInitialized );
+customDialog64A2789F24704f2e9B5DA5DC98C7A517.ShowCustomDialog();
+intDialogReturn = customDialog64A2789F24704f2e9B5DA5DC98C7A517.GetCustomDialogProperty( "ReturnValue" );
+blnNewExperiment = customDialog64A2789F24704f2e9B5DA5DC98C7A517.GetCustomDialogProperty( "radioButton2.IsChecked" );
+blnOpenExperiment = customDialog64A2789F24704f2e9B5DA5DC98C7A517.GetCustomDialogProperty( "radioButton1.IsChecked" );
+blnCloseExperiment = customDialog64A2789F24704f2e9B5DA5DC98C7A517.GetCustomDialogProperty( "radioButton3.IsChecked" );
+blnSaveExperiment = customDialog64A2789F24704f2e9B5DA5DC98C7A517.GetCustomDialogProperty( "radioButton4.IsChecked" );
+blnGetSampleIdentification = customDialog64A2789F24704f2e9B5DA5DC98C7A517.GetCustomDialogProperty( "radioButton5.IsChecked" );
+blnSetSampleIdentification = customDialog64A2789F24704f2e9B5DA5DC98C7A517.GetCustomDialogProperty( "radioButton6.IsChecked" );
+blnAddAuditTrailRecord = customDialog64A2789F24704f2e9B5DA5DC98C7A517.GetCustomDialogProperty( "radioButton7.IsChecked" );
+// }} ""
+// {{{ 121 1 0 "05bc62dc_af27_4f7f_a5f59f96d12c7457" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Experiment Operations");
+// }} ""
+// {{ 122 1 0 "a70ddc19_29a8_4a92_beeace64aefad106" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{ 123 1 0 "1d56c5dd_91ca_4ddd_9e6c5f3c4c9a7d3a" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnNewExperiment == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 124 1 0 "6a7ba15f_5308_4b20_91215f6a0cdce5ce" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog89B7860BCDF2419193D652084924C41B.InitCustomDialog( "6a7ba15f_5308_4b20_91215f6a0cdce5ce" );
+customDialog89B7860BCDF2419193D652084924C41B.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog89B7860BCDF2419193D652084924C41B.ShowCustomDialog();
+intDialogReturn = customDialog89B7860BCDF2419193D652084924C41B.GetCustomDialogProperty( "ReturnValue" );
+strProtocolDefinition = customDialog89B7860BCDF2419193D652084924C41B.GetCustomDialogProperty( "textBox1.Text" );
+strProtocolDefinition = customDialog89B7860BCDF2419193D652084924C41B.GetCustomDialogProperty( "path1.Path" );
+intProtocolDefinitionType = customDialog89B7860BCDF2419193D652084924C41B.GetCustomDialogProperty( "numeric1.Value" );
+// }} ""
+// {{{ 125 1 0 "8912ee4a_faf9_4415_867634d1e86c645c" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "New Experiment");
+// }} ""
+// {{ 126 1 0 "fcaf3e38_d7c3_4354_ab378531b58ff92f" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{{ 127 1 0 "b7fbaba4_f69c_4605_8fe4db975e4d13bd" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::NewExperiment(intDeviceID, strProtocolDefinition, intProtocolDefinitionType);
+// }} ""
+// {{{ 128 1 0 "04517959_68da_4f7c_9a15456c988b92ef" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "NewExperiment");
+// }} ""
+// {{ 129 1 0 "473f22e3_b365_4d95_8a007965b3af6643" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+_experimentInitialized = ASWGLOBAL::BOOL::TRUE;
+// }} ""
+// {{ 130 1 0 "fcaf3e38_d7c3_4354_ab378531b58ff92f" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 131 1 0 "1d56c5dd_91ca_4ddd_9e6c5f3c4c9a7d3a" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 132 1 0 "9d2aa087_e4e4_4643_bb1b0c557bfb718e" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnOpenExperiment == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 133 1 0 "64c48d42_acf6_4fbf_a7ce0f5021b1f2bd" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog39564C1CA203466b8C6B8001AB57DB71.InitCustomDialog( "64c48d42_acf6_4fbf_a7ce0f5021b1f2bd" );
+customDialog39564C1CA203466b8C6B8001AB57DB71.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog39564C1CA203466b8C6B8001AB57DB71.ShowCustomDialog();
+intDialogReturn = customDialog39564C1CA203466b8C6B8001AB57DB71.GetCustomDialogProperty( "ReturnValue" );
+strExperimentPathName = customDialog39564C1CA203466b8C6B8001AB57DB71.GetCustomDialogProperty( "path1.Path" );
+// }} ""
+// {{{ 134 1 0 "7bc04bec_52a3_4eef_938a1839a565a597" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "New Experiment");
+// }} ""
+// {{ 135 1 0 "40446822_04cf_444f_9144f666cf735782" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{{ 136 1 0 "f2801159_4224_4ad1_9f89ef334e5681f1" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::OpenExperiment(intDeviceID, strExperimentPathName);
+// }} ""
+// {{{ 137 1 0 "09cee15b_2c91_4f55_831bef6c9329f918" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "OpenExperiment");
+// }} ""
+// {{ 138 1 0 "1097856e_9447_4ea3_b080ff65cc45b042" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+_experimentInitialized = ASWGLOBAL::BOOL::TRUE;
+// }} ""
+// {{ 139 1 0 "40446822_04cf_444f_9144f666cf735782" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 140 1 0 "9d2aa087_e4e4_4643_bb1b0c557bfb718e" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 141 1 0 "faf5a8b9_c59b_4f59_8e4ec9107642eea6" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnCloseExperiment == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{{ 142 1 0 "9a101b28_829d_474b_908f7e4a66cac763" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::CloseExperiment(intDeviceID);
+// }} ""
+// {{{ 143 1 0 "26a85737_9acc_4ac4_ac4bfdb284917e48" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "CloseExperiment");
+// }} ""
+// {{ 144 1 0 "9638af47_b5ef_4b13_80091c5d9e440841" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+_experimentInitialized = ASWGLOBAL::BOOL::FALSE;
+// }} ""
+// {{ 145 1 0 "3dd99454_d7d8_4cb5_9972a8b91edcb617" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+_plateInitialized = ASWGLOBAL::BOOL::FALSE;
+// }} ""
+// {{ 146 1 0 "faf5a8b9_c59b_4f59_8e4ec9107642eea6" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 147 1 0 "84541a99_c06a_488d_8e0aed766b0916e7" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnSaveExperiment == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 148 1 0 "947cbcf3_ea13_4641_be61294923404004" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog68E69F9F136B43ceB91902F510C154C6.InitCustomDialog( "947cbcf3_ea13_4641_be61294923404004" );
+customDialog68E69F9F136B43ceB91902F510C154C6.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog68E69F9F136B43ceB91902F510C154C6.ShowCustomDialog();
+intDialogReturn = customDialog68E69F9F136B43ceB91902F510C154C6.GetCustomDialogProperty( "ReturnValue" );
+strFilePath = customDialog68E69F9F136B43ceB91902F510C154C6.GetCustomDialogProperty( "path1.Path" );
+blnSave = customDialog68E69F9F136B43ceB91902F510C154C6.GetCustomDialogProperty( "radioButton1.IsChecked" );
+blnSaveAs = customDialog68E69F9F136B43ceB91902F510C154C6.GetCustomDialogProperty( "radioButton2.IsChecked" );
+// }} ""
+// {{{ 149 1 0 "36ebbfa7_68d0_4e3c_8df2f3b215a833ae" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Save Experiment");
+// }} ""
+// {{ 150 1 0 "fb05c810_3433_4d60_b52926e0f418c25b" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{ 151 1 0 "f1b061cd_dbf1_4e39_9a035c339a706ecc" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnSave == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{{ 152 1 0 "b8c26277_c348_4306_9a88ea1a8b202c67" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::SaveExperiment(intDeviceID);
+// }} ""
+// {{{ 153 1 0 "5c9beb59_73ab_4e0e_95a4d4e99437ba13" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "SaveExperiment");
+// }} ""
+// {{ 154 1 0 "f1b061cd_dbf1_4e39_9a035c339a706ecc" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 155 1 0 "e37ca844_510c_4d7f_ad2cabe1d252c921" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnSaveAs == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{{ 156 1 0 "e5a9f55b_873c_475b_ac37863d58308559" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::SaveExperimentAs(intDeviceID, strFilePath);
+// }} ""
+// {{{ 157 1 0 "3bfd4f2b_7792_4528_b9b83fb7d348c2c4" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "SaveExperimentAs");
+// }} ""
+// {{ 158 1 0 "e37ca844_510c_4d7f_ad2cabe1d252c921" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 159 1 0 "fb05c810_3433_4d60_b52926e0f418c25b" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 160 1 0 "84541a99_c06a_488d_8e0aed766b0916e7" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 161 1 0 "304d3c26_92fe_4aea_92ff422148bd65ca" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnGetSampleIdentification == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{{ 162 1 0 "201f9497_7515_4879_a676da3c6f7e99af" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::GetSampleIdentification(intDeviceID, strSampleIdentification);
+// }} ""
+// {{{ 163 1 0 "6ef1b4e1_6085_4e0c_bf7e664616b8a523" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "GetSampleIdentification");
+// }} ""
+// {{ 164 1 0 "99449697_9de6_43cf_839f7a530a5bf324" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialogE4622B80407E43f2A6230CAB17EEF007.InitCustomDialog( "99449697_9de6_43cf_839f7a530a5bf324" );
+customDialogE4622B80407E43f2A6230CAB17EEF007.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialogE4622B80407E43f2A6230CAB17EEF007.SetCustomDialogProperty( "textBlock3.Text", strSampleIdentification );
+customDialogE4622B80407E43f2A6230CAB17EEF007.ShowCustomDialog();
+intDialogReturn = customDialogE4622B80407E43f2A6230CAB17EEF007.GetCustomDialogProperty( "ReturnValue" );
+// }} ""
+// {{{ 165 1 0 "66155cc4_71e9_463a_947f9de4b63cd202" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Sample Identification");
+// }} ""
+// {{ 166 1 0 "304d3c26_92fe_4aea_92ff422148bd65ca" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 167 1 0 "b426945a_1c72_4122_997faaad855e5ce2" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnSetSampleIdentification == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 168 1 0 "263498e5_0c20_4460_89a22c531939f502" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog5A58F581DF0A4baeA2B3E7374D7452BC.InitCustomDialog( "263498e5_0c20_4460_89a22c531939f502" );
+customDialog5A58F581DF0A4baeA2B3E7374D7452BC.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog5A58F581DF0A4baeA2B3E7374D7452BC.ShowCustomDialog();
+intDialogReturn = customDialog5A58F581DF0A4baeA2B3E7374D7452BC.GetCustomDialogProperty( "ReturnValue" );
+strSampleIdentification = customDialog5A58F581DF0A4baeA2B3E7374D7452BC.GetCustomDialogProperty( "textBox1.Text" );
+// }} ""
+// {{{ 169 1 0 "dbbd23a1_c51a_4376_a68d21f65b53dc49" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Set Sample Identification");
+// }} ""
+// {{ 170 1 0 "f85969a0_a3b1_4470_b6e15ec85f497054" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{{ 171 1 0 "fe4fe6fd_8644_432f_9cf5c645e3abc2b3" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::SetSampleIdentification(intDeviceID, strSampleIdentification);
+// }} ""
+// {{{ 172 1 0 "49b22bd2_7295_41c3_bb803e623403e6a1" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "SetSampleIdentification");
+// }} ""
+// {{ 173 1 0 "f85969a0_a3b1_4470_b6e15ec85f497054" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 174 1 0 "b426945a_1c72_4122_997faaad855e5ce2" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 175 1 0 "3f57273b_e45f_4791_b321e9b28cdc4dbb" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnAddAuditTrailRecord == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 176 1 0 "7ae27397_ac4e_4e79_b523815982fe1b45" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog1F912D48C9C64991B3F9A6BA4D402812.InitCustomDialog( "7ae27397_ac4e_4e79_b523815982fe1b45" );
+customDialog1F912D48C9C64991B3F9A6BA4D402812.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog1F912D48C9C64991B3F9A6BA4D402812.ShowCustomDialog();
+intDialogReturn = customDialog1F912D48C9C64991B3F9A6BA4D402812.GetCustomDialogProperty( "ReturnValue" );
+strDescription = customDialog1F912D48C9C64991B3F9A6BA4D402812.GetCustomDialogProperty( "textBox1.Text" );
+strComment = customDialog1F912D48C9C64991B3F9A6BA4D402812.GetCustomDialogProperty( "textBox2.Text" );
+// }} ""
+// {{{ 177 1 0 "ef3ac150_6566_4a3f_bf8ba3d18c983393" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Set Sample Identification");
+// }} ""
+// {{ 178 1 0 "6052793d_1d44_4690_ae9ced02ba6c85e9" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{{ 179 1 0 "6bde213b_70bb_4c7a_bec63540cce03c16" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::AddAuditTrailRecord(intDeviceID, strDescription, strComment);
+// }} ""
+// {{{ 180 1 0 "c67aafb8_8cec_4f03_88c16d3e4400994a" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "AddAuditTrailRecord");
+// }} ""
+// {{ 181 1 0 "6052793d_1d44_4690_ae9ced02ba6c85e9" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 182 1 0 "3f57273b_e45f_4791_b321e9b28cdc4dbb" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 183 1 0 "a70ddc19_29a8_4a92_beeace64aefad106" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 184 1 0 "9f40f704_94a3_42fa_b8690b3b95bed885" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 185 1 0 "ec2bd462_4de2_4cca_9a25a0747a807d3e" "{F07B0071-8EFC-11d4-A3BA-002035848439}"
+
+// }} ""
+// {{ 186 1 0 "4d439f57_da7e_44c6_896c4fde9a8b5c56" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnPlateOperations == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 187 1 0 "e6db73ee_eca5_472f_83ec7df03b36d3a9" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog19D565F4B18E4b649AD087EC0F9D7E63.InitCustomDialog( "e6db73ee_eca5_472f_83ec7df03b36d3a9" );
+customDialog19D565F4B18E4b649AD087EC0F9D7E63.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog19D565F4B18E4b649AD087EC0F9D7E63.SetCustomDialogProperty( "radioButton3.IsEnabled", _experimentInitialized );
+customDialog19D565F4B18E4b649AD087EC0F9D7E63.SetCustomDialogProperty( "radioButton4.IsEnabled", _experimentInitialized );
+customDialog19D565F4B18E4b649AD087EC0F9D7E63.SetCustomDialogProperty( "radioButton5.IsEnabled", _experimentInitialized );
+customDialog19D565F4B18E4b649AD087EC0F9D7E63.SetCustomDialogProperty( "radioButton6.IsEnabled", _experimentInitialized );
+customDialog19D565F4B18E4b649AD087EC0F9D7E63.SetCustomDialogProperty( "radioButton7.IsEnabled", _plateInitialized );
+customDialog19D565F4B18E4b649AD087EC0F9D7E63.SetCustomDialogProperty( "radioButton8.IsEnabled", _plateInitialized );
+customDialog19D565F4B18E4b649AD087EC0F9D7E63.SetCustomDialogProperty( "radioButton9.IsEnabled", _plateInitialized );
+customDialog19D565F4B18E4b649AD087EC0F9D7E63.SetCustomDialogProperty( "radioButton10.IsEnabled", _plateInitialized );
+customDialog19D565F4B18E4b649AD087EC0F9D7E63.SetCustomDialogProperty( "radioButton11.IsEnabled", _plateInitialized );
+customDialog19D565F4B18E4b649AD087EC0F9D7E63.SetCustomDialogProperty( "radioButton12.IsEnabled", _plateInitialized );
+customDialog19D565F4B18E4b649AD087EC0F9D7E63.SetCustomDialogProperty( "radioButton13.IsEnabled", _plateInitialized );
+customDialog19D565F4B18E4b649AD087EC0F9D7E63.SetCustomDialogProperty( "radioButton14.IsEnabled", _plateInitialized );
+customDialog19D565F4B18E4b649AD087EC0F9D7E63.SetCustomDialogProperty( "radioButton15.IsEnabled", _plateInitialized );
+customDialog19D565F4B18E4b649AD087EC0F9D7E63.SetCustomDialogProperty( "radioButton16.IsEnabled", _plateInitialized );
+customDialog19D565F4B18E4b649AD087EC0F9D7E63.SetCustomDialogProperty( "radioButton17.IsEnabled", _plateInitialized );
+customDialog19D565F4B18E4b649AD087EC0F9D7E63.SetCustomDialogProperty( "radioButton18.IsEnabled", _plateInitialized );
+customDialog19D565F4B18E4b649AD087EC0F9D7E63.SetCustomDialogProperty( "radioButton19.IsEnabled", _plateInitialized );
+customDialog19D565F4B18E4b649AD087EC0F9D7E63.SetCustomDialogProperty( "radioButton20.IsEnabled", _plateInitialized );
+customDialog19D565F4B18E4b649AD087EC0F9D7E63.SetCustomDialogProperty( "radioButton21.IsEnabled", _plateInitialized );
+customDialog19D565F4B18E4b649AD087EC0F9D7E63.SetCustomDialogProperty( "radioButton22.IsEnabled", _plateInitialized );
+customDialog19D565F4B18E4b649AD087EC0F9D7E63.SetCustomDialogProperty( "radioButton23.IsEnabled", _plateInitialized );
+customDialog19D565F4B18E4b649AD087EC0F9D7E63.SetCustomDialogProperty( "radioButton24.IsEnabled", _plateInitialized );
+customDialog19D565F4B18E4b649AD087EC0F9D7E63.ShowCustomDialog();
+intDialogReturn = customDialog19D565F4B18E4b649AD087EC0F9D7E63.GetCustomDialogProperty( "ReturnValue" );
+blnGetPlateTypeNames = customDialog19D565F4B18E4b649AD087EC0F9D7E63.GetCustomDialogProperty( "radioButton2.IsChecked" );
+blnGetPlateTypeDefinition = customDialog19D565F4B18E4b649AD087EC0F9D7E63.GetCustomDialogProperty( "radioButton1.IsChecked" );
+blnGetPlateLayout = customDialog19D565F4B18E4b649AD087EC0F9D7E63.GetCustomDialogProperty( "radioButton3.IsChecked" );
+blnSetPlateLayout = customDialog19D565F4B18E4b649AD087EC0F9D7E63.GetCustomDialogProperty( "radioButton4.IsChecked" );
+blnAddPlate = customDialog19D565F4B18E4b649AD087EC0F9D7E63.GetCustomDialogProperty( "radioButton5.IsChecked" );
+blnSelectPlate = customDialog19D565F4B18E4b649AD087EC0F9D7E63.GetCustomDialogProperty( "radioButton6.IsChecked" );
+blnStartReadPlate = customDialog19D565F4B18E4b649AD087EC0F9D7E63.GetCustomDialogProperty( "radioButton7.IsChecked" );
+blnStartSimulatedReadPlate = customDialog19D565F4B18E4b649AD087EC0F9D7E63.GetCustomDialogProperty( "radioButton8.IsChecked" );
+blnStartReadFromFile = customDialog19D565F4B18E4b649AD087EC0F9D7E63.GetCustomDialogProperty( "radioButton9.IsChecked" );
+blnResumeReadPlate = customDialog19D565F4B18E4b649AD087EC0F9D7E63.GetCustomDialogProperty( "radioButton10.IsChecked" );
+blnResumeSimulatedReadPlate = customDialog19D565F4B18E4b649AD087EC0F9D7E63.GetCustomDialogProperty( "radioButton11.IsChecked" );
+blnAbortReadPlate = customDialog19D565F4B18E4b649AD087EC0F9D7E63.GetCustomDialogProperty( "radioButton12.IsChecked" );
+blnSetProcedure = customDialog19D565F4B18E4b649AD087EC0F9D7E63.GetCustomDialogProperty( "radioButton13.IsChecked" );
+blnDeletePlate = customDialog19D565F4B18E4b649AD087EC0F9D7E63.GetCustomDialogProperty( "radioButton14.IsChecked" );
+blnImportSampleIDs = customDialog19D565F4B18E4b649AD087EC0F9D7E63.GetCustomDialogProperty( "radioButton15.IsChecked" );
+blnGetRawDataSetInfo = customDialog19D565F4B18E4b649AD087EC0F9D7E63.GetCustomDialogProperty( "radioButton16.IsChecked" );
+blnGetRawData = customDialog19D565F4B18E4b649AD087EC0F9D7E63.GetCustomDialogProperty( "radioButton17.IsChecked" );
+blnGetSampleDescription = customDialog19D565F4B18E4b649AD087EC0F9D7E63.GetCustomDialogProperty( "radioButton18.IsChecked" );
+blnSetSampleDescription = customDialog19D565F4B18E4b649AD087EC0F9D7E63.GetCustomDialogProperty( "radioButton19.IsChecked" );
+blnGetDataSetNames = customDialog19D565F4B18E4b649AD087EC0F9D7E63.GetCustomDialogProperty( "radioButton20.IsChecked" );
+blnGetDataSetInfo = customDialog19D565F4B18E4b649AD087EC0F9D7E63.GetCustomDialogProperty( "radioButton21.IsChecked" );
+blnGetDataSetResults = customDialog19D565F4B18E4b649AD087EC0F9D7E63.GetCustomDialogProperty( "radioButton22.IsChecked" );
+blnGetDataSetROIsInWell = customDialog19D565F4B18E4b649AD087EC0F9D7E63.GetCustomDialogProperty( "radioButton23.IsChecked" );
+blnGetReadStatus = customDialog19D565F4B18E4b649AD087EC0F9D7E63.GetCustomDialogProperty( "radioButton24.IsChecked" );
+// }} ""
+// {{{ 188 1 0 "a757678e_b7c1_4020_b76d072b11d3b221" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Plate Operations");
+// }} ""
+// {{ 189 1 0 "fd9e314f_acf9_4bb7_8c6e44219f1016a1" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{ 190 1 0 "30aeb069_aea8_4a4f_8af97384e504a133" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnGetPlateTypeNames == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{{ 191 1 0 "689758a0_9a54_4f32_87083db876b6e96b" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::GetPlateTypeNames(intDeviceID, intPlateTypeSelection, arrStrPlateTypeNames);
+// }} ""
+// {{{ 192 1 0 "c87bf3c1_aa0e_421a_b80e080398768565" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "GetPlateTypeNames");
+// }} ""
+// {{ 193 1 0 "f4ef77d9_b0b1_4c30_9ca51e00a43d5048" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog38F9FB887D9A4de6B97346593814B1E6.InitCustomDialog( "f4ef77d9_b0b1_4c30_9ca51e00a43d5048" );
+customDialog38F9FB887D9A4de6B97346593814B1E6.SetCustomDialogArrayProperty( "comboBox1.ItemsSource", arrStrPlateTypeNames );
+customDialog38F9FB887D9A4de6B97346593814B1E6.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog38F9FB887D9A4de6B97346593814B1E6.ShowCustomDialog();
+intDialogReturn = customDialog38F9FB887D9A4de6B97346593814B1E6.GetCustomDialogProperty( "ReturnValue" );
+// }} ""
+// {{{ 194 1 0 "d9dc1416_4b7f_4326_bfc08687c5790b4b" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Plate Type Names");
+// }} ""
+// {{ 195 1 0 "30aeb069_aea8_4a4f_8af97384e504a133" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 196 1 0 "85197272_20c9_416d_8c08b382d68e7e97" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnGetPlateTypeDefinition == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 197 1 0 "84e7d538_9d99_4541_9b18ff67469946a4" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog4D84E49558D548f0A13D9225671C7D52.InitCustomDialog( "84e7d538_9d99_4541_9b18ff67469946a4" );
+customDialog4D84E49558D548f0A13D9225671C7D52.SetCustomDialogArrayProperty( "comboBox1.ItemsSource", arrStrPlateTypeNames );
+customDialog4D84E49558D548f0A13D9225671C7D52.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog4D84E49558D548f0A13D9225671C7D52.ShowCustomDialog();
+intDialogReturn = customDialog4D84E49558D548f0A13D9225671C7D52.GetCustomDialogProperty( "ReturnValue" );
+intSelectedIndex = customDialog4D84E49558D548f0A13D9225671C7D52.GetCustomDialogProperty( "comboBox1.SelectedIndex" );
+// }} ""
+// {{{ 198 1 0 "7fe148af_9d26_4b18_99071a981be93991" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Plate Type Definition");
+// }} ""
+// {{ 199 1 0 "3f6b642e_aa4e_4dad_9488705ed9e4082c" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{{ 200 1 0 "85a699be_09a8_4a04_ade90a6b56db79ba" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::GetPlateTypeDefinition(intDeviceID, arrStrPlateTypeNames.ElementAt( intSelectedIndex -1), strPlateDefinition);
+// }} ""
+// {{{ 201 1 0 "8471a5f3_2aca_4e02_8485d63b4effc1d3" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "GetPlateTypeDefinition");
+// }} ""
+// {{ 202 1 0 "1dc7a51f_88d1_4fc2_ab71ee6397d19bd1" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialogADFAA904B0F64a30B9472711C20624A7.InitCustomDialog( "1dc7a51f_88d1_4fc2_ab71ee6397d19bd1" );
+customDialogADFAA904B0F64a30B9472711C20624A7.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialogADFAA904B0F64a30B9472711C20624A7.SetCustomDialogProperty( "textBlock3.Text", strPlateDefinition );
+customDialogADFAA904B0F64a30B9472711C20624A7.ShowCustomDialog();
+intDialogReturn = customDialogADFAA904B0F64a30B9472711C20624A7.GetCustomDialogProperty( "ReturnValue" );
+// }} ""
+// {{{ 203 1 0 "70741906_9739_428c_a663111d81aa04d1" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Plate Definition");
+// }} ""
+// {{ 204 1 0 "3f6b642e_aa4e_4dad_9488705ed9e4082c" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 205 1 0 "85197272_20c9_416d_8c08b382d68e7e97" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 206 1 0 "42e91969_876a_4ad6_babe77354e73d0f2" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnGetPlateLayout == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 207 1 0 "97170fa7_fdcc_4bd4_850b57f509375c28" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialogD87E6FA6F3F740b08D250B33CCC518CF.InitCustomDialog( "97170fa7_fdcc_4bd4_850b57f509375c28" );
+customDialogD87E6FA6F3F740b08D250B33CCC518CF.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialogD87E6FA6F3F740b08D250B33CCC518CF.ShowCustomDialog();
+intDialogReturn = customDialogD87E6FA6F3F740b08D250B33CCC518CF.GetCustomDialogProperty( "ReturnValue" );
+strProtocolId = customDialogD87E6FA6F3F740b08D250B33CCC518CF.GetCustomDialogProperty( "textBox1.Text" );
+// }} ""
+// {{{ 208 1 0 "a0dee238_3afa_491a_84d41b5cc83a1613" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Plate Layout");
+// }} ""
+// {{ 209 1 0 "b72ffcd1_5fae_445a_894cc87fb3dc801a" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{{ 210 1 0 "bace1b6e_5a61_4751_a53644b0997bf31d" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::GetPlateLayout(intDeviceID, strProtocolId, strPlateLayout);
+// }} ""
+// {{{ 211 1 0 "efdc6d7c_d8d5_49d1_8fec6406b12aa711" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "GetPlateLayout");
+// }} ""
+// {{ 212 1 0 "009bad37_274b_4363_81c08ffe7bb72e8f" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialogB8D93A14E54347e29141FD54FA752C5B.InitCustomDialog( "009bad37_274b_4363_81c08ffe7bb72e8f" );
+customDialogB8D93A14E54347e29141FD54FA752C5B.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialogB8D93A14E54347e29141FD54FA752C5B.SetCustomDialogProperty( "textBlock3.Text", strPlateLayout );
+customDialogB8D93A14E54347e29141FD54FA752C5B.ShowCustomDialog();
+intDialogReturn = customDialogB8D93A14E54347e29141FD54FA752C5B.GetCustomDialogProperty( "ReturnValue" );
+// }} ""
+// {{{ 213 1 0 "7457ef70_f043_4d31_a69320152ea530ff" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Plate Layout");
+// }} ""
+// {{ 214 1 0 "b72ffcd1_5fae_445a_894cc87fb3dc801a" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 215 1 0 "42e91969_876a_4ad6_babe77354e73d0f2" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 216 1 0 "8dfb0233_415d_4834_b6f38f753f6a05b3" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnSetPlateLayout == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 217 1 0 "3d3dd27a_e16e_43ee_be098c95a7ecd76a" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog765122FB122C4eefB91BB737837CB34A.InitCustomDialog( "3d3dd27a_e16e_43ee_be098c95a7ecd76a" );
+customDialog765122FB122C4eefB91BB737837CB34A.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog765122FB122C4eefB91BB737837CB34A.ShowCustomDialog();
+intDialogReturn = customDialog765122FB122C4eefB91BB737837CB34A.GetCustomDialogProperty( "ReturnValue" );
+strPlateLayout = customDialog765122FB122C4eefB91BB737837CB34A.GetCustomDialogProperty( "textBox1.Text" );
+// }} ""
+// {{{ 218 1 0 "9671606b_d28e_4a16_892e4193f884b549" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Plate Layout");
+// }} ""
+// {{ 219 1 0 "f17f83ba_119c_4bb1_8a3bf9fc27b59236" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{{ 220 1 0 "84892dd3_9340_44f5_a83d4509533bd08a" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::SetPlateLayout(intDeviceID, strPlateLayout);
+// }} ""
+// {{{ 221 1 0 "c4caa1a7_5525_43ed_9b89e0ba13d2abc8" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "SetPlateLayout");
+// }} ""
+// {{ 222 1 0 "f17f83ba_119c_4bb1_8a3bf9fc27b59236" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 223 1 0 "8dfb0233_415d_4834_b6f38f753f6a05b3" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 224 1 0 "27a04ea0_bb4d_4f58_8e31920b63b2ab6d" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnAddPlate == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 225 1 0 "2d35d392_b8ff_49c9_83cc5a4785bf95f9" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialogF5526F577AB4444dBAE614B7E18A6582.InitCustomDialog( "2d35d392_b8ff_49c9_83cc5a4785bf95f9" );
+customDialogF5526F577AB4444dBAE614B7E18A6582.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialogF5526F577AB4444dBAE614B7E18A6582.ShowCustomDialog();
+intDialogReturn = customDialogF5526F577AB4444dBAE614B7E18A6582.GetCustomDialogProperty( "ReturnValue" );
+strPlateId = customDialogF5526F577AB4444dBAE614B7E18A6582.GetCustomDialogProperty( "textBox1.Text" );
+strPlateBarcode = customDialogF5526F577AB4444dBAE614B7E18A6582.GetCustomDialogProperty( "textBox2.Text" );
+// }} ""
+// {{{ 226 1 0 "a1ea7700_d771_40e1_9e12805bb386121f" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Add Plate");
+// }} ""
+// {{ 227 1 0 "31a0f851_2cdf_4c0a_abedef7ef3418677" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{{ 228 1 0 "02dfe65c_8326_4d81_a365476ecd7cb7d9" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::AddPlate(intDeviceID, strPlateId, strPlateBarcode);
+// }} ""
+// {{{ 229 1 0 "7ec18f79_47b0_43b0_941d18f34788f90d" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "AddPlate");
+// }} ""
+// {{ 230 1 0 "9331d2b0_5c91_48eb_82d42d57ba101e63" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+_plateInitialized = ASWGLOBAL::BOOL::TRUE;
+// }} ""
+// {{ 231 1 0 "31a0f851_2cdf_4c0a_abedef7ef3418677" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 232 1 0 "27a04ea0_bb4d_4f58_8e31920b63b2ab6d" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 233 1 0 "78e080d0_c547_4215_b8b02fa197810b99" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnSelectPlate == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 234 1 0 "b620d9f7_c8a9_483d_896f6a49164b7916" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog91DF4427D688490c8998C27E0DC928E3.InitCustomDialog( "b620d9f7_c8a9_483d_896f6a49164b7916" );
+customDialog91DF4427D688490c8998C27E0DC928E3.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog91DF4427D688490c8998C27E0DC928E3.ShowCustomDialog();
+intDialogReturn = customDialog91DF4427D688490c8998C27E0DC928E3.GetCustomDialogProperty( "ReturnValue" );
+intPlateIndex = customDialog91DF4427D688490c8998C27E0DC928E3.GetCustomDialogProperty( "numeric1.Value" );
+// }} ""
+// {{{ 235 1 0 "61fb6ba4_7bae_490f_b3e0954bef548126" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Add Plate");
+// }} ""
+// {{ 236 1 0 "113584c4_4a30_4897_b61bd27e83b8c634" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{{ 237 1 0 "2a24a1a9_e105_4f69_bd7c1bdcfd2e72f8" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::SelectPlate(intDeviceID, intPlateIndex);
+// }} ""
+// {{{ 238 1 0 "e870a4cd_3e7b_45df_b9e8bbf7a5da6c4c" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "SelectPlate");
+// }} ""
+// {{ 239 1 0 "3e95e7aa_9a21_4678_883f676e64a8a599" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+_plateInitialized = ASWGLOBAL::BOOL::TRUE;
+// }} ""
+// {{ 240 1 0 "113584c4_4a30_4897_b61bd27e83b8c634" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 241 1 0 "78e080d0_c547_4215_b8b02fa197810b99" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 242 1 0 "8af963af_d868_4ee3_be4fc18cde3d2a0f" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnDeletePlate == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{{ 243 1 0 "8bd8b6a1_b398_45eb_92cc992d48b9bdde" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::DeletePlate(intDeviceID);
+// }} ""
+// {{{ 244 1 0 "9120a536_543e_448c_b09e28328800af42" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "DeletePlate");
+// }} ""
+// {{ 245 1 0 "2da06006_b5ca_4310_908698c5a9c462aa" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+_plateInitialized = ASWGLOBAL::BOOL::FALSE;
+// }} ""
+// {{ 246 1 0 "8af963af_d868_4ee3_be4fc18cde3d2a0f" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 247 1 0 "24b21df2_c86d_43e5_91b033e93970425f" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnStartReadPlate == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{{ 248 1 0 "77d47706_2a60_441e_9e19f5b0a6c709e4" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::StartReadPlate(intDeviceID);
+// }} ""
+// {{{ 249 1 0 "4274e0bb_2c64_405b_8a69733741983309" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "StartReadPlate");
+// }} ""
+// {{ 250 1 0 "24b21df2_c86d_43e5_91b033e93970425f" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 251 1 0 "10d5d981_c03b_4008_9e36d5c751016f3c" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnStartSimulatedReadPlate == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{{ 252 1 0 "09f8d81d_65bf_4d72_94933eda968e7791" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::StartSimulatedReadPlate(intDeviceID);
+// }} ""
+// {{{ 253 1 0 "23903316_f3c8_4db2_92c14a2b3b9fe0db" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "StartSimulatedReadPlate");
+// }} ""
+// {{ 254 1 0 "10d5d981_c03b_4008_9e36d5c751016f3c" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 255 1 0 "9ae66e54_278b_4e25_9f24a19e69280a9d" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnStartReadFromFile == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 256 1 0 "94c0462c_ac25_43a3_b8b54a60c8191319" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialogC7C96A245667427cA66331470F6ABB92.InitCustomDialog( "94c0462c_ac25_43a3_b8b54a60c8191319" );
+customDialogC7C96A245667427cA66331470F6ABB92.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialogC7C96A245667427cA66331470F6ABB92.ShowCustomDialog();
+intDialogReturn = customDialogC7C96A245667427cA66331470F6ABB92.GetCustomDialogProperty( "ReturnValue" );
+strListSeparator = customDialogC7C96A245667427cA66331470F6ABB92.GetCustomDialogProperty( "textBox1.Text" );
+strFilePath = customDialogC7C96A245667427cA66331470F6ABB92.GetCustomDialogProperty( "path1.Path" );
+// }} ""
+// {{{ 257 1 0 "f676c110_0c7b_40d5_8a9814ed7eaa0d4d" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Add Plate");
+// }} ""
+// {{ 258 1 0 "b8b1a5b1_a9f1_4e2e_b5bfd3b2f7451a0b" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{{ 259 1 0 "b9c08a63_f2c9_425c_9c4004db3ed4edde" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::StartReadFromFile(intDeviceID, strFilePath, strListSeparator);
+// }} ""
+// {{{ 260 1 0 "dd1829b4_8415_4198_83d3e53be3b7295c" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "StartReadFromFile");
+// }} ""
+// {{ 261 1 0 "b8b1a5b1_a9f1_4e2e_b5bfd3b2f7451a0b" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 262 1 0 "9ae66e54_278b_4e25_9f24a19e69280a9d" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 263 1 0 "4930f486_6755_490e_b1a2cd65901856b6" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnResumeReadPlate == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{{ 264 1 0 "d2fc4287_da3c_432d_a343d85c137f961b" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::ResumeReadPlate(intDeviceID);
+// }} ""
+// {{{ 265 1 0 "efc8d8a1_6a58_4fb3_bd5150a3da82169c" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "ResumeReadPlate");
+// }} ""
+// {{ 266 1 0 "4930f486_6755_490e_b1a2cd65901856b6" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 267 1 0 "739c4125_a8e0_46dd_bd326c3d10d1a69f" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnResumeSimulatedReadPlate == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{{ 268 1 0 "3ca952a9_b731_4f05_ac255a81a80e35d0" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::ResumeSimulatedReadPlate(intDeviceID);
+// }} ""
+// {{{ 269 1 0 "4b0f8325_9405_4792_a79d5e447306b4ef" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "ResumeSimulatedReadPlate");
+// }} ""
+// {{ 270 1 0 "739c4125_a8e0_46dd_bd326c3d10d1a69f" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 271 1 0 "232ab934_dd6d_44f1_8f222177d4c80cdc" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnAbortReadPlate == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{{ 272 1 0 "3968401d_4c74_4d8c_bbbd307e319ead8d" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::AbortReadPlate(intDeviceID);
+// }} ""
+// {{{ 273 1 0 "25d4b8d7_e761_4a89_a458382892a3ddac" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "AbortReadPlate");
+// }} ""
+// {{ 274 1 0 "232ab934_dd6d_44f1_8f222177d4c80cdc" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 275 1 0 "473e2e56_e2fc_4b89_8c36f73d5a69478b" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnGetReadStatus == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 276 1 0 "3285887b_ffdd_449c_8d0a7db09e16b786" "{B31F3532-5D80-11d4-A5EB-0050DA737D89}"
+{
+loopCounter2 = 0;
+while (ASWGLOBAL::BOOL::TRUE == ASWGLOBAL::BOOL::TRUE)
+{
+loopCounter2 = loopCounter2 + 1;
+// }} ""
+// {{{ 277 1 0 "56ca269d_3411_4a29_9e3ec7d54565bfa7" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::GetReadStatus(intDeviceID, intReadStatus);
+// }} ""
+// {{{ 278 1 0 "7f55e7ef_3a38_4682_a21086b559f936fc" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "GetReadStatus");
+// }} ""
+// {{ 279 1 0 "2edeb7d9_34b8_4b39_bcc6b436679bd53d" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialogA11939EC24184bc8A8225CA8F7FE47CF.InitCustomDialog( "2edeb7d9_34b8_4b39_bcc6b436679bd53d" );
+customDialogA11939EC24184bc8A8225CA8F7FE47CF.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialogA11939EC24184bc8A8225CA8F7FE47CF.SetCustomDialogProperty( "textBlock3.Text", intReadStatus );
+customDialogA11939EC24184bc8A8225CA8F7FE47CF.ShowCustomDialog();
+intDialogReturn = customDialogA11939EC24184bc8A8225CA8F7FE47CF.GetCustomDialogProperty( "ReturnValue" );
+// }} ""
+// {{{ 280 1 0 "a91b955d_a7e0_4b5f_95edc2951e0d3926" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Read Status");
+// }} ""
+// {{ 281 1 0 "e05f4382_5976_408c_9141facff0c8d3e2" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{ 282 1 0 "6af48fe9_8e12_4321_9d3161782e62a139" "{B31F3533-5D80-11d4-A5EB-0050DA737D89}"
+break;
+// }} ""
+// {{ 283 1 0 "e05f4382_5976_408c_9141facff0c8d3e2" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 284 1 0 "3285887b_ffdd_449c_8d0a7db09e16b786" "{B31F3532-5D80-11d4-A5EB-0050DA737D89}"
+}
+}
+// }} ""
+// {{ 285 1 0 "473e2e56_e2fc_4b89_8c36f73d5a69478b" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 286 1 0 "3aa69e2a_0297_4d45_915b3660b0329bec" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnSetProcedure == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 287 1 0 "dcddbc86_16bb_479f_a66535a499320dea" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog8DB236B7A46449718292E0C97ED109F5.InitCustomDialog( "dcddbc86_16bb_479f_a66535a499320dea" );
+customDialog8DB236B7A46449718292E0C97ED109F5.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog8DB236B7A46449718292E0C97ED109F5.ShowCustomDialog();
+intDialogReturn = customDialog8DB236B7A46449718292E0C97ED109F5.GetCustomDialogProperty( "ReturnValue" );
+strProcedure = customDialog8DB236B7A46449718292E0C97ED109F5.GetCustomDialogProperty( "textBox1.Text" );
+// }} ""
+// {{{ 288 1 0 "887889ad_424d_4377_a566241ba3a44d19" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Set Procedure");
+// }} ""
+// {{ 289 1 0 "55dd7797_e591_4b7e_b4510e91344954b7" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{{ 290 1 0 "d7be13cf_ddbb_4422_bc4be889b2fac0e0" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSetProcedure = Agilent_Gen5_Interface::SetProcedure(intDeviceID, strProcedure);
+// }} ""
+// {{{ 291 1 0 "d8aabb21_601c_4132_b9298bbf470e1445" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "SetProcedure");
+// }} ""
+// {{ 292 1 0 "55dd7797_e591_4b7e_b4510e91344954b7" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 293 1 0 "3aa69e2a_0297_4d45_915b3660b0329bec" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 294 1 0 "d5319ca2_c7c8_4930_92c64df26f28ef36" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnImportSampleIDs == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 295 1 0 "b31a475b_e57e_43df_babe475c827f3a4a" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog56782A25DA514aa5B1A550046B05B454.InitCustomDialog( "b31a475b_e57e_43df_babe475c827f3a4a" );
+customDialog56782A25DA514aa5B1A550046B05B454.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog56782A25DA514aa5B1A550046B05B454.ShowCustomDialog();
+intDialogReturn = customDialog56782A25DA514aa5B1A550046B05B454.GetCustomDialogProperty( "ReturnValue" );
+strFilePath = customDialog56782A25DA514aa5B1A550046B05B454.GetCustomDialogProperty( "path1.Path" );
+// }} ""
+// {{{ 296 1 0 "9716c813_2285_4b9c_bf855b073a031a25" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Import Sample IDs");
+// }} ""
+// {{ 297 1 0 "55f30ae5_eff1_4147_b82b22f60d997326" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{{ 298 1 0 "2e465b2e_8e86_4f1f_9d3bf3137a5c3bbe" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::ImportSampleIDs(intDeviceID, strFilePath);
+// }} ""
+// {{{ 299 1 0 "fd60bbef_1d40_45cd_81feaf7449ca2ce3" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "ImportSampleIDs");
+// }} ""
+// {{ 300 1 0 "55f30ae5_eff1_4147_b82b22f60d997326" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 301 1 0 "d5319ca2_c7c8_4930_92c64df26f28ef36" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 302 1 0 "ed706c66_3e8a_4117_b1cab2b0f6c88fa0" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnGetRawDataSetInfo == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{{ 303 1 0 "0af0a32d_1b7b_4d6e_a385fe2e37fc3d0c" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::GetRawDataSetInfo(intDeviceID, arrStrDataSetNames, arrIntDecimalPlaces, arrIntKineticReads, arrIntKineticIntervalMilliseconds, arrIntDisplayMilliseconds, arrIntSpectrumWavelengths, arrIntSpectrumStarts, arrIntSpectrumSteps, arrIntHorizontalReads, arrIntVerticalReads);
+// }} ""
+// {{{ 304 1 0 "f10e3cbe_9c00_4aa0_b6db608db013e7c4" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "GetRawDataSetInfo");
+// }} ""
+// {{ 305 1 0 "95a54fac_49cc_4e17_a7c96062874f483a" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialogB06205BED28F45e0AAE9DE8777AA2C2F.InitCustomDialog( "95a54fac_49cc_4e17_a7c96062874f483a" );
+customDialogB06205BED28F45e0AAE9DE8777AA2C2F.SetCustomDialogArrayProperty( "comboBox1.ItemsSource", arrStrDataSetNames );
+customDialogB06205BED28F45e0AAE9DE8777AA2C2F.SetCustomDialogArrayProperty( "comboBox2.ItemsSource", arrIntDecimalPlaces );
+customDialogB06205BED28F45e0AAE9DE8777AA2C2F.SetCustomDialogArrayProperty( "comboBox3.ItemsSource", arrIntKineticReads );
+customDialogB06205BED28F45e0AAE9DE8777AA2C2F.SetCustomDialogArrayProperty( "comboBox4.ItemsSource", arrIntKineticIntervalMilliseconds );
+customDialogB06205BED28F45e0AAE9DE8777AA2C2F.SetCustomDialogArrayProperty( "comboBox5.ItemsSource", arrIntDisplayMilliseconds );
+customDialogB06205BED28F45e0AAE9DE8777AA2C2F.SetCustomDialogArrayProperty( "comboBox6.ItemsSource", arrIntSpectrumWavelengths );
+customDialogB06205BED28F45e0AAE9DE8777AA2C2F.SetCustomDialogArrayProperty( "comboBox7.ItemsSource", arrIntSpectrumStarts );
+customDialogB06205BED28F45e0AAE9DE8777AA2C2F.SetCustomDialogArrayProperty( "comboBox8.ItemsSource", arrIntSpectrumSteps );
+customDialogB06205BED28F45e0AAE9DE8777AA2C2F.SetCustomDialogArrayProperty( "comboBox9.ItemsSource", arrIntHorizontalReads );
+customDialogB06205BED28F45e0AAE9DE8777AA2C2F.SetCustomDialogArrayProperty( "comboBox10.ItemsSource", arrIntVerticalReads );
+customDialogB06205BED28F45e0AAE9DE8777AA2C2F.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialogB06205BED28F45e0AAE9DE8777AA2C2F.ShowCustomDialog();
+intDialogReturn = customDialogB06205BED28F45e0AAE9DE8777AA2C2F.GetCustomDialogProperty( "ReturnValue" );
+// }} ""
+// {{{ 306 1 0 "41c00496_b383_4c48_b96841f86aacae30" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Raw Data Set Info");
+// }} ""
+// {{ 307 1 0 "ed706c66_3e8a_4117_b1cab2b0f6c88fa0" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 308 1 0 "7dcd388e_5c5e_4ec7_b02afcc248e75b9e" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnGetRawData == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 309 1 0 "a151e36c_bac0_4003_9e11cb61aa052744" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog5328CB67CB31488cB0CB8F8562A230AB.InitCustomDialog( "a151e36c_bac0_4003_9e11cb61aa052744" );
+customDialog5328CB67CB31488cB0CB8F8562A230AB.SetCustomDialogArrayProperty( "comboBox1.ItemsSource", arrStrDataSetNames );
+customDialog5328CB67CB31488cB0CB8F8562A230AB.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog5328CB67CB31488cB0CB8F8562A230AB.ShowCustomDialog();
+intDialogReturn = customDialog5328CB67CB31488cB0CB8F8562A230AB.GetCustomDialogProperty( "ReturnValue" );
+strDataSetName = customDialog5328CB67CB31488cB0CB8F8562A230AB.GetCustomDialogProperty( "textBox1.Text" );
+intSelectedIndex = customDialog5328CB67CB31488cB0CB8F8562A230AB.GetCustomDialogProperty( "comboBox1.SelectedIndex" );
+blnUseDataSetNameFromList = customDialog5328CB67CB31488cB0CB8F8562A230AB.GetCustomDialogProperty( "checkBox1.IsChecked" );
+// }} ""
+// {{{ 310 1 0 "f5ca8bb3_fee0_4252_b29383ddee572b47" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Raw Data");
+// }} ""
+// {{ 311 1 0 "f705d519_1047_4958_9a44a62a1ae328e9" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{ 312 1 0 "e3b44afc_ac5a_4c55_8c879f9061e3621b" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnUseDataSetNameFromList == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{{ 313 1 0 "95db6960_9a73_47e5_856576b57adb84fd" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::GetRawData(intDeviceID, strDataSetName, intRetrieveRawDataStatus, arrIntRows, arrIntColumns, arrIntKineticIndex, arrIntWavelengthIndex, arrIntHorizontalIndex, arrIntVerticalIndex, arrIntPrimaryStatus, arrIntSecondaryStatus, arrFltReadValues);
+// }} ""
+// {{{ 314 1 0 "4dc6f5ee_229d_4da6_bfb17187a45b0d68" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "GetRawData");
+// }} ""
+// {{ 315 1 0 "e3b44afc_ac5a_4c55_8c879f9061e3621b" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+else
+{
+// }} ""
+// {{{ 316 1 0 "ca6cbab8_d8e9_4bb9_b950a8406fde8397" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::GetRawData(intDeviceID, arrStrDataSetNames.ElementAt( intSelectedIndex -1), intRetrieveRawDataStatus, arrIntRows, arrIntColumns, arrIntKineticIndex, arrIntWavelengthIndex, arrIntHorizontalIndex, arrIntVerticalIndex, arrIntPrimaryStatus, arrIntSecondaryStatus, arrFltReadValues);
+// }} ""
+// {{{ 317 1 0 "0e92768c_df20_4108_a018aeda135f233e" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "GetRawData");
+// }} ""
+// {{ 318 1 0 "e3b44afc_ac5a_4c55_8c879f9061e3621b" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 319 1 0 "bac868bc_2683_4f69_a8562b28155af0cc" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialogDE5EAE67BD724a648BBF00991663FC18.InitCustomDialog( "bac868bc_2683_4f69_a8562b28155af0cc" );
+customDialogDE5EAE67BD724a648BBF00991663FC18.SetCustomDialogArrayProperty( "comboBox1.ItemsSource", arrIntRows );
+customDialogDE5EAE67BD724a648BBF00991663FC18.SetCustomDialogArrayProperty( "comboBox2.ItemsSource", arrIntColumns );
+customDialogDE5EAE67BD724a648BBF00991663FC18.SetCustomDialogArrayProperty( "comboBox3.ItemsSource", arrIntKineticIndex );
+customDialogDE5EAE67BD724a648BBF00991663FC18.SetCustomDialogArrayProperty( "comboBox4.ItemsSource", arrIntWavelengthIndex );
+customDialogDE5EAE67BD724a648BBF00991663FC18.SetCustomDialogArrayProperty( "comboBox5.ItemsSource", arrIntHorizontalIndex );
+customDialogDE5EAE67BD724a648BBF00991663FC18.SetCustomDialogArrayProperty( "comboBox6.ItemsSource", arrIntVerticalIndex );
+customDialogDE5EAE67BD724a648BBF00991663FC18.SetCustomDialogArrayProperty( "comboBox7.ItemsSource", arrIntPrimaryStatus );
+customDialogDE5EAE67BD724a648BBF00991663FC18.SetCustomDialogArrayProperty( "comboBox8.ItemsSource", arrIntSecondaryStatus );
+customDialogDE5EAE67BD724a648BBF00991663FC18.SetCustomDialogArrayProperty( "comboBox9.ItemsSource", arrFltReadValues );
+customDialogDE5EAE67BD724a648BBF00991663FC18.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialogDE5EAE67BD724a648BBF00991663FC18.SetCustomDialogProperty( "textBlock13.Text", intRetrieveRawDataStatus );
+customDialogDE5EAE67BD724a648BBF00991663FC18.ShowCustomDialog();
+intDialogReturn = customDialogDE5EAE67BD724a648BBF00991663FC18.GetCustomDialogProperty( "ReturnValue" );
+// }} ""
+// {{{ 320 1 0 "93ca367d_0ba2_456d_8cfd9fabcae02f15" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Raw Data");
+// }} ""
+// {{ 321 1 0 "f705d519_1047_4958_9a44a62a1ae328e9" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 322 1 0 "7dcd388e_5c5e_4ec7_b02afcc248e75b9e" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 323 1 0 "7e5ec9e0_60ab_46ce_b45d22adf0d37436" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnGetSampleDescription == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{{ 324 1 0 "ced4e6f3_77e4_446c_a6d83db738483569" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::GetSampleDescription(intDeviceID, strSampleDescription);
+// }} ""
+// {{{ 325 1 0 "03845346_6ad2_4ccc_a12a332448d61ef2" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "GetSampleDescription");
+// }} ""
+// {{ 326 1 0 "87f7d7cf_08cb_4e88_8175cf179b48d049" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialogA2B10199D7A2455f8CD7BC4C534C1B7A.InitCustomDialog( "87f7d7cf_08cb_4e88_8175cf179b48d049" );
+customDialogA2B10199D7A2455f8CD7BC4C534C1B7A.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialogA2B10199D7A2455f8CD7BC4C534C1B7A.SetCustomDialogProperty( "textBlock3.Text", strSampleDescription );
+customDialogA2B10199D7A2455f8CD7BC4C534C1B7A.ShowCustomDialog();
+intDialogReturn = customDialogA2B10199D7A2455f8CD7BC4C534C1B7A.GetCustomDialogProperty( "ReturnValue" );
+// }} ""
+// {{{ 327 1 0 "4f4f3e0b_a84e_41f4_ae87e5f7c421c296" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Sample Description");
+// }} ""
+// {{ 328 1 0 "7e5ec9e0_60ab_46ce_b45d22adf0d37436" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 329 1 0 "6c302f6c_7292_4819_b77d580e9e78c417" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnSetSampleDescription == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 330 1 0 "3569a2b0_6c73_4192_8a4390b535b6a65e" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialogF24ED69921F04e3dA4DAAE67AEF6EE77.InitCustomDialog( "3569a2b0_6c73_4192_8a4390b535b6a65e" );
+customDialogF24ED69921F04e3dA4DAAE67AEF6EE77.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialogF24ED69921F04e3dA4DAAE67AEF6EE77.ShowCustomDialog();
+intDialogReturn = customDialogF24ED69921F04e3dA4DAAE67AEF6EE77.GetCustomDialogProperty( "ReturnValue" );
+strSampleDescription = customDialogF24ED69921F04e3dA4DAAE67AEF6EE77.GetCustomDialogProperty( "textBox1.Text" );
+// }} ""
+// {{{ 331 1 0 "c9b2e2c0_fb8c_4a11_9e7802e66dbb571c" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Set Sample Description");
+// }} ""
+// {{ 332 1 0 "80c72920_f855_49e7_bb923d0b972e3be4" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{{ 333 1 0 "04458ef4_7da0_4b87_9878919a0813605e" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::SetSampleDescription(intDeviceID, strSampleDescription);
+// }} ""
+// {{{ 334 1 0 "bc04bf75_9879_4eab_894b0e3feec4f192" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "SetSampleDescription");
+// }} ""
+// {{ 335 1 0 "80c72920_f855_49e7_bb923d0b972e3be4" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 336 1 0 "6c302f6c_7292_4819_b77d580e9e78c417" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 337 1 0 "c7549423_e2da_48fe_99c9c2fff7f1b0d0" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnGetDataSetNames == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 338 1 0 "460a084c_e1e7_4498_9ce838958d343126" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog016D178E6BDB4a62A1DE5010FFAE43CA.InitCustomDialog( "460a084c_e1e7_4498_9ce838958d343126" );
+customDialog016D178E6BDB4a62A1DE5010FFAE43CA.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog016D178E6BDB4a62A1DE5010FFAE43CA.ShowCustomDialog();
+intDialogReturn = customDialog016D178E6BDB4a62A1DE5010FFAE43CA.GetCustomDialogProperty( "ReturnValue" );
+strProtocolId = customDialog016D178E6BDB4a62A1DE5010FFAE43CA.GetCustomDialogProperty( "textBox1.Text" );
+// }} ""
+// {{{ 339 1 0 "75f7c54e_dc3c_4ae7_95d547c1e7ce91d7" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Data Set Names");
+// }} ""
+// {{ 340 1 0 "c839d0ed_d5f4_4862_a51b947f2586940d" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{{ 341 1 0 "9ab0e247_8414_49c0_b27b57e671855eba" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::GetDataSetNames(intDeviceID, strProtocolId, arrStrDataSetNames);
+// }} ""
+// {{{ 342 1 0 "0f5b439f_d51c_45e3_884de1d5cb400dcc" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "GetDataSetNames");
+// }} ""
+// {{ 343 1 0 "0ebc76e0_afa3_4b8d_920b0c9dc31a79f6" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog08821F5D14774c9bBA0134FF1C3B2247.InitCustomDialog( "0ebc76e0_afa3_4b8d_920b0c9dc31a79f6" );
+customDialog08821F5D14774c9bBA0134FF1C3B2247.SetCustomDialogArrayProperty( "comboBox1.ItemsSource", arrStrDataSetNames );
+customDialog08821F5D14774c9bBA0134FF1C3B2247.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog08821F5D14774c9bBA0134FF1C3B2247.ShowCustomDialog();
+intDialogReturn = customDialog08821F5D14774c9bBA0134FF1C3B2247.GetCustomDialogProperty( "ReturnValue" );
+// }} ""
+// {{{ 344 1 0 "379f798d_bef3_469a_bd8591dc1d413ea4" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Data Set Names");
+// }} ""
+// {{ 345 1 0 "c839d0ed_d5f4_4862_a51b947f2586940d" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 346 1 0 "c7549423_e2da_48fe_99c9c2fff7f1b0d0" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 347 1 0 "da986a32_f194_4722_a160f12b32cbb6a5" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnGetDataSetInfo == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 348 1 0 "80aa6db3_7d92_4153_984df566cb85c880" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialogBB92B86809024fb4B3C603F58979E67D.InitCustomDialog( "80aa6db3_7d92_4153_984df566cb85c880" );
+customDialogBB92B86809024fb4B3C603F58979E67D.SetCustomDialogArrayProperty( "comboBox1.ItemsSource", arrStrDataSetNames );
+customDialogBB92B86809024fb4B3C603F58979E67D.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialogBB92B86809024fb4B3C603F58979E67D.ShowCustomDialog();
+intDialogReturn = customDialogBB92B86809024fb4B3C603F58979E67D.GetCustomDialogProperty( "ReturnValue" );
+strDataSetName = customDialogBB92B86809024fb4B3C603F58979E67D.GetCustomDialogProperty( "textBox1.Text" );
+intSelectedIndex = customDialogBB92B86809024fb4B3C603F58979E67D.GetCustomDialogProperty( "comboBox1.SelectedIndex" );
+blnUseDataSetNameFromList = customDialogBB92B86809024fb4B3C603F58979E67D.GetCustomDialogProperty( "checkBox1.IsChecked" );
+strProtocolId = customDialogBB92B86809024fb4B3C603F58979E67D.GetCustomDialogProperty( "textBox2.Text" );
+// }} ""
+// {{{ 349 1 0 "2663e3e0_9ef8_4bca_ad1a8f12f295f5d9" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Data Set Info");
+// }} ""
+// {{ 350 1 0 "b28e60f1_9e4e_415a_a6ca62fc670d6d78" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{ 351 1 0 "12de5498_ebc1_44e0_884fe57522441b09" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnUseDataSetNameFromList == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{{ 352 1 0 "c80fb940_f129_4a8d_820af5a1ef65e16a" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::GetDataSetInfo(intDeviceID, strProtocolId, arrStrDataSetNames.ElementAt( intSelectedIndex -1), strDataSetInfo);
+// }} ""
+// {{{ 353 1 0 "62b02473_55e1_4bb9_a930f4cc355eaf68" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "GetDataSetInfo");
+// }} ""
+// {{ 354 1 0 "12de5498_ebc1_44e0_884fe57522441b09" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+else
+{
+// }} ""
+// {{{ 355 1 0 "4f0f2f3a_e017_42f0_a4c66a7f14b7ac81" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::GetDataSetInfo(intDeviceID, strProtocolId, strDataSetName, strDataSetInfo);
+// }} ""
+// {{{ 356 1 0 "dee1d026_4835_46f7_867517b53e7df6e0" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "GetDataSetInfo");
+// }} ""
+// {{ 357 1 0 "12de5498_ebc1_44e0_884fe57522441b09" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 358 1 0 "41d8d685_80e2_464d_bf0a8fda51998bc3" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog536814EC2C364de3AD96583DB76D4F80.InitCustomDialog( "41d8d685_80e2_464d_bf0a8fda51998bc3" );
+customDialog536814EC2C364de3AD96583DB76D4F80.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog536814EC2C364de3AD96583DB76D4F80.SetCustomDialogProperty( "textBlock3.Text", strDataSetInfo );
+customDialog536814EC2C364de3AD96583DB76D4F80.ShowCustomDialog();
+intDialogReturn = customDialog536814EC2C364de3AD96583DB76D4F80.GetCustomDialogProperty( "ReturnValue" );
+// }} ""
+// {{{ 359 1 0 "42089f4b_9bf5_4194_bc1c6d859063b428" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Data Set Info");
+// }} ""
+// {{ 360 1 0 "b28e60f1_9e4e_415a_a6ca62fc670d6d78" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 361 1 0 "da986a32_f194_4722_a160f12b32cbb6a5" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 362 1 0 "ae257aaf_98e4_4845_a0f01b1338725e4f" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnGetDataSetResults == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 363 1 0 "e1e6c8c0_bcd2_48e9_a29376f0783d4fe7" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialogC96ACE5E09D3456587FF639E19BF06AE.InitCustomDialog( "e1e6c8c0_bcd2_48e9_a29376f0783d4fe7" );
+customDialogC96ACE5E09D3456587FF639E19BF06AE.SetCustomDialogArrayProperty( "comboBox1.ItemsSource", arrStrDataSetNames );
+customDialogC96ACE5E09D3456587FF639E19BF06AE.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialogC96ACE5E09D3456587FF639E19BF06AE.ShowCustomDialog();
+intDialogReturn = customDialogC96ACE5E09D3456587FF639E19BF06AE.GetCustomDialogProperty( "ReturnValue" );
+strDataSetName = customDialogC96ACE5E09D3456587FF639E19BF06AE.GetCustomDialogProperty( "textBox1.Text" );
+intSelectedIndex = customDialogC96ACE5E09D3456587FF639E19BF06AE.GetCustomDialogProperty( "comboBox1.SelectedIndex" );
+blnUseDataSetNameFromList = customDialogC96ACE5E09D3456587FF639E19BF06AE.GetCustomDialogProperty( "checkBox1.IsChecked" );
+strProtocolId = customDialogC96ACE5E09D3456587FF639E19BF06AE.GetCustomDialogProperty( "textBox2.Text" );
+strResultIndexes = customDialogC96ACE5E09D3456587FF639E19BF06AE.GetCustomDialogProperty( "textBox3.Text" );
+// }} ""
+// {{{ 364 1 0 "12d0184d_9b68_4691_9d9895d24527edc9" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Data Set Results");
+// }} ""
+// {{ 365 1 0 "3478e295_498a_4a8c_b5ef40fa2cfdf875" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{ 366 1 0 "61f27ebb_67fc_4c3e_a44d67b4d17e1462" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnUseDataSetNameFromList == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{{ 367 1 0 "8ae9b946_0c8b_4043_903a7357472dbaa4" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::GetDataSetResults(intDeviceID, strProtocolId, arrStrDataSetNames.ElementAt( intSelectedIndex -1), strResultIndexes, strDataSetResults);
+// }} ""
+// {{{ 368 1 0 "e902a180_d51d_4e67_af3f29253b53393c" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "GetDataSetResults");
+// }} ""
+// {{ 369 1 0 "61f27ebb_67fc_4c3e_a44d67b4d17e1462" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+else
+{
+// }} ""
+// {{{ 370 1 0 "a4a448d9_c34e_43d0_b6a500d074a5c64e" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::GetDataSetResults(intDeviceID, strProtocolId, strDataSetName, strResultIndexes, strDataSetResults);
+// }} ""
+// {{{ 371 1 0 "daf52305_052c_4530_8299a584bfca13e3" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "GetDataSetResults");
+// }} ""
+// {{ 372 1 0 "61f27ebb_67fc_4c3e_a44d67b4d17e1462" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 373 1 0 "1f5055d3_1c2d_4797_80aba5f487752cae" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog88E547403711403482A3E594B2F1DBDE.InitCustomDialog( "1f5055d3_1c2d_4797_80aba5f487752cae" );
+customDialog88E547403711403482A3E594B2F1DBDE.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog88E547403711403482A3E594B2F1DBDE.SetCustomDialogProperty( "textBlock3.Text", strDataSetResults );
+customDialog88E547403711403482A3E594B2F1DBDE.ShowCustomDialog();
+intDialogReturn = customDialog88E547403711403482A3E594B2F1DBDE.GetCustomDialogProperty( "ReturnValue" );
+// }} ""
+// {{{ 374 1 0 "29c4d483_7cc7_4262_9236f8c415d7fbe6" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Data Set Results");
+// }} ""
+// {{ 375 1 0 "3478e295_498a_4a8c_b5ef40fa2cfdf875" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 376 1 0 "ae257aaf_98e4_4845_a0f01b1338725e4f" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 377 1 0 "a3fffd9d_0ca8_42a9_8d78a10a25115cee" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnGetDataSetROIsInWell == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 378 1 0 "29aa2ce7_09ff_469c_b173fae8781b74e8" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog57FD75D27E8A457f92D678FD792EDB13.InitCustomDialog( "29aa2ce7_09ff_469c_b173fae8781b74e8" );
+customDialog57FD75D27E8A457f92D678FD792EDB13.SetCustomDialogArrayProperty( "comboBox1.ItemsSource", arrStrDataSetNames );
+customDialog57FD75D27E8A457f92D678FD792EDB13.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog57FD75D27E8A457f92D678FD792EDB13.ShowCustomDialog();
+intDialogReturn = customDialog57FD75D27E8A457f92D678FD792EDB13.GetCustomDialogProperty( "ReturnValue" );
+strDataSetName = customDialog57FD75D27E8A457f92D678FD792EDB13.GetCustomDialogProperty( "textBox1.Text" );
+intSelectedIndex = customDialog57FD75D27E8A457f92D678FD792EDB13.GetCustomDialogProperty( "comboBox1.SelectedIndex" );
+blnUseDataSetNameFromList = customDialog57FD75D27E8A457f92D678FD792EDB13.GetCustomDialogProperty( "checkBox1.IsChecked" );
+strProtocolId = customDialog57FD75D27E8A457f92D678FD792EDB13.GetCustomDialogProperty( "textBox2.Text" );
+strWellReferenceXML = customDialog57FD75D27E8A457f92D678FD792EDB13.GetCustomDialogProperty( "textBox3.Text" );
+// }} ""
+// {{{ 379 1 0 "81a1a61a_11fe_4c4b_ac8bca23fce466af" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Data Set ROIs In Well");
+// }} ""
+// {{ 380 1 0 "ac9eec93_73ff_40e2_94dc1f9db1f6e2d7" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{ 381 1 0 "e19353f7_bff8_4d7a_b7dedf96b3adf242" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnUseDataSetNameFromList == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{{ 382 1 0 "058e9dcf_f82c_46d6_8f859d846c1d5a9e" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::GetDataSetROIsInWell(intDeviceID, strProtocolId, arrStrDataSetNames.ElementAt( intSelectedIndex -1), strWellReferenceXML, intNumberOfROIs);
+// }} ""
+// {{{ 383 1 0 "faee4b4d_79f4_4fd9_9e95d5ad0fe2722b" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "GetDataSetROIsInWell");
+// }} ""
+// {{ 384 1 0 "e19353f7_bff8_4d7a_b7dedf96b3adf242" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+else
+{
+// }} ""
+// {{{ 385 1 0 "92f4e456_b65a_40e7_87eed357f16aa6b2" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::GetDataSetROIsInWell(intDeviceID, strProtocolId, strDataSetName, strWellReferenceXML, intNumberOfROIs);
+// }} ""
+// {{{ 386 1 0 "76ea1259_ff44_4dfe_bf9c94166cd0bc43" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "GetDataSetROIsInWell");
+// }} ""
+// {{ 387 1 0 "e19353f7_bff8_4d7a_b7dedf96b3adf242" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 388 1 0 "389e5cd8_e73a_4a96_bc321f1e874cf59e" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialogFCD609CAFCD3485eB28B094F3E8039CC.InitCustomDialog( "389e5cd8_e73a_4a96_bc321f1e874cf59e" );
+customDialogFCD609CAFCD3485eB28B094F3E8039CC.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialogFCD609CAFCD3485eB28B094F3E8039CC.ShowCustomDialog();
+intDialogReturn = customDialogFCD609CAFCD3485eB28B094F3E8039CC.GetCustomDialogProperty( "ReturnValue" );
+// }} ""
+// {{{ 389 1 0 "7dfa019e_5e01_43f4_ab2ad9f95cf0dc54" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Data Set ROIs In Well");
+// }} ""
+// {{ 390 1 0 "ac9eec93_73ff_40e2_94dc1f9db1f6e2d7" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 391 1 0 "a3fffd9d_0ca8_42a9_8d78a10a25115cee" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 392 1 0 "fd9e314f_acf9_4bb7_8c6e44219f1016a1" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 393 1 0 "4d439f57_da7e_44c6_896c4fde9a8b5c56" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 394 1 0 "3793267c_2444_4cfb_bf0ce1801563ce65" "{F07B0071-8EFC-11d4-A3BA-002035848439}"
+
+// }} ""
+// {{ 395 1 0 "62a482c2_18d7_419c_a1f77168a1d31c9c" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnFileOperations == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 396 1 0 "b5056e7c_435f_4a63_971ea5f51fe01d46" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog77095DE308C440289B75D14D5362008C.InitCustomDialog( "b5056e7c_435f_4a63_971ea5f51fe01d46" );
+customDialog77095DE308C440289B75D14D5362008C.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog77095DE308C440289B75D14D5362008C.SetCustomDialogProperty( "radioButton2.IsEnabled", _plateInitialized );
+customDialog77095DE308C440289B75D14D5362008C.SetCustomDialogProperty( "radioButton1.IsEnabled", _plateInitialized );
+customDialog77095DE308C440289B75D14D5362008C.SetCustomDialogProperty( "radioButton3.IsEnabled", _plateInitialized );
+customDialog77095DE308C440289B75D14D5362008C.SetCustomDialogProperty( "radioButton4.IsEnabled", _plateInitialized );
+customDialog77095DE308C440289B75D14D5362008C.SetCustomDialogProperty( "radioButton5.IsEnabled", _plateInitialized );
+customDialog77095DE308C440289B75D14D5362008C.SetCustomDialogProperty( "radioButton6.IsEnabled", _plateInitialized );
+customDialog77095DE308C440289B75D14D5362008C.SetCustomDialogProperty( "radioButton7.IsEnabled", _plateInitialized );
+customDialog77095DE308C440289B75D14D5362008C.SetCustomDialogProperty( "radioButton8.IsEnabled", _plateInitialized );
+customDialog77095DE308C440289B75D14D5362008C.SetCustomDialogProperty( "radioButton9.IsEnabled", _plateInitialized );
+customDialog77095DE308C440289B75D14D5362008C.ShowCustomDialog();
+intDialogReturn = customDialog77095DE308C440289B75D14D5362008C.GetCustomDialogProperty( "ReturnValue" );
+blnExportPlateData = customDialog77095DE308C440289B75D14D5362008C.GetCustomDialogProperty( "radioButton2.IsChecked" );
+blnGetExportBuilderNames = customDialog77095DE308C440289B75D14D5362008C.GetCustomDialogProperty( "radioButton1.IsChecked" );
+blnPrintReport = customDialog77095DE308C440289B75D14D5362008C.GetCustomDialogProperty( "radioButton3.IsChecked" );
+blnGetReportBuilderNames = customDialog77095DE308C440289B75D14D5362008C.GetCustomDialogProperty( "radioButton4.IsChecked" );
+blnGetImageFolderPaths = customDialog77095DE308C440289B75D14D5362008C.GetCustomDialogProperty( "radioButton5.IsChecked" );
+blnGetPictureExportNames = customDialog77095DE308C440289B75D14D5362008C.GetCustomDialogProperty( "radioButton6.IsChecked" );
+blnExportPicture = customDialog77095DE308C440289B75D14D5362008C.GetCustomDialogProperty( "radioButton7.IsChecked" );
+blnGetMovieExportNames = customDialog77095DE308C440289B75D14D5362008C.GetCustomDialogProperty( "radioButton8.IsChecked" );
+blnExportMovie = customDialog77095DE308C440289B75D14D5362008C.GetCustomDialogProperty( "radioButton9.IsChecked" );
+// }} ""
+// {{{ 397 1 0 "17d12800_860e_49b3_97687a739196542f" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Experiment Operations");
+// }} ""
+// {{ 398 1 0 "10e43d24_38e4_4853_86eef7c1815ee7fb" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnExportPlateData == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 399 1 0 "e60bd8e0_f9b2_4980_863f5b811a3764cd" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog54ACE614E87B4026BF98358DA5065FBA.InitCustomDialog( "e60bd8e0_f9b2_4980_863f5b811a3764cd" );
+customDialog54ACE614E87B4026BF98358DA5065FBA.SetCustomDialogArrayProperty( "comboBox2.ItemsSource", arrStrBuilderNames );
+customDialog54ACE614E87B4026BF98358DA5065FBA.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog54ACE614E87B4026BF98358DA5065FBA.ShowCustomDialog();
+intDialogReturn = customDialog54ACE614E87B4026BF98358DA5065FBA.GetCustomDialogProperty( "ReturnValue" );
+strBuilderName = customDialog54ACE614E87B4026BF98358DA5065FBA.GetCustomDialogProperty( "textBox1.Text" );
+intExportTypeIndex = customDialog54ACE614E87B4026BF98358DA5065FBA.GetCustomDialogProperty( "comboBox1.SelectedIndex" );
+blnUseBuilderNameFromList = customDialog54ACE614E87B4026BF98358DA5065FBA.GetCustomDialogProperty( "checkBox1.IsChecked" );
+intSelectedIndex = customDialog54ACE614E87B4026BF98358DA5065FBA.GetCustomDialogProperty( "comboBox2.SelectedIndex" );
+// }} ""
+// {{{ 400 1 0 "d140f8b8_7749_41f7_a71c6d53c38a530e" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Export Plate Data");
+// }} ""
+// {{ 401 1 0 "583c7f63_9242_449f_ae5c965c63d19eb2" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{ 402 1 0 "fff2e98e_d302_4d34_8b621fa50d1db1d2" "{B31F3544-5D80-11d4-A5EB-0050DA737D89}"
+intExportType = intExportTypeIndex - 1;
+// }} ""
+// {{ 403 1 0 "63f5a106_da91_481a_808c862d46f6b291" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnUseBuilderNameFromList == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{{ 404 1 0 "35bbca1c_1ed5_4703_823afb7641caba83" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::ExportPlateData(intDeviceID, intExportType, strExportFilePath, arrStrBuilderNames.ElementAt( intSelectedIndex -1));
+// }} ""
+// {{{ 405 1 0 "fb5fd8a7_d360_49b0_b55aa847eb016ae1" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "ExportPlateData");
+// }} ""
+// {{ 406 1 0 "63f5a106_da91_481a_808c862d46f6b291" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+else
+{
+// }} ""
+// {{{ 407 1 0 "d0d7da21_e818_4e90_a372e428b03690eb" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::ExportPlateData(intDeviceID, intExportType, strExportFilePath, strBuilderName);
+// }} ""
+// {{{ 408 1 0 "8035c124_44f7_4386_aa626020ef6c08b3" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "ExportPlateData");
+// }} ""
+// {{ 409 1 0 "63f5a106_da91_481a_808c862d46f6b291" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 410 1 0 "583c7f63_9242_449f_ae5c965c63d19eb2" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 411 1 0 "10e43d24_38e4_4853_86eef7c1815ee7fb" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 412 1 0 "5a546f26_32fd_47e9_99e6c7b753fe6c3c" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnGetExportBuilderNames == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 413 1 0 "7ad3a9e9_3335_4efb_874125cf25d34cf3" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialogBDD261EFBB8145c4BB626640A248090A.InitCustomDialog( "7ad3a9e9_3335_4efb_874125cf25d34cf3" );
+customDialogBDD261EFBB8145c4BB626640A248090A.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialogBDD261EFBB8145c4BB626640A248090A.ShowCustomDialog();
+intDialogReturn = customDialogBDD261EFBB8145c4BB626640A248090A.GetCustomDialogProperty( "ReturnValue" );
+blnAutoExecuteOnly = customDialogBDD261EFBB8145c4BB626640A248090A.GetCustomDialogProperty( "checkBox1.IsChecked" );
+intExportTypeIndex = customDialogBDD261EFBB8145c4BB626640A248090A.GetCustomDialogProperty( "comboBox1.SelectedIndex" );
+// }} ""
+// {{{ 414 1 0 "1df0fd60_6983_4ea0_875a656ed5ebf78d" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Export Builder Names");
+// }} ""
+// {{ 415 1 0 "b4a42fc6_b981_423a_89b14d8ce53942ee" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{{ 416 1 0 "8d140f37_34be_441a_a38ab9da145cb68a" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::GetExportBuilderNames(intDeviceID, intExportType, blnAutoExecuteOnly, arrStrBuilderNames);
+// }} ""
+// {{{ 417 1 0 "13d0600a_1306_4c69_96d884aeaafe66c6" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "GetExportBuilderNames");
+// }} ""
+// {{ 418 1 0 "a5181020_e8c0_4daa_a5e785bc30a24641" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialogAD724D6DD7E04487BE3486D1D5719668.InitCustomDialog( "a5181020_e8c0_4daa_a5e785bc30a24641" );
+customDialogAD724D6DD7E04487BE3486D1D5719668.SetCustomDialogArrayProperty( "comboBox1.ItemsSource", arrStrBuilderNames );
+customDialogAD724D6DD7E04487BE3486D1D5719668.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialogAD724D6DD7E04487BE3486D1D5719668.ShowCustomDialog();
+intDialogReturn = customDialogAD724D6DD7E04487BE3486D1D5719668.GetCustomDialogProperty( "ReturnValue" );
+// }} ""
+// {{{ 419 1 0 "2f0c992b_4fec_4a72_90e2e52e04496334" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Export Builder Names");
+// }} ""
+// {{ 420 1 0 "b4a42fc6_b981_423a_89b14d8ce53942ee" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 421 1 0 "5a546f26_32fd_47e9_99e6c7b753fe6c3c" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 422 1 0 "a2cb99f1_8869_4c9d_a6b88de25d8a64bc" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnPrintReport == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 423 1 0 "ee9820c6_dbba_49a5_9e29450e12299be0" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog8972E28004E14547881E71ADFFF4B829.InitCustomDialog( "ee9820c6_dbba_49a5_9e29450e12299be0" );
+customDialog8972E28004E14547881E71ADFFF4B829.SetCustomDialogArrayProperty( "comboBox2.ItemsSource", arrStrBuilderNames );
+customDialog8972E28004E14547881E71ADFFF4B829.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog8972E28004E14547881E71ADFFF4B829.ShowCustomDialog();
+intDialogReturn = customDialog8972E28004E14547881E71ADFFF4B829.GetCustomDialogProperty( "ReturnValue" );
+strBuilderName = customDialog8972E28004E14547881E71ADFFF4B829.GetCustomDialogProperty( "textBox1.Text" );
+blnUseBuilderNameFromList = customDialog8972E28004E14547881E71ADFFF4B829.GetCustomDialogProperty( "checkBox1.IsChecked" );
+intSelectedIndex = customDialog8972E28004E14547881E71ADFFF4B829.GetCustomDialogProperty( "comboBox2.SelectedIndex" );
+blnShowPrintDialog = customDialog8972E28004E14547881E71ADFFF4B829.GetCustomDialogProperty( "checkBox2.IsChecked" );
+// }} ""
+// {{{ 424 1 0 "be74e60c_dae1_4794_8734a0603902550c" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Print Report");
+// }} ""
+// {{ 425 1 0 "e8f67645_e771_4445_b2fdd5dcf690bf3c" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{ 426 1 0 "c8e2161e_c281_44ff_9ad09d0b7fac3ed1" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnUseBuilderNameFromList == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{{ 427 1 0 "f3b48ca2_cf67_4edb_9389ac44293ed0d1" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::PrintReport(intDeviceID, blnShowPrintDialog, arrStrBuilderNames.ElementAt( intSelectedIndex -1));
+// }} ""
+// {{{ 428 1 0 "be2dd74f_f0e8_47f8_b8c669789bd5b12d" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "PrintReport");
+// }} ""
+// {{ 429 1 0 "c8e2161e_c281_44ff_9ad09d0b7fac3ed1" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+else
+{
+// }} ""
+// {{{ 430 1 0 "d00d2a98_06de_4771_80405e5bc563d3e6" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::PrintReport(intDeviceID, blnShowPrintDialog, strBuilderName);
+// }} ""
+// {{{ 431 1 0 "6bb68aa3_e124_4326_88474cdffc7becc9" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "PrintReport");
+// }} ""
+// {{ 432 1 0 "c8e2161e_c281_44ff_9ad09d0b7fac3ed1" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 433 1 0 "e8f67645_e771_4445_b2fdd5dcf690bf3c" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 434 1 0 "a2cb99f1_8869_4c9d_a6b88de25d8a64bc" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 435 1 0 "3ea75b53_daed_4c55_ba012bd6ee925664" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnGetReportBuilderNames == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 436 1 0 "c9d3d609_c133_41a4_9322c10fd6ebde85" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog73B4BFF154E3414cB39CB064331CF740.InitCustomDialog( "c9d3d609_c133_41a4_9322c10fd6ebde85" );
+customDialog73B4BFF154E3414cB39CB064331CF740.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog73B4BFF154E3414cB39CB064331CF740.ShowCustomDialog();
+intDialogReturn = customDialog73B4BFF154E3414cB39CB064331CF740.GetCustomDialogProperty( "ReturnValue" );
+blnAutoExecuteOnly = customDialog73B4BFF154E3414cB39CB064331CF740.GetCustomDialogProperty( "checkBox1.IsChecked" );
+// }} ""
+// {{{ 437 1 0 "95ec5094_8d1a_4e88_a3da508372829a2a" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Report Builder Names");
+// }} ""
+// {{ 438 1 0 "1953f514_0e54_4450_b8692271f3b4d46c" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{{ 439 1 0 "c1a33e99_8184_43c9_89a1442f83ad9c73" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::GetReportBuilderNames(intDeviceID, blnAutoExecuteOnly, arrStrBuilderNames);
+// }} ""
+// {{{ 440 1 0 "a257690b_6e11_4335_acfaad898419eccc" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "GetReportBuilderNames");
+// }} ""
+// {{ 441 1 0 "e0f77388_0941_4eef_ac023a3d5e5df94b" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog81D14B7F0B42461284C14AF636A5133B.InitCustomDialog( "e0f77388_0941_4eef_ac023a3d5e5df94b" );
+customDialog81D14B7F0B42461284C14AF636A5133B.SetCustomDialogArrayProperty( "comboBox1.ItemsSource", arrStrBuilderNames );
+customDialog81D14B7F0B42461284C14AF636A5133B.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog81D14B7F0B42461284C14AF636A5133B.ShowCustomDialog();
+intDialogReturn = customDialog81D14B7F0B42461284C14AF636A5133B.GetCustomDialogProperty( "ReturnValue" );
+// }} ""
+// {{{ 442 1 0 "3ae6b001_958c_4282_b2ee5509e2850e64" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Report Builder Names");
+// }} ""
+// {{ 443 1 0 "1953f514_0e54_4450_b8692271f3b4d46c" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 444 1 0 "3ea75b53_daed_4c55_ba012bd6ee925664" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 445 1 0 "5dead636_5fad_4b15_bdc959e374af743f" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnGetImageFolderPaths == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{{ 446 1 0 "7f516a4b_2623_4200_bf34f89c4ec80fff" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::GetImageFolderPaths(intDeviceID, arrStrImageFolderPaths);
+// }} ""
+// {{{ 447 1 0 "8819ca00_d597_4592_82baec029f0ab582" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "GetImageFolderPaths");
+// }} ""
+// {{ 448 1 0 "cfe620bc_b759_4aee_b21ee4c7e73e4815" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog4C75E872A75F4233AC0B8FA4496DC196.InitCustomDialog( "cfe620bc_b759_4aee_b21ee4c7e73e4815" );
+customDialog4C75E872A75F4233AC0B8FA4496DC196.SetCustomDialogArrayProperty( "comboBox1.ItemsSource", arrStrImageFolderPaths );
+customDialog4C75E872A75F4233AC0B8FA4496DC196.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog4C75E872A75F4233AC0B8FA4496DC196.ShowCustomDialog();
+intDialogReturn = customDialog4C75E872A75F4233AC0B8FA4496DC196.GetCustomDialogProperty( "ReturnValue" );
+// }} ""
+// {{{ 449 1 0 "0577b0e2_67f8_4192_87ed3eb678a4f419" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Image Folder Paths");
+// }} ""
+// {{ 450 1 0 "5dead636_5fad_4b15_bdc959e374af743f" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 451 1 0 "c0c47095_58c8_40f4_9ceba3abe7b1f746" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnGetPictureExportNames == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 452 1 0 "07766b16_0120_4910_9aa629ecf0a908aa" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialogEB4E636EDE5E4bfe8613C4D2D6E962AC.InitCustomDialog( "07766b16_0120_4910_9aa629ecf0a908aa" );
+customDialogEB4E636EDE5E4bfe8613C4D2D6E962AC.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialogEB4E636EDE5E4bfe8613C4D2D6E962AC.ShowCustomDialog();
+intDialogReturn = customDialogEB4E636EDE5E4bfe8613C4D2D6E962AC.GetCustomDialogProperty( "ReturnValue" );
+blnAutoExecuteOnly = customDialogEB4E636EDE5E4bfe8613C4D2D6E962AC.GetCustomDialogProperty( "checkBox1.IsChecked" );
+// }} ""
+// {{{ 453 1 0 "ce882754_bdee_4fea_b7affd022bf28ce9" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Picture Export Names");
+// }} ""
+// {{ 454 1 0 "b4d624e7_de7b_4bf2_b07aadf4fb2d35c5" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{{ 455 1 0 "58992ea9_80a2_4fdb_84337e7597603586" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::GetPictureExportNames(intDeviceID, blnAutoExecuteOnly, arrStrPictureExportNames);
+// }} ""
+// {{{ 456 1 0 "ae857f3e_3db5_4af7_85a4378f3eddd1a2" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "GetPictureExportNames");
+// }} ""
+// {{ 457 1 0 "261530ce_74af_45c3_b0efc8c84d8da242" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialogC97B4FCE9D0244fd9EC5CF580BED30E2.InitCustomDialog( "261530ce_74af_45c3_b0efc8c84d8da242" );
+customDialogC97B4FCE9D0244fd9EC5CF580BED30E2.SetCustomDialogArrayProperty( "comboBox1.ItemsSource", arrStrPictureExportNames );
+customDialogC97B4FCE9D0244fd9EC5CF580BED30E2.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialogC97B4FCE9D0244fd9EC5CF580BED30E2.ShowCustomDialog();
+intDialogReturn = customDialogC97B4FCE9D0244fd9EC5CF580BED30E2.GetCustomDialogProperty( "ReturnValue" );
+// }} ""
+// {{{ 458 1 0 "91a5b048_7e3a_4c8d_946dd167a77d1018" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Picture Export Names");
+// }} ""
+// {{ 459 1 0 "b4d624e7_de7b_4bf2_b07aadf4fb2d35c5" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 460 1 0 "c0c47095_58c8_40f4_9ceba3abe7b1f746" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 461 1 0 "655b3003_61db_4b0e_95a324dd14449618" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnExportPicture == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 462 1 0 "6abc7af3_f2a6_4115_8b2d51faaae0d300" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialogE4C8A7175F484ddc85D16570AAF64063.InitCustomDialog( "6abc7af3_f2a6_4115_8b2d51faaae0d300" );
+customDialogE4C8A7175F484ddc85D16570AAF64063.SetCustomDialogArrayProperty( "comboBox1.ItemsSource", arrStrPictureExportNames );
+customDialogE4C8A7175F484ddc85D16570AAF64063.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialogE4C8A7175F484ddc85D16570AAF64063.ShowCustomDialog();
+intDialogReturn = customDialogE4C8A7175F484ddc85D16570AAF64063.GetCustomDialogProperty( "ReturnValue" );
+strPictureExportName = customDialogE4C8A7175F484ddc85D16570AAF64063.GetCustomDialogProperty( "textBox1.Text" );
+intSelectedIndex = customDialogE4C8A7175F484ddc85D16570AAF64063.GetCustomDialogProperty( "comboBox1.SelectedIndex" );
+blnUseExportNamesFromList = customDialogE4C8A7175F484ddc85D16570AAF64063.GetCustomDialogProperty( "checkBox1.IsChecked" );
+// }} ""
+// {{{ 463 1 0 "d5ed0c02_3390_4900_9729ba018c72389c" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Export Picture");
+// }} ""
+// {{ 464 1 0 "49f8d994_ee66_43a1_9f348b6a85281921" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{ 465 1 0 "9f493e4d_0e06_4260_9ab729966bc58bd7" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnUseExportNamesFromList == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{{ 466 1 0 "588ae59a_1801_495a_adfcce719e265fd7" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::ExportPicture(intDeviceID, arrStrPictureExportNames.ElementAt( intSelectedIndex -1), strExportInformation);
+// }} ""
+// {{{ 467 1 0 "88fa400a_22b5_4614_87739b648d3c671f" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "ExportPicture");
+// }} ""
+// {{ 468 1 0 "9f493e4d_0e06_4260_9ab729966bc58bd7" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+else
+{
+// }} ""
+// {{{ 469 1 0 "c4d27a84_8212_4043_bd2b3d4bd80af354" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::ExportPicture(intDeviceID, strPictureExportName, strExportInformation);
+// }} ""
+// {{{ 470 1 0 "0fb75ff3_10c1_41ae_98ee2714b3d4e4c6" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "ExportPicture");
+// }} ""
+// {{ 471 1 0 "9f493e4d_0e06_4260_9ab729966bc58bd7" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 472 1 0 "43556152_b8c7_4f43_8e531f95cf9cec34" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialogD1D9F7137F844463946A0705AE16BEE6.InitCustomDialog( "43556152_b8c7_4f43_8e531f95cf9cec34" );
+customDialogD1D9F7137F844463946A0705AE16BEE6.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialogD1D9F7137F844463946A0705AE16BEE6.SetCustomDialogProperty( "textBlock3.Text", strExportInformation );
+customDialogD1D9F7137F844463946A0705AE16BEE6.ShowCustomDialog();
+intDialogReturn = customDialogD1D9F7137F844463946A0705AE16BEE6.GetCustomDialogProperty( "ReturnValue" );
+// }} ""
+// {{{ 473 1 0 "427b6d5d_2ef7_460e_8da8bc5249b65ddc" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Export Picture");
+// }} ""
+// {{ 474 1 0 "49f8d994_ee66_43a1_9f348b6a85281921" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 475 1 0 "655b3003_61db_4b0e_95a324dd14449618" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 476 1 0 "781ce34e_dfd6_47a9_8ba6c9d8bd8b09d7" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnGetMovieExportNames == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{{ 477 1 0 "dc74bbfd_d6dc_416e_90fe3cd7d0954525" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::GetMovieExportNames(intDeviceID, blnAutoExecuteOnly, arrStrMovieExportNames);
+// }} ""
+// {{{ 478 1 0 "9ebae217_48f0_4cfb_afffb94c9160216c" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "GetMovieExportNames");
+// }} ""
+// {{ 479 1 0 "27e4926c_800c_4229_9eaa6bf9a54c950b" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog286192F1314A4fd4919063F6D331BCA0.InitCustomDialog( "27e4926c_800c_4229_9eaa6bf9a54c950b" );
+customDialog286192F1314A4fd4919063F6D331BCA0.SetCustomDialogArrayProperty( "comboBox1.ItemsSource", arrStrMovieExportNames );
+customDialog286192F1314A4fd4919063F6D331BCA0.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog286192F1314A4fd4919063F6D331BCA0.ShowCustomDialog();
+intDialogReturn = customDialog286192F1314A4fd4919063F6D331BCA0.GetCustomDialogProperty( "ReturnValue" );
+// }} ""
+// {{{ 480 1 0 "b0634e15_5eca_4c30_b892d9fe36290bb4" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Movie Export Names");
+// }} ""
+// {{ 481 1 0 "781ce34e_dfd6_47a9_8ba6c9d8bd8b09d7" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 482 1 0 "037c8a2e_945f_49da_b18d00cbbef2312f" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnExportMovie == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 483 1 0 "2236759f_9afd_49e7_9aa52cea8c33a3e5" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog74105E9AC688499c9E6D537C8492461F.InitCustomDialog( "2236759f_9afd_49e7_9aa52cea8c33a3e5" );
+customDialog74105E9AC688499c9E6D537C8492461F.SetCustomDialogArrayProperty( "comboBox1.ItemsSource", arrStrMovieExportNames );
+customDialog74105E9AC688499c9E6D537C8492461F.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog74105E9AC688499c9E6D537C8492461F.ShowCustomDialog();
+intDialogReturn = customDialog74105E9AC688499c9E6D537C8492461F.GetCustomDialogProperty( "ReturnValue" );
+strMovieExportName = customDialog74105E9AC688499c9E6D537C8492461F.GetCustomDialogProperty( "textBox1.Text" );
+intSelectedIndex = customDialog74105E9AC688499c9E6D537C8492461F.GetCustomDialogProperty( "comboBox1.SelectedIndex" );
+blnUseExportNamesFromList = customDialog74105E9AC688499c9E6D537C8492461F.GetCustomDialogProperty( "checkBox1.IsChecked" );
+// }} ""
+// {{{ 484 1 0 "ebcfdb60_a400_4028_ac81ffc2e348b889" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Export Picture");
+// }} ""
+// {{ 485 1 0 "dbc36051_f25d_4cf9_90f262ffd6887af7" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{ 486 1 0 "fd8ba398_b18e_4c56_98a48ff90d88ff98" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnUseExportNamesFromList == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{{ 487 1 0 "a12ec297_5c18_4ef3_85fe32c96a8d4920" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::ExportMovie(intDeviceID, arrStrMovieExportNames.ElementAt( intSelectedIndex -1), strExportInformation);
+// }} ""
+// {{{ 488 1 0 "8be08901_b977_48b9_99c3e695e0d54963" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "ExportMovie");
+// }} ""
+// {{ 489 1 0 "fd8ba398_b18e_4c56_98a48ff90d88ff98" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+else
+{
+// }} ""
+// {{{ 490 1 0 "4edeb678_3048_4cf4_b4ccfcc00c9871e2" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::ExportMovie(intDeviceID, strMovieExportName, strExportInformation);
+// }} ""
+// {{{ 491 1 0 "1f465040_a07d_4b9f_b670edeab469ca47" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "ExportMovie");
+// }} ""
+// {{ 492 1 0 "fd8ba398_b18e_4c56_98a48ff90d88ff98" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 493 1 0 "6c8a8d68_7935_4022_9e88b0b257efc71d" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog00AA549D29BC4242A5595AFD22912A6F.InitCustomDialog( "6c8a8d68_7935_4022_9e88b0b257efc71d" );
+customDialog00AA549D29BC4242A5595AFD22912A6F.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog00AA549D29BC4242A5595AFD22912A6F.SetCustomDialogProperty( "textBlock3.Text", strExportInformation );
+customDialog00AA549D29BC4242A5595AFD22912A6F.ShowCustomDialog();
+intDialogReturn = customDialog00AA549D29BC4242A5595AFD22912A6F.GetCustomDialogProperty( "ReturnValue" );
+// }} ""
+// {{{ 494 1 0 "9c08bb00_1426_4501_87a7df8d3f688133" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Export Movie");
+// }} ""
+// {{ 495 1 0 "dbc36051_f25d_4cf9_90f262ffd6887af7" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 496 1 0 "037c8a2e_945f_49da_b18d00cbbef2312f" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 497 1 0 "62a482c2_18d7_419c_a1f77168a1d31c9c" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 498 1 0 "21c91f54_eecd_4cdb_aad4dffb47d2f325" "{F07B0071-8EFC-11d4-A3BA-002035848439}"
+
+// }} ""
+// {{ 499 1 0 "5018d574_573f_4e3a_987107ccb63d4aaf" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnTemperatureOperations == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 500 1 0 "0035d584_b805_4d31_9478f2287a87738a" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog7A78E357A33B495b8FBD1B1313AEC4CE.InitCustomDialog( "0035d584_b805_4d31_9478f2287a87738a" );
+customDialog7A78E357A33B495b8FBD1B1313AEC4CE.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog7A78E357A33B495b8FBD1B1313AEC4CE.ShowCustomDialog();
+intDialogReturn = customDialog7A78E357A33B495b8FBD1B1313AEC4CE.GetCustomDialogProperty( "ReturnValue" );
+blnGetCurrentTemperature = customDialog7A78E357A33B495b8FBD1B1313AEC4CE.GetCustomDialogProperty( "radioButton2.IsChecked" );
+blnGetTemperatureSetPoint = customDialog7A78E357A33B495b8FBD1B1313AEC4CE.GetCustomDialogProperty( "radioButton1.IsChecked" );
+blnSetTemperatureSetPoint = customDialog7A78E357A33B495b8FBD1B1313AEC4CE.GetCustomDialogProperty( "radioButton3.IsChecked" );
+// }} ""
+// {{{ 501 1 0 "426afaf3_e06d_4861_94b0c7dd3d8ae878" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Temperature Operations");
+// }} ""
+// {{ 502 1 0 "c0777cfc_0275_4bfa_81edd4a367543276" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{ 503 1 0 "dbc2bb66_9708_4b1a_a7aa7881f39ace9e" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnGetCurrentTemperature == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{{ 504 1 0 "e6897bac_b7ec_413c_b1e6599309e5f693" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::GetCurrentTemperature(intDeviceID, fltCurrentTemperature, intTemperatureStatus);
+// }} ""
+// {{{ 505 1 0 "9e72107f_f82e_46f3_8efa978236ed546d" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "GetCurrentTemperature");
+// }} ""
+// {{ 506 1 0 "ba96756c_f3e9_4319_a0554752746d5865" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog014442913236401c8026CCDEC3C7335C.InitCustomDialog( "ba96756c_f3e9_4319_a0554752746d5865" );
+customDialog014442913236401c8026CCDEC3C7335C.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog014442913236401c8026CCDEC3C7335C.SetCustomDialogProperty( "textBlock3.Text", fltCurrentTemperature );
+customDialog014442913236401c8026CCDEC3C7335C.SetCustomDialogProperty( "textBlock4.Text", intTemperatureStatus );
+customDialog014442913236401c8026CCDEC3C7335C.ShowCustomDialog();
+intDialogReturn = customDialog014442913236401c8026CCDEC3C7335C.GetCustomDialogProperty( "ReturnValue" );
+// }} ""
+// {{{ 507 1 0 "5cbf9a18_4818_4a7d_9c62a517b5ae4dba" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Current Temperature");
+// }} ""
+// {{ 508 1 0 "dbc2bb66_9708_4b1a_a7aa7881f39ace9e" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 509 1 0 "e7631070_7979_4ef8_a8333d5b1212e8fc" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnGetTemperatureSetPoint == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{{ 510 1 0 "585f0e56_32fc_437e_8f5a632774b3e818" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::GetTemperatureSetPoint(intDeviceID, intTemperatureSetPoint, intGradient);
+// }} ""
+// {{{ 511 1 0 "7c32b14b_fa04_450e_9bb5463a0a4614df" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "GetTemperatureSetPoint");
+// }} ""
+// {{ 512 1 0 "b71857d1_ed51_44de_a48de91f57319791" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialogC4AC36641D994b45B2F0231B90985C31.InitCustomDialog( "b71857d1_ed51_44de_a48de91f57319791" );
+customDialogC4AC36641D994b45B2F0231B90985C31.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialogC4AC36641D994b45B2F0231B90985C31.SetCustomDialogProperty( "textBlock5.Text", intTemperatureSetPoint );
+customDialogC4AC36641D994b45B2F0231B90985C31.SetCustomDialogProperty( "textBlock6.Text", intGradient );
+customDialogC4AC36641D994b45B2F0231B90985C31.ShowCustomDialog();
+intDialogReturn = customDialogC4AC36641D994b45B2F0231B90985C31.GetCustomDialogProperty( "ReturnValue" );
+// }} ""
+// {{{ 513 1 0 "cca700ce_a6c8_4cff_91ffa1084d607ea1" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Temperature Set Point");
+// }} ""
+// {{ 514 1 0 "e7631070_7979_4ef8_a8333d5b1212e8fc" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 515 1 0 "dd8ee1b2_2cc6_473b_b588ad2916a7a9fa" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnSetTemperatureSetPoint == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 516 1 0 "b6a6077d_faff_40e6_884f9c1f5609d8cc" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog3EE79E3BEDB147d8A49CA60CCC0FCEA9.InitCustomDialog( "b6a6077d_faff_40e6_884f9c1f5609d8cc" );
+customDialog3EE79E3BEDB147d8A49CA60CCC0FCEA9.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog3EE79E3BEDB147d8A49CA60CCC0FCEA9.ShowCustomDialog();
+intDialogReturn = customDialog3EE79E3BEDB147d8A49CA60CCC0FCEA9.GetCustomDialogProperty( "ReturnValue" );
+blnIncubatorState = customDialog3EE79E3BEDB147d8A49CA60CCC0FCEA9.GetCustomDialogProperty( "checkBox1.IsChecked" );
+intTemperatureSetPoint = customDialog3EE79E3BEDB147d8A49CA60CCC0FCEA9.GetCustomDialogProperty( "numeric1.Value" );
+intGradient = customDialog3EE79E3BEDB147d8A49CA60CCC0FCEA9.GetCustomDialogProperty( "numeric2.Value" );
+// }} ""
+// {{{ 517 1 0 "9ed89e98_8ac0_4ef8_9fba51c42423fd67" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Set Temperature Set Point");
+// }} ""
+// {{ 518 1 0 "17c69024_5242_423c_a7cb4c09d85ac7c9" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{{ 519 1 0 "e4bd8503_5d6d_45fc_b0c5d8763b47c7fb" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::SetTemperatureSetPoint(intDeviceID, blnIncubatorState, intTemperatureSetPoint, intGradient);
+// }} ""
+// {{{ 520 1 0 "0fed4277_a579_4357_9c5804a561a21a1d" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "SetTemperatureSetPoint");
+// }} ""
+// {{ 521 1 0 "17c69024_5242_423c_a7cb4c09d85ac7c9" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 522 1 0 "dd8ee1b2_2cc6_473b_b588ad2916a7a9fa" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 523 1 0 "c0777cfc_0275_4bfa_81edd4a367543276" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 524 1 0 "5018d574_573f_4e3a_987107ccb63d4aaf" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 525 1 0 "5a0f7b92_4df1_40c4_98e2098199f64ef9" "{F07B0071-8EFC-11d4-A3BA-002035848439}"
+
+// }} ""
+// {{ 526 1 0 "95952f58_0495_4b5b_b2097300e29c229c" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnMiscellaneousOperations == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 527 1 0 "a0fc2b02_7fdf_498e_b8d2892d73f25cd5" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialogA899CA26F5264cc6834E33A6364D318B.InitCustomDialog( "a0fc2b02_7fdf_498e_b8d2892d73f25cd5" );
+customDialogA899CA26F5264cc6834E33A6364D318B.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialogA899CA26F5264cc6834E33A6364D318B.ShowCustomDialog();
+intDialogReturn = customDialogA899CA26F5264cc6834E33A6364D318B.GetCustomDialogProperty( "ReturnValue" );
+blnRunReaderControlCommand = customDialogA899CA26F5264cc6834E33A6364D318B.GetCustomDialogProperty( "radioButton2.IsChecked" );
+blnDisplayImagingLiveModeDialog = customDialogA899CA26F5264cc6834E33A6364D318B.GetCustomDialogProperty( "radioButton1.IsChecked" );
+blnGetDeviceStatus = customDialogA899CA26F5264cc6834E33A6364D318B.GetCustomDialogProperty( "radioButton3.IsChecked" );
+// }} ""
+// {{{ 528 1 0 "e49ef957_36d8_45be_a5c3bfd6ff580eaa" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Experiment Operations");
+// }} ""
+// {{ 529 1 0 "b50c3972_dc29_4b1d_93802af900e4bcd2" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{ 530 1 0 "6287ece5_03be_4056_8c0e5d3aafa376f1" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnGetDeviceStatus == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 531 1 0 "657d8361_6021_4863_9844a8e8e64549c2" "{B31F3532-5D80-11d4-A5EB-0050DA737D89}"
+{
+loopCounter2 = 0;
+while (ASWGLOBAL::BOOL::TRUE == ASWGLOBAL::BOOL::TRUE)
+{
+loopCounter2 = loopCounter2 + 1;
+// }} ""
+// {{{ 532 1 0 "9795a8d2_360c_46df_85fa35ca8d639c05" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::GetDeviceStatus(intDeviceID, intDeviceStatus);
+// }} ""
+// {{{ 533 1 0 "144e6bb6_a9f0_49b9_91dda1bd77b5f7ae" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "GetDeviceStatus");
+// }} ""
+// {{ 534 1 0 "5ec46237_ec8b_496e_813f9c94ea1d63fd" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialogC20D5246265C4536B269E80012B0F879.InitCustomDialog( "5ec46237_ec8b_496e_813f9c94ea1d63fd" );
+customDialogC20D5246265C4536B269E80012B0F879.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialogC20D5246265C4536B269E80012B0F879.SetCustomDialogProperty( "textBlock3.Text", intDeviceStatus );
+customDialogC20D5246265C4536B269E80012B0F879.ShowCustomDialog();
+intDialogReturn = customDialogC20D5246265C4536B269E80012B0F879.GetCustomDialogProperty( "ReturnValue" );
+// }} ""
+// {{{ 535 1 0 "cb6dd10c_a12a_4aa6_ae53aa8596158e21" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Device Status");
+// }} ""
+// {{ 536 1 0 "448db128_0e51_4b34_901d583ac6733c23" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{ 537 1 0 "34962d18_2fab_4ca5_9357df68f732c416" "{B31F3533-5D80-11d4-A5EB-0050DA737D89}"
+break;
+// }} ""
+// {{ 538 1 0 "448db128_0e51_4b34_901d583ac6733c23" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 539 1 0 "657d8361_6021_4863_9844a8e8e64549c2" "{B31F3532-5D80-11d4-A5EB-0050DA737D89}"
+}
+}
+// }} ""
+// {{ 540 1 0 "6287ece5_03be_4056_8c0e5d3aafa376f1" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 541 1 0 "e86ec1be_08c5_4c41_bd78359cf948ac8d" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnRunReaderControlCommand == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 542 1 0 "34e60184_eaa1_4c6d_b405d0f6edd9747f" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialogFA0A2DF1F4DC4a7b9C6F0165F660CBB5.InitCustomDialog( "34e60184_eaa1_4c6d_b405d0f6edd9747f" );
+customDialogFA0A2DF1F4DC4a7b9C6F0165F660CBB5.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialogFA0A2DF1F4DC4a7b9C6F0165F660CBB5.ShowCustomDialog();
+intDialogReturn = customDialogFA0A2DF1F4DC4a7b9C6F0165F660CBB5.GetCustomDialogProperty( "ReturnValue" );
+intRunReaderControlCommand = customDialogFA0A2DF1F4DC4a7b9C6F0165F660CBB5.GetCustomDialogProperty( "numeric1.Value" );
+// }} ""
+// {{{ 543 1 0 "3db36638_11b1_44d1_b3b4581235e791a0" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Run Reader Control Command");
+// }} ""
+// {{ 544 1 0 "3be3287a_387b_4285_b853eaf0eb11a62c" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{{ 545 1 0 "0e04acbe_3388_4f39_ba8ab2cb10372c2e" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::RunReaderControlCommand(intDeviceID, intRunReaderControlCommand);
+// }} ""
+// {{{ 546 1 0 "c815de75_b981_406a_97fa9dc2753c8f7c" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "RunReaderControlCommand");
+// }} ""
+// {{ 547 1 0 "3be3287a_387b_4285_b853eaf0eb11a62c" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 548 1 0 "e86ec1be_08c5_4c41_bd78359cf948ac8d" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 549 1 0 "4b1072a3_cac5_415c_957ce7b4547c31c6" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnDisplayImagingLiveModeDialog == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{{ 550 1 0 "7d9b9387_0106_48e4_8a7364a63ed469c1" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::DisplayImagingLiveModeDialog(intDeviceID);
+// }} ""
+// {{{ 551 1 0 "d73b96b0_25b8_4b16_aeee11888443fd8e" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "DisplayImagingLiveModeDialog");
+// }} ""
+// {{ 552 1 0 "4b1072a3_cac5_415c_957ce7b4547c31c6" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 553 1 0 "b50c3972_dc29_4b1d_93802af900e4bcd2" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 554 1 0 "95952f58_0495_4b5b_b2097300e29c229c" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 555 1 0 "792da9d1_559e_4504_beb6b6c62c612470" "{F07B0071-8EFC-11d4-A3BA-002035848439}"
+
+// }} ""
+// {{ 556 1 0 "9b7f51c0_3782_4cdf_915baf611ee2133d" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (blnReaderErrorOperations == ASWGLOBAL::BOOL::TRUE)
+{
+// }} ""
+// {{ 557 1 0 "967a622e_082f_416c_bc15592e695aa7d7" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialogCF4C53E8192F49e8B587B475DBD99939.InitCustomDialog( "967a622e_082f_416c_bc15592e695aa7d7" );
+customDialogCF4C53E8192F49e8B587B475DBD99939.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialogCF4C53E8192F49e8B587B475DBD99939.ShowCustomDialog();
+intDialogReturn = customDialogCF4C53E8192F49e8B587B475DBD99939.GetCustomDialogProperty( "ReturnValue" );
+intSelectedIndex = customDialogCF4C53E8192F49e8B587B475DBD99939.GetCustomDialogProperty( "comboBox1.SelectedIndex" );
+intErrorIndex = customDialogCF4C53E8192F49e8B587B475DBD99939.GetCustomDialogProperty( "numeric1.Value" );
+// }} ""
+// {{{ 558 1 0 "8d9cb1bc_aacc_403b_958f0abfe3e03372" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Reader Error Operations");
+// }} ""
+// {{ 559 1 0 "ee34fea7_7861_48dd_9ec7580ccf9d245c" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intDialogReturn == ASWGLOBAL::DIALOG::OK)
+{
+// }} ""
+// {{ 560 1 0 "6fc9c5af_5f98_4340_a6ecb9ba1ad8d36d" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intSelectedIndex == ErrorCode)
+{
+// }} ""
+// {{{ 561 1 0 "f6864959_3246_4914_a2a1995ec457267d" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::GetErrorCode(intDeviceID, intErrorIndex, intErrorCode);
+// }} ""
+// {{{ 562 1 0 "8220fb3d_65d4_42c8_8a7fb8157ed41cf1" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "GetErrorCode");
+// }} ""
+// {{ 563 1 0 "8258464a_a731_4774_bfd98ef4cf0d3b13" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialogE448FD75907F42f2982155E80F6A606F.InitCustomDialog( "8258464a_a731_4774_bfd98ef4cf0d3b13" );
+customDialogE448FD75907F42f2982155E80F6A606F.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialogE448FD75907F42f2982155E80F6A606F.SetCustomDialogProperty( "textBlock4.Text", intErrorCode );
+customDialogE448FD75907F42f2982155E80F6A606F.ShowCustomDialog();
+intDialogReturn = customDialogE448FD75907F42f2982155E80F6A606F.GetCustomDialogProperty( "ReturnValue" );
+// }} ""
+// {{{ 564 1 0 "9c41856d_9feb_48aa_b5dd34ea570eea05" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Error Code");
+// }} ""
+// {{ 565 1 0 "6fc9c5af_5f98_4340_a6ecb9ba1ad8d36d" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 566 1 0 "96699ecc_5a04_4f51_80943e33aced7bde" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intSelectedIndex == ErrorMessage)
+{
+// }} ""
+// {{{ 567 1 0 "4dacbab1_55ae_474d_95f62c41cd01677d" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::GetErrorMessage(intDeviceID, intErrorIndex, strErrorMessage);
+// }} ""
+// {{{ 568 1 0 "b9563671_7d1b_400d_972eebea00052ae1" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "GetErrorMessage");
+// }} ""
+// {{ 569 1 0 "4e131871_d145_4072_8d882fbc479b98d0" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog6C7564F0BEBB4fcfBA7D6BA0BEE2A582.InitCustomDialog( "4e131871_d145_4072_8d882fbc479b98d0" );
+customDialog6C7564F0BEBB4fcfBA7D6BA0BEE2A582.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog6C7564F0BEBB4fcfBA7D6BA0BEE2A582.SetCustomDialogProperty( "textBlock4.Text", strErrorMessage );
+customDialog6C7564F0BEBB4fcfBA7D6BA0BEE2A582.ShowCustomDialog();
+intDialogReturn = customDialog6C7564F0BEBB4fcfBA7D6BA0BEE2A582.GetCustomDialogProperty( "ReturnValue" );
+// }} ""
+// {{{ 570 1 0 "407a9205_d712_483b_8c4ebc5b8a1deaee" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Error Message");
+// }} ""
+// {{ 571 1 0 "96699ecc_5a04_4f51_80943e33aced7bde" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 572 1 0 "c6aa9f1a_02de_48ba_8a23bde5103923b4" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (intSelectedIndex == ReaderError)
+{
+// }} ""
+// {{{ 573 1 0 "8c21599d_4b73_4bb9_99b6d72c4e98a70d" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+blnSuccess = Agilent_Gen5_Interface::GetReaderError(intDeviceID, intErrorIndex, intErrorCode);
+// }} ""
+// {{{ 574 1 0 "7feacc33_2d79_4307_b96e6ce7fd3de17f" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleFunctionSuccess(blnSuccess, "GetReaderError");
+// }} ""
+// {{ 575 1 0 "d09ef6ff_51c9_42c9_965f46ae2bfa4eef" "{998A7CCC-4374-484D-A6ED-E8A4F0EB71BA}"
+customDialog18253B919F68449cB4BA40D6B7587693.InitCustomDialog( "d09ef6ff_51c9_42c9_965f46ae2bfa4eef" );
+customDialog18253B919F68449cB4BA40D6B7587693.SetCustomDialogProperty( "Title", strDialogTitle );
+customDialog18253B919F68449cB4BA40D6B7587693.SetCustomDialogProperty( "textBlock4.Text", intErrorCode );
+customDialog18253B919F68449cB4BA40D6B7587693.ShowCustomDialog();
+intDialogReturn = customDialog18253B919F68449cB4BA40D6B7587693.GetCustomDialogProperty( "ReturnValue" );
+// }} ""
+// {{{ 576 1 0 "1e80e5fa_a623_4067_bbd30e3477d7f2a5" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_HandleDialogReturn(intDialogReturn, "Get Reader Error");
+// }} ""
+// {{ 577 1 0 "c6aa9f1a_02de_48ba_8a23bde5103923b4" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 578 1 0 "ee34fea7_7861_48dd_9ec7580ccf9d245c" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 579 1 0 "9b7f51c0_3782_4cdf_915baf611ee2133d" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 580 1 0 "9fa792ed_846d_4b98_a39019d97cb314d5" "{B31F3532-5D80-11d4-A5EB-0050DA737D89}"
+}
+}
+// }} ""
+// {{{ 581 1 0 "fb5a0c9f_afbf_4f40_b40d1cd4404a8085" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+_Terminate();
+// }} ""
+// {{ 582 1 0 "486e1116_3d82_4f76_9b3193dc0802f7c9" "{586C3429-F931-405f-9938-928E22C90BFA}"
+
+// }} ""
+// {{ 2 "AutoExitBlock" ""
+// }} ""
+// {{{ 5 "main" "End"
+} }
+// }} ""
+// $$author=celltx1$$valid=0$$time=2026-03-12 15:36$$checksum=f6cb3826$$length=086$$

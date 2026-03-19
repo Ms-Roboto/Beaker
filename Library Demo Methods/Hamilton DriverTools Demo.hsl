@@ -1,0 +1,48 @@
+ namespace _Method { #include "ASWStandard\\TraceLevel\\TraceLevel.hsl" } 
+ namespace _Method { #include "Hamilton DriverTools\\Hamilton DriverTools.hsl" } 
+ namespace _Method { #include "ASWStandard\\ASWGlobal\\ASWGlobal.hsl" } 
+/* {{ 2 "LibraryInsertLine" "" */ // }} ""
+variable _intReferenceTraceLevel;
+variable _strModuleName;
+/* {{ 2 "VariableInsertLine" "" */ // }} ""
+// {{ 2 "TemplateIncludeBlock" ""
+ namespace _Method { #include "HSLMETEDLib.hs_" } 
+ namespace _Method { #include "HSLMECCLib.hs_" } 
+// }} ""
+// {{{ 2 "LocalSubmethodInclude" ""
+ namespace _Method {  #include __filename__ ".sub"  } 
+// }} ""
+/* {{ 2 "ProcessInsertLine" "" */ // }} ""
+// {{{ 5 "main" "Begin"
+namespace _Method { method main(  ) void {
+// }} ""
+// {{ 5 "main" "InitLocals"
+// }} ""
+// {{ 2 "AutoInitBlock" ""
+::RegisterAbortHandler( "OnAbort");
+// }} ""
+_strModuleName = GetMethodFileName();
+// {{ 2 1 0 "30a69472_47a4_469c_bd683ccccf7363a5" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+_intReferenceTraceLevel = TRACE_LEVEL_DEBUG;
+// }} ""
+// {{{ 3 1 0 "458b7455_c5af_4f1d_ba00264e7e93dc2c" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+TestTrace();
+// }} ""
+// {{{ 4 1 0 "0f91a68b_88ce_4789_b124d986789f24d9" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+TestCheckIntegerValue();
+// }} ""
+// {{{ 5 1 0 "be113054_2af5_4bbd_bffdf4777dfbf2d3" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+TestCheckFloatValue();
+// }} ""
+// {{{ 6 1 0 "4d5baf26_d5eb_40c4_bf3cfd0d732ed877" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+TestTraceArray();
+// }} ""
+// {{{ 7 1 0 "79ef21e7_f3fb_4185_95cd765c12d340c7" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+TestCheckValueInArray();
+// }} ""
+// {{ 2 "AutoExitBlock" ""
+// }} ""
+// {{{ 5 "main" "End"
+} }
+// }} ""
+// $$author=BHuf$$valid=1$$time=2022-02-10 12:49$$checksum=3c9f4c77$$length=083$$

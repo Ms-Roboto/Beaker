@@ -1,0 +1,87 @@
+#include "Cytation3_Test.res"
+/* {{ 2 "LibraryInsertLine" "" */ // }} ""
+global device ML_STAR ("Cytation3_Test.lay", "ML_STAR", hslTrue);
+/* {{ 2 "VariableInsertLine" "" */ // }} ""
+// {{ 2 "TemplateIncludeBlock" ""
+ namespace _Method { #include "HSLMETEDLib.hs_" } 
+ namespace _Method { #include "HSLMECCLib.hs_" } 
+ namespace _Method { #include "HSLPTLLib.hsl" } 
+ namespace _Method { #include "HSLSTCCLib.hs_" } 
+ namespace _Method { #include "HSLSchedCCLib.hs_" } 
+// }} ""
+// {{{ 2 "LocalSubmethodInclude" ""
+ namespace _Method {  #include __filename__ ".sub"  } 
+// }} ""
+/* {{ 2 "ProcessInsertLine" "" */ // }} ""
+// {{{ 5 "main" "Begin"
+namespace _Method { method main(  ) void {
+// }} ""
+// {{ 5 "main" "InitLocals"
+// }} ""
+// {{ 2 "AutoInitBlock" ""
+PTL::SetWashingStateDefault("RinseTime1", 5);
+PTL::SetWashingStateDefault("SoakTime1", 5);
+PTL::SetWashingStateDefault("FlowRate1", 11);
+PTL::SetWashingStateDefault("RinseTime2", 0);
+PTL::SetWashingStateDefault("SoakTime2", 0);
+PTL::SetWashingStateDefault("FlowRate2", 11);
+PTL::SetWashingStateDefault("DrainingTime", 10);
+PTL::SetWashingStateDefault("StartWashLiquid", 0);
+PTL::SetLoadingStateDefault("RecoveryOptionContinue", hslTrue);
+PTL::SetLoadingStateDefault("RecoveryOptionExclude", hslTrue);
+PTL::SetLoadingStateDefault("RecoveryOptionDefault", 0);
+PTL::SetLoadingStateDefault("KitLotCheckEnabled", hslFalse);
+::RegisterAbortHandler( "OnAbort");
+// }} ""
+// {{ 1 1 0 "fac525dd_a4f8_4dd2_8d0acff467dd2bb9" "{F07B0071-8EFC-11d4-A3BA-002035848439}"
+
+// }} ""
+// {{ 2 1 0 "e61f4eb6_45ee_448b_b9d1cf1bac410b80" "{F07B0071-8EFC-11d4-A3BA-002035848439}"
+
+// }} ""
+// {{ 3 1 0 "93de1561_bc01_46ac_99d35191c009368f" "HxGen5:{14301393-4EDB-4D93-8CF8-B140A8D41258}"
+{
+	HxGen5._14301393_4EDB_4D93_8CF8_B140A8D41258("93de1561_bc01_46ac_99d35191c009368f"); // Configure
+}
+// }} ""
+// {{ 4 1 0 "1221b7b7_8e4c_494a_ba93c4208a82b101" "HxGen5:{D8B7B31B-B786-4BCE-B07B-73EF0C1331FD}"
+{
+	HxGen5._D8B7B31B_B786_4BCE_B07B_73EF0C1331FD("1221b7b7_8e4c_494a_ba93c4208a82b101"); // Connect
+}
+// }} ""
+// {{ 5 1 0 "79a7ef0f_f75c_441c_96bc93f3f0a01964" "HxGen5:{E7B59323-6EC3-4628-90DF-D4797A4E76F3}"
+{
+	HxGen5._E7B59323_6EC3_4628_90DF_D4797A4E76F3("79a7ef0f_f75c_441c_96bc93f3f0a01964"); // CarrierIn
+}
+// }} ""
+// {{ 6 1 0 "e40546d2_e2cc_4d21_a675dee1311f139c" "HxGen5:{32329F7E-01A2-4F5E-9B4D-8AE1784121B7}"
+{
+	HxGen5._32329F7E_01A2_4F5E_9B4D_8AE1784121B7("e40546d2_e2cc_4d21_a675dee1311f139c"); // CarrierOut
+}
+// }} ""
+// {{ 7 1 0 "6880f6b3_2c11_409c_8fc126f8415d520b" "ML_STAR:{8A76E9A2-8053-4a32-B36F-AD9556B09C99}"
+{
+	ML_STAR._8A76E9A2_8053_4a32_B36F_AD9556B09C99("6880f6b3_2c11_409c_8fc126f8415d520b"); // EasyiSWAPTransport
+}
+// }} ""
+// {{ 8 1 0 "bbca196b_c8d0_481b_bcb1b90a102ea965" "HxGen5:{E7B59323-6EC3-4628-90DF-D4797A4E76F3}"
+{
+	HxGen5._E7B59323_6EC3_4628_90DF_D4797A4E76F3("bbca196b_c8d0_481b_bcb1b90a102ea965"); // CarrierIn
+}
+// }} ""
+// {{ 9 1 0 "714fda9e_5ff6_4f0c_86ae7356ca118dd6" "HxGen5:{32329F7E-01A2-4F5E-9B4D-8AE1784121B7}"
+{
+	HxGen5._32329F7E_01A2_4F5E_9B4D_8AE1784121B7("714fda9e_5ff6_4f0c_86ae7356ca118dd6"); // CarrierOut
+}
+// }} ""
+// {{ 10 1 0 "7a090958_8bf9_4875_825e95af78d2c463" "ML_STAR:{8A76E9A2-8053-4a32-B36F-AD9556B09C99}"
+{
+	ML_STAR._8A76E9A2_8053_4a32_B36F_AD9556B09C99("7a090958_8bf9_4875_825e95af78d2c463"); // EasyiSWAPTransport
+}
+// }} ""
+// {{ 2 "AutoExitBlock" ""
+// }} ""
+// {{{ 5 "main" "End"
+} }
+// }} ""
+// $$author=celltx1$$valid=0$$time=2026-01-28 14:01$$checksum=58453173$$length=086$$
