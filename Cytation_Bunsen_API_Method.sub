@@ -17,7 +17,7 @@ private function open_door(  ) void {
 // }} ""
 // {{ 5 "open_door" "InitLocals"
 // }} ""
-// {{{ 50 1 0 "fdc8f00c_2d75_4baa_bf064fed65e7d1c9" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+// {{{ 52 1 0 "fdc8f00c_2d75_4baa_bf064fed65e7d1c9" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
 Agilent_Gen5_Interface::CarrierOut(GV_CytationID);
 // }} ""
 // {{{ 5 "open_door" "End"
@@ -28,7 +28,7 @@ private function close_door(  ) void {
 // }} ""
 // {{ 5 "close_door" "InitLocals"
 // }} ""
-// {{{ 48 1 0 "c733d163_8897_4a53_b1a4797ef360f57f" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+// {{{ 50 1 0 "c733d163_8897_4a53_b1a4797ef360f57f" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
 Agilent_Gen5_Interface::CarrierIn(GV_CytationID);
 // }} ""
 // {{{ 5 "close_door" "End"
@@ -60,11 +60,11 @@ arr_str_platetypes.SetSize(1);
 // {{{ 13 1 0 "ec49d725_a813_4e04_ad3698c434176b3d" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
 TRACELEVEL::SetTraceLevel(2);
 // }} ""
-// {{ 14 1 0 "a1f36931_e726_4ee9_83cc3fe5817592c8" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
-str_ProtocolPath = Translate("C:\Users\Public\Documents\Protocols\6pw_test.prt");
+// {{ 14 1 0 "01d151ca_45ff_449f_8c37278e3a134ba0" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+str_ProtocolPath = GV_str_protocol;
 // }} ""
-// {{ 15 1 0 "ddfa5029_90be_4d48_8c987395bf40cf01" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
-str_PlateBarcode = Translate("IM001234");
+// {{ 15 1 0 "1b30046b_56fc_40df_a62b23fc4ab3d01c" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+str_PlateBarcode = GV_str_plate_barcode;
 // }} ""
 // {{ 16 1 0 "f4a96b3b_94a4_463e_8b6f1f660b32001d" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
 str_SaveFilePath = Translate("C:\Users\Public\Documents\Experiments\\");
@@ -84,8 +84,8 @@ TRACELEVEL::Debug_Trace2(str_SaveFilePathNameFULL, Translate(""));
 // {{{ 21 1 0 "d88f4ebe_9e18_48b6_88d6919986b426e6" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
 Agilent_Gen5_Interface::SetTemperatureSetPoint(GV_CytationID, ASWGLOBAL::BOOL::TRUE, 37, 0);
 // }} ""
-// {{{ 22 1 0 "1597bdc9_fb03_467d_a7156bdb5301ed3c" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
-Agilent_Gen5_Interface::CarrierInWithPlate(GV_CytationID, Translate("6 WELL PLATE"), ASWGLOBAL::BOOL::TRUE);
+// {{{ 22 1 0 "e34ca4d5_cf8c_41cb_8e659bb1ac18669b" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Agilent_Gen5_Interface::CarrierInWithPlate(GV_CytationID, GV_str_plate_type, ASWGLOBAL::BOOL::TRUE);
 // }} ""
 // {{{ 23 1 0 "03e731c8_2792_4cf0_ab54fbbb89adb662" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
 TRACELEVEL::Debug_Trace2(Translate("<<<<NEW EXPT OPENED>>>>"), Translate(""));
@@ -168,8 +168,14 @@ MECC::TraceComment(Translate("issuee??\n"));
 }
 }
 // }} ""
+// {{{ 47 1 0 "8d362b2c_f0d3_412f_b36781bfa0cec3aa" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Agilent_Gen5_Interface::SaveExperiment(GV_CytationID);
+// }} ""
+// {{{ 48 1 0 "84818319_50ca_47f3_96445346dfceb15e" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Agilent_Gen5_Interface::CarrierOut(GV_CytationID);
+// }} ""
 // {{{ 5 "close_and_read" "End"
 }
 // }} ""
 /* {{ 2 "SubmethodInsertLine" "" */ // }} ""
-// $$author=celltx1$$valid=0$$time=2026-06-03 12:39$$checksum=df6e973b$$length=086$$
+// $$author=celltx1$$valid=0$$time=2026-06-03 12:49$$checksum=c645b93c$$length=086$$
