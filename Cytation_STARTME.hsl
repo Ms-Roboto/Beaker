@@ -125,13 +125,7 @@ SchedCCLib::SchedPreSelectMethod( "Cytation_Bunsen_API_Method.hsl", Translate("C
 SchedCCLib::SchedPostSelectMethod( RegisterMethod( "Cytation_Bunsen_API_Method.hsl", Translate("Cytation_Bunsen_API_Method"), Cytation_Bunsen_API_Method_id ) );
 // }} ""
 /* {{ 6 "1" "" */ executoronly { /* }} "" */
-// {{ 26 1 0 "6a82753d_0413_4a6a_813361be714114b5" "{530F2E68-A55F-4cef-9F72-762A0497173E}"
-SchedCCLib::SchedStartActivate();
-SchedCCLib::SchedPreActivate( 0, hslSchedulingStart, Cytation_Bunsen_API_Method_id, Translate("Task 1"), taskid_1, hslFalse );
-SchedCCLib::SchedPostActivate( ActivateDelay( 0, hslSchedulingStart, Cytation_Bunsen_API_Method_id, Translate("Task 1"), taskid_1, hslFalse ) );
-SchedCCLib::SchedEndActivate();
-// }} ""
-// {{ 27 1 0 "ce8255c1_f4f8_4d35_8e78cd8a84c38ede" "{B31F3532-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 26 1 0 "ce8255c1_f4f8_4d35_8e78cd8a84c38ede" "{B31F3532-5D80-11d4-A5EB-0050DA737D89}"
 {
 loopCounter1 = 0;
 while (1 == 1)
@@ -148,35 +142,35 @@ GV_str_command = "";
     objShell.Run("curl -s -X POST http://localhost:51745/api/v1/vector/execution/pause", 0, 0);
     objShell.ReleaseObject();
 }
-// {{ 29 1 0 "7f6a2e61_4e44_45ef_987307ca3cec6aff" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 28 1 0 "7f6a2e61_4e44_45ef_987307ca3cec6aff" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 if (GV_str_command == "stop")
 {
 // }} ""
-// {{ 30 1 0 "e82d54a9_48c0_4799_80bdd997ff564dd8" "{B31F3533-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 29 1 0 "e82d54a9_48c0_4799_80bdd997ff564dd8" "{B31F3533-5D80-11d4-A5EB-0050DA737D89}"
 break;
 // }} ""
-// {{ 31 1 0 "7f6a2e61_4e44_45ef_987307ca3cec6aff" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 30 1 0 "7f6a2e61_4e44_45ef_987307ca3cec6aff" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 }
 else
 {
 // }} ""
-// {{ 32 1 0 "77ff5c0b_7c47_453e_95280bf77543dba0" "{AF67BD92-5D7C-4031-BECC-B5ADDAC7F229}"
+// {{ 31 1 0 "77ff5c0b_7c47_453e_95280bf77543dba0" "{AF67BD92-5D7C-4031-BECC-B5ADDAC7F229}"
 schedule
 {
 // }} ""
-// {{ 33 1 0 "bb59e5eb_dda9_4258_b49f7b8ced6df819" "{530F2E68-A55F-4cef-9F72-762A0497173E}"
+// {{ 32 1 0 "006d15c5_79df_41e7_bdaef498b2afab8f" "{530F2E68-A55F-4cef-9F72-762A0497173E}"
 SchedCCLib::SchedStartActivate();
-SchedCCLib::SchedPreActivate( 0, taskid_1, Cytation_Bunsen_API_Method_id, Translate("Task 1"), taskid_1, hslFalse );
-SchedCCLib::SchedPostActivate( ActivateAfter( 0, taskid_1, Cytation_Bunsen_API_Method_id, Translate("Task 1"), taskid_1, hslFalse ) );
+SchedCCLib::SchedPreActivate( 0, hslSchedulingStart, Cytation_Bunsen_API_Method_id, Translate("Task 1"), taskid_1, hslFalse );
+SchedCCLib::SchedPostActivate( ActivateDelay( 0, hslSchedulingStart, Cytation_Bunsen_API_Method_id, Translate("Task 1"), taskid_1, hslFalse ) );
 SchedCCLib::SchedEndActivate();
 // }} ""
-// {{ 34 1 0 "77ff5c0b_7c47_453e_95280bf77543dba0" "{AF67BD92-5D7C-4031-BECC-B5ADDAC7F229}"
+// {{ 33 1 0 "77ff5c0b_7c47_453e_95280bf77543dba0" "{AF67BD92-5D7C-4031-BECC-B5ADDAC7F229}"
 }
 // }} ""
-// {{ 35 1 0 "7f6a2e61_4e44_45ef_987307ca3cec6aff" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 34 1 0 "7f6a2e61_4e44_45ef_987307ca3cec6aff" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 }
 // }} ""
-// {{ 36 1 0 "ce8255c1_f4f8_4d35_8e78cd8a84c38ede" "{B31F3532-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 35 1 0 "ce8255c1_f4f8_4d35_8e78cd8a84c38ede" "{B31F3532-5D80-11d4-A5EB-0050DA737D89}"
 }
 }
 // }} ""
@@ -188,4 +182,4 @@ SchedCCLib::SchedEndActivate();
 // {{{ 5 "main" "End"
 } }
 // }} ""
-// $$author=celltx1$$valid=0$$time=2026-06-03 13:59$$checksum=1267d085$$length=086$$
+// $$author=celltx1$$valid=0$$time=2026-06-03 15:05$$checksum=0d890564$$length=086$$
