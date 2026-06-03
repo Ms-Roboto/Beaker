@@ -57,8 +57,8 @@ TRACELEVEL::SetTraceLevel(2);
 // {{ 5 1 0 "e00282ed_4e41_44f9_802904509bc83ff7" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
 str_ProtocolPath = Translate("C:\Users\Public\Documents\Protocols\6pw_test.prt");
 // }} ""
-// {{ 6 1 0 "5ab91f1f_e684_4d25_bfa5bc3fd3bf4d54" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
-str_PlateBarcode = Translate("IM001234");
+// {{ 6 1 0 "371677f1_bb36_4d3d_b040d9791cf07b43" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+str_PlateBarcode = Translate("");
 // }} ""
 // {{ 7 1 0 "25bad359_eef7_4f88_8cd0c1084a88ff72" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
 str_SaveFilePath = Translate("C:\Users\Public\Documents\Experiments\\");
@@ -142,39 +142,39 @@ GV_str_command = "";
     objShell.Run("curl -s -X POST http://localhost:51745/api/v1/vector/execution/pause", 0, 0);
     objShell.ReleaseObject();
 }
-// {{ 29 1 0 "7f6a2e61_4e44_45ef_987307ca3cec6aff" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 28 1 0 "7f6a2e61_4e44_45ef_987307ca3cec6aff" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 if (GV_str_command == "stop")
 {
 // }} ""
-// {{ 30 1 0 "e82d54a9_48c0_4799_80bdd997ff564dd8" "{B31F3533-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 29 1 0 "e82d54a9_48c0_4799_80bdd997ff564dd8" "{B31F3533-5D80-11d4-A5EB-0050DA737D89}"
 break;
 // }} ""
-// {{ 31 1 0 "7f6a2e61_4e44_45ef_987307ca3cec6aff" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 30 1 0 "7f6a2e61_4e44_45ef_987307ca3cec6aff" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 }
 else
 {
 // }} ""
-// {{ 32 1 0 "77ff5c0b_7c47_453e_95280bf77543dba0" "{AF67BD92-5D7C-4031-BECC-B5ADDAC7F229}"
+// {{ 31 1 0 "77ff5c0b_7c47_453e_95280bf77543dba0" "{AF67BD92-5D7C-4031-BECC-B5ADDAC7F229}"
 schedule
 {
 // }} ""
-// {{ 33 1 0 "965b8045_4932_409c_800ab3fe3466e7cb" "{530F2E68-A55F-4cef-9F72-762A0497173E}"
+// {{ 32 1 0 "965b8045_4932_409c_800ab3fe3466e7cb" "{530F2E68-A55F-4cef-9F72-762A0497173E}"
 SchedCCLib::SchedStartActivate();
 SchedCCLib::SchedPreActivate( 0, hslSchedulingStart, Cytation_Bunsen_API_Method_id, Translate("Task 1"), taskid_1, hslFalse );
 SchedCCLib::SchedPostActivate( ActivateDelay( 0, hslSchedulingStart, Cytation_Bunsen_API_Method_id, Translate("Task 1"), taskid_1, hslFalse ) );
 SchedCCLib::SchedEndActivate();
 // }} ""
-// {{ 34 1 0 "77ff5c0b_7c47_453e_95280bf77543dba0" "{AF67BD92-5D7C-4031-BECC-B5ADDAC7F229}"
+// {{ 33 1 0 "77ff5c0b_7c47_453e_95280bf77543dba0" "{AF67BD92-5D7C-4031-BECC-B5ADDAC7F229}"
 }
 // }} ""
 GV_str_protocol = "";
 GV_str_plate_type = "";
 GV_str_plate_barcode = "";
 GV_str_command = "";
-// {{ 36 1 0 "7f6a2e61_4e44_45ef_987307ca3cec6aff" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 35 1 0 "7f6a2e61_4e44_45ef_987307ca3cec6aff" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 }
 // }} ""
-// {{ 37 1 0 "ce8255c1_f4f8_4d35_8e78cd8a84c38ede" "{B31F3532-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 36 1 0 "ce8255c1_f4f8_4d35_8e78cd8a84c38ede" "{B31F3532-5D80-11d4-A5EB-0050DA737D89}"
 }
 }
 // }} ""
@@ -186,4 +186,4 @@ GV_str_command = "";
 // {{{ 5 "main" "End"
 } }
 // }} ""
-// $$author=celltx1$$valid=0$$time=2026-06-03 13:07$$checksum=48ed41e4$$length=086$$
+// $$author=celltx1$$valid=0$$time=2026-06-03 13:27$$checksum=7a9807ac$$length=086$$
