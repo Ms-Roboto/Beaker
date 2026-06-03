@@ -173,14 +173,10 @@ SchedCCLib::SchedEndActivate();
 // {{ 34 1 0 "77ff5c0b_7c47_453e_95280bf77543dba0" "{AF67BD92-5D7C-4031-BECC-B5ADDAC7F229}"
 }
 // }} ""
-GV_str_protocol = "";
-GV_str_plate_type = "";
-GV_str_plate_barcode = "";
-GV_str_command = "";
-// {{ 36 1 0 "7f6a2e61_4e44_45ef_987307ca3cec6aff" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 35 1 0 "7f6a2e61_4e44_45ef_987307ca3cec6aff" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 }
 // }} ""
-// {{ 37 1 0 "ce8255c1_f4f8_4d35_8e78cd8a84c38ede" "{B31F3532-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 36 1 0 "ce8255c1_f4f8_4d35_8e78cd8a84c38ede" "{B31F3532-5D80-11d4-A5EB-0050DA737D89}"
 }
 }
 // }} ""
@@ -192,4 +188,4 @@ GV_str_command = "";
 // {{{ 5 "main" "End"
 } }
 // }} ""
-// $$author=celltx1$$valid=0$$time=2026-06-03 13:49$$checksum=a1b12d57$$length=086$$
+// $$author=celltx1$$valid=0$$time=2026-06-03 13:59$$checksum=1267d085$$length=086$$
