@@ -22,34 +22,39 @@ namespace _Method { method main(  ) void {
 // {{ 2 "AutoInitBlock" ""
 ::RegisterAbortHandler( "OnAbort");
 // }} ""
-// {{ 1 1 0 "4038866b_b82b_4468_aae350a0c59575be" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (GV_str_command == "")
+{
+    // No command — exit immediately
+    return;
+}
+// {{ 2 1 0 "4038866b_b82b_4468_aae350a0c59575be" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 if (GV_str_command == "open_door")
 {
 // }} ""
-// {{{ 2 1 0 "edf4f856_6a74_4b4d_80cd79a128dd2437" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+// {{{ 3 1 0 "edf4f856_6a74_4b4d_80cd79a128dd2437" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
 open_door();
 // }} ""
-// {{ 3 1 0 "4038866b_b82b_4468_aae350a0c59575be" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 4 1 0 "4038866b_b82b_4468_aae350a0c59575be" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 }
 // }} ""
-// {{ 4 1 0 "0104d00d_27e5_4e14_a5cd5dadacad201b" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 5 1 0 "0104d00d_27e5_4e14_a5cd5dadacad201b" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 if (GV_str_command == "close_door")
 {
 // }} ""
-// {{{ 5 1 0 "9f4679e6_4e15_48ba_a56fbbebe4ab92f5" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+// {{{ 6 1 0 "9f4679e6_4e15_48ba_a56fbbebe4ab92f5" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
 close_door();
 // }} ""
-// {{ 6 1 0 "0104d00d_27e5_4e14_a5cd5dadacad201b" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 7 1 0 "0104d00d_27e5_4e14_a5cd5dadacad201b" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 }
 // }} ""
-// {{ 7 1 0 "d09776c9_9daf_42ee_ba2893c1ddf00773" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 8 1 0 "d09776c9_9daf_42ee_ba2893c1ddf00773" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 if (GV_str_command == "close_and_read")
 {
 // }} ""
-// {{{ 8 1 0 "53622fa6_92e9_4348_b08388dcfbf866d9" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+// {{{ 9 1 0 "53622fa6_92e9_4348_b08388dcfbf866d9" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
 close_and_read();
 // }} ""
-// {{ 9 1 0 "d09776c9_9daf_42ee_ba2893c1ddf00773" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 10 1 0 "d09776c9_9daf_42ee_ba2893c1ddf00773" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 }
 // }} ""
 // {{ 2 "AutoExitBlock" ""
@@ -57,4 +62,4 @@ close_and_read();
 // {{{ 5 "main" "End"
 } }
 // }} ""
-// $$author=celltx1$$valid=0$$time=2026-06-03 12:00$$checksum=b849680d$$length=086$$
+// $$author=celltx1$$valid=0$$time=2026-06-03 12:21$$checksum=2e1512f5$$length=086$$
