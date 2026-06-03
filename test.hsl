@@ -1,0 +1,35 @@
+ namespace _Method { #include "Agilent Gen5 Interface\\Agilent Gen5 Interface.hsl" } 
+ namespace _Method { #include "ASWStandard\\ASWGlobal\\ASWGlobal.hsl" } 
+/* {{ 2 "LibraryInsertLine" "" */ // }} ""
+variable o_CytationID;
+/* {{ 2 "VariableInsertLine" "" */ // }} ""
+// {{ 2 "TemplateIncludeBlock" ""
+ namespace _Method { #include "HSLMETEDLib.hs_" } 
+ namespace _Method { #include "HSLMECCLib.hs_" } 
+ namespace _Method { #include "templates\\HSLPipetteWizard.hsl" } 
+ namespace _Method { #include "HSLSchedCCLib.hs_" } 
+// }} ""
+// {{{ 2 "LocalSubmethodInclude" ""
+ namespace _Method {  #include __filename__ ".sub"  } 
+// }} ""
+/* {{ 2 "ProcessInsertLine" "" */ // }} ""
+// {{{ 5 "main" "Begin"
+namespace _Method { method main(  ) void {
+// }} ""
+// {{ 5 "main" "InitLocals"
+// }} ""
+// {{ 2 "AutoInitBlock" ""
+::RegisterAbortHandler( "OnAbort");
+// }} ""
+// {{{ 1 1 0 "a48809c5_50fd_4c4b_b7d96794b30dac17" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Agilent_Gen5_Interface::Connect(Agilent_Gen5_Interface::ReaderType::Cytation5, ASWGLOBAL::BOOL::TRUE, Translate("2504170C"), 3, 9600, ASWGLOBAL::BOOL::FALSE, o_CytationID);
+// }} ""
+// {{{ 2 1 0 "81fc5f18_79b0_4a6b_8c6ced3d540905a5" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Agilent_Gen5_Interface::CarrierOut(o_CytationID);
+// }} ""
+// {{ 2 "AutoExitBlock" ""
+// }} ""
+// {{{ 5 "main" "End"
+} }
+// }} ""
+// $$author=celltx1$$valid=0$$time=2026-03-27 13:55$$checksum=db3ebcee$$length=086$$

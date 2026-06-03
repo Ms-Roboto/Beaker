@@ -1,0 +1,46 @@
+// {{{ 2 "SubmethodForwardDeclaration" ""
+private function close_and_read(  ) void ;
+private function close_door(  ) void ;
+private function open_door(  ) void ;
+function OnAbort(  ) void ;
+// }} ""
+// {{{ 5 "OnAbort" "Begin"
+function OnAbort(  ) void {
+// }} ""
+// {{ 5 "OnAbort" "InitLocals"
+// }} ""
+// {{{ 5 "OnAbort" "End"
+}
+// }} ""
+// {{{ 5 "open_door" "Begin"
+private function open_door(  ) void {
+// }} ""
+// {{ 5 "open_door" "InitLocals"
+// }} ""
+// {{{ 19 1 0 "fdc8f00c_2d75_4baa_bf064fed65e7d1c9" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Agilent_Gen5_Interface::CarrierOut(GV_CytationID);
+// }} ""
+// {{{ 5 "open_door" "End"
+}
+// }} ""
+// {{{ 5 "close_door" "Begin"
+private function close_door(  ) void {
+// }} ""
+// {{ 5 "close_door" "InitLocals"
+// }} ""
+// {{{ 17 1 0 "c733d163_8897_4a53_b1a4797ef360f57f" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+Agilent_Gen5_Interface::CarrierIn(GV_CytationID);
+// }} ""
+// {{{ 5 "close_door" "End"
+}
+// }} ""
+// {{{ 5 "close_and_read" "Begin"
+private function close_and_read(  ) void {
+// }} ""
+// {{ 5 "close_and_read" "InitLocals"
+// }} ""
+// {{{ 5 "close_and_read" "End"
+}
+// }} ""
+/* {{ 2 "SubmethodInsertLine" "" */ // }} ""
+// $$author=celltx1$$valid=0$$time=2026-06-03 11:21$$checksum=1f07cafb$$length=086$$

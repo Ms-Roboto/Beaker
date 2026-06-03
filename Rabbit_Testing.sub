@@ -84,4 +84,4 @@ return_obj = HSLRabbitMQLib::SendMessage(o_obj_cytation, Translate("Cytation_Ret
 }
 // }} ""
 /* {{ 2 "SubmethodInsertLine" "" */ // }} ""
-// $$author=celltx1$$valid=0$$time=2026-03-19 16:41$$checksum=c4b9f56f$$length=086$$
+// $$author=celltx1$$valid=0$$time=2026-03-27 13:55$$checksum=93d53d3e$$length=086$$
