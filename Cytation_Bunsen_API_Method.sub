@@ -60,9 +60,7 @@ arr_str_platetypes.SetSize(1);
 // {{{ 13 1 0 "ec49d725_a813_4e04_ad3698c434176b3d" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
 TRACELEVEL::SetTraceLevel(2);
 // }} ""
-// {{ 14 1 0 "01d151ca_45ff_449f_8c37278e3a134ba0" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
-str_ProtocolPath = GV_str_protocol;
-// }} ""
+str_ProtocolPath = "C:\\Users\\Public\\Documents\\Protocols\\" + GV_str_protocol;
 // {{ 15 1 0 "1b30046b_56fc_40df_a62b23fc4ab3d01c" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
 str_PlateBarcode = GV_str_plate_barcode;
 // }} ""
@@ -149,11 +147,11 @@ else
 if (int_readstatus == 4|| int_readstatus == 3|| int_readstatus == 2)
 {
 // }} ""
-// {{ 41 1 0 "50eaf5f5_fd29_4519_8c256c62191b9a81" "{B31F3533-5D80-11d4-A5EB-0050DA737D89}"
-break;
-// }} ""
-// {{{ 42 1 0 "73d2ecff_5d8a_40ab_abfe993877bbcca6" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+// {{{ 41 1 0 "63ddd899_164a_46be_a4324cbaf4f4cbcf" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
 TRACELEVEL::Debug_Trace2(Translate("<<<<READ PAUSED ERROR ISSUE>>>>"), int_readstatus);
+// }} ""
+// {{ 42 1 0 "50eaf5f5_fd29_4519_8c256c62191b9a81" "{B31F3533-5D80-11d4-A5EB-0050DA737D89}"
+break;
 // }} ""
 // {{ 43 1 0 "08c6a20d_0881_4183_a074ef4c72f31cf5" "{F07B0071-8EFC-11d4-A3BA-002035848439}"
 MECC::TraceComment(Translate("issuee??\n"));
@@ -178,4 +176,4 @@ Agilent_Gen5_Interface::CarrierOut(GV_CytationID);
 }
 // }} ""
 /* {{ 2 "SubmethodInsertLine" "" */ // }} ""
-// $$author=celltx1$$valid=0$$time=2026-06-03 12:49$$checksum=c645b93c$$length=086$$
+// $$author=celltx1$$valid=0$$time=2026-06-03 12:56$$checksum=ed759374$$length=086$$
