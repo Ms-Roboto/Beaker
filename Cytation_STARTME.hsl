@@ -41,6 +41,7 @@ namespace _Method { workflow main(  ) void {
 // {{ 2 "AutoInitBlock" ""
 ::RegisterAbortHandler( "OnAbort");
 // }} ""
+/* {{ 6 "1" "" */ executoronly { /* }} "" */
 // {{ 1 1 0 "d2776fd9_8abb_4035_8f329a55626e6c63" "{586C3429-F931-405f-9938-928E22C90BFA}"
 MECC::TraceComment("Group start - init device");
 // }} ""
@@ -118,10 +119,12 @@ TRACELEVEL::Debug_Trace2(Translate("<<<<DEVICE STATUS>>>>"), int_devicestatus);
 // {{ 24 1 0 "d2776fd9_8abb_4035_8f329a55626e6c63" "{586C3429-F931-405f-9938-928E22C90BFA}"
 MECC::TraceComment("Group end - init device");
 // }} ""
+/* {{ 6 "3" "" */ } /* }} "" */
 // {{ 25 1 0 "33c89d3b_8d44_4735_91c0f63fa92458fb" "{9FF7DCDD-9394-4cd2-94DA-9B1C6EE484AD}"
 SchedCCLib::SchedPreSelectMethod( "Cytation_Bunsen_API_Method.hsl", Translate("Cytation_Bunsen_API_Method"), Cytation_Bunsen_API_Method_id );
 SchedCCLib::SchedPostSelectMethod( RegisterMethod( "Cytation_Bunsen_API_Method.hsl", Translate("Cytation_Bunsen_API_Method"), Cytation_Bunsen_API_Method_id ) );
 // }} ""
+/* {{ 6 "1" "" */ executoronly { /* }} "" */
 // {{ 26 1 0 "ce8255c1_f4f8_4d35_8e78cd8a84c38ede" "{B31F3532-5D80-11d4-A5EB-0050DA737D89}"
 {
 loopCounter1 = 0;
@@ -129,43 +132,41 @@ while (1 == 1)
 {
 loopCounter1 = loopCounter1 + 1;
 // }} ""
+GV_str_protocol = "";
+GV_str_plate_type = "";
+GV_str_plate_barcode = "";
+GV_str_command = "";
 {
-    variable str_pause_cmd;
-    variable retVal;
-    str_pause_cmd = "curl -s -X POST http://localhost:51745/api/v1/vector/execution/pause";
-    retVal = Util::SyncShell(str_pause_cmd, hslHide, hslSynchronous);
+    object objShell;
+    objShell.CreateObject("WScript.Shell");
+    objShell.Run("curl -s -X POST http://localhost:51745/api/v1/vector/execution/pause", 0, 0);
+    objShell.ReleaseObject();
 }
-// {{ 28 1 0 "7f6a2e61_4e44_45ef_987307ca3cec6aff" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 29 1 0 "7f6a2e61_4e44_45ef_987307ca3cec6aff" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 if (GV_str_command == "stop")
 {
 // }} ""
-// {{ 29 1 0 "e82d54a9_48c0_4799_80bdd997ff564dd8" "{B31F3533-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 30 1 0 "e82d54a9_48c0_4799_80bdd997ff564dd8" "{B31F3533-5D80-11d4-A5EB-0050DA737D89}"
 break;
 // }} ""
-// {{ 30 1 0 "7f6a2e61_4e44_45ef_987307ca3cec6aff" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 31 1 0 "7f6a2e61_4e44_45ef_987307ca3cec6aff" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 }
 else
 {
 // }} ""
-/* {{ 6 "1" "" */ executoronly { /* }} "" */
-// {{ 31 1 0 "77ff5c0b_7c47_453e_95280bf77543dba0" "{AF67BD92-5D7C-4031-BECC-B5ADDAC7F229}"
+// {{ 32 1 0 "77ff5c0b_7c47_453e_95280bf77543dba0" "{AF67BD92-5D7C-4031-BECC-B5ADDAC7F229}"
 schedule
 {
 // }} ""
-// {{ 32 1 0 "965b8045_4932_409c_800ab3fe3466e7cb" "{530F2E68-A55F-4cef-9F72-762A0497173E}"
+// {{ 33 1 0 "965b8045_4932_409c_800ab3fe3466e7cb" "{530F2E68-A55F-4cef-9F72-762A0497173E}"
 SchedCCLib::SchedStartActivate();
 SchedCCLib::SchedPreActivate( 0, hslSchedulingStart, Cytation_Bunsen_API_Method_id, Translate("Task 1"), taskid_1, hslFalse );
 SchedCCLib::SchedPostActivate( ActivateDelay( 0, hslSchedulingStart, Cytation_Bunsen_API_Method_id, Translate("Task 1"), taskid_1, hslFalse ) );
 SchedCCLib::SchedEndActivate();
 // }} ""
-// {{ 33 1 0 "77ff5c0b_7c47_453e_95280bf77543dba0" "{AF67BD92-5D7C-4031-BECC-B5ADDAC7F229}"
+// {{ 34 1 0 "77ff5c0b_7c47_453e_95280bf77543dba0" "{AF67BD92-5D7C-4031-BECC-B5ADDAC7F229}"
 }
 // }} ""
-GV_str_protocol = "";
-GV_str_plate_type = "";
-GV_str_plate_barcode = "";
-GV_str_command = "";
-/* {{ 6 "3" "" */ } /* }} "" */
 // {{ 35 1 0 "7f6a2e61_4e44_45ef_987307ca3cec6aff" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 }
 // }} ""
@@ -173,6 +174,7 @@ GV_str_command = "";
 }
 }
 // }} ""
+/* {{ 6 "3" "" */ } /* }} "" */
 // {{ 2 "WorkflowDiagramBlock" ""
 // }} ""
 // {{ 2 "AutoExitBlock" ""
@@ -180,4 +182,4 @@ GV_str_command = "";
 // {{{ 5 "main" "End"
 } }
 // }} ""
-// $$author=celltx1$$valid=0$$time=2026-06-03 11:30$$checksum=db41b012$$length=086$$
+// $$author=celltx1$$valid=0$$time=2026-06-03 12:17$$checksum=5d98a9f3$$length=086$$
