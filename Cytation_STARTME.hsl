@@ -197,4 +197,4 @@ if( 0 == timer1.WaitTimer(hslTrue, hslTrue) )
 // {{{ 5 "main" "End"
 } }
 // }} ""
-// $$author=celltx1$$valid=0$$time=2026-06-04 14:52$$checksum=5f35211d$$length=086$$
+// $$author=celltx1$$valid=0$$time=2026-06-04 16:18$$checksum=dd3d127b$$length=086$$

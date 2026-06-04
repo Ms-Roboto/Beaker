@@ -219,24 +219,37 @@ private function notify_bunsen( variable i_str_result ) void {
 // }} ""
 private variable str_cmd;
 private variable ret_Val;
+private variable str_json_file;
 // {{ 5 "notify_bunsen" "InitLocals"
 // }} ""
-// {{ 66 1 0 "3f77dad4_e0bd_4b06_a70fea2378d04d93" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 66 1 0 "f9abaacc_43e1_4696_b073d3d53d423754" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
 str_cmd = Translate("");
 // }} ""
-str_cmd = "C:\PROGRA~1\PYTHON~1\python.exe C:\PROGRA~2\HAMILTON\METHODS\PYTHON~1\venus_api_set.py 128.137.123.141 GV_str_cytation_result=" + i_str_result + " --resume";
-// {{ 68 1 0 "53fa78e2_46d6_4120_9ddbeb8365c3cc11" "{B31F3545-5D80-11d4-A5EB-0050DA737D89}"
-{
-event localDummyEvent1;
-if( 0 == Shell(str_cmd, hslHide, hslSynchronous, localDummyEvent1, ret_Val) )
-{
-    MECC::RaiseRuntimeErrorEx(-1238499072, MECC::IDS::stepNameShell, MECC::IDS::errorStepFailed, "", "HxMetEdCompCmd");
-}
-}
+// {{ 67 1 0 "c3228121_7919_4a03_a9b0c4579babbf13" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+str_json_file = Translate("C:\Temp\bunsen_notify.json");
 // }} ""
-Trace ("Bunsen has been notified " + i_str_result);
+{
+    object objFSO;
+    object objFile;
+    variable str_json;
+    object objShell;
+    
+    str_json = "{\x22variableNames\x22:[\x22GV_str_cytation_result\x22],\x22variableValues\x22:[\x22" + i_str_result + "\x22]}";
+    
+    objFSO.CreateObject("Scripting.FileSystemObject");
+    objFile = objFSO.CreateTextFile("C:\\Temp\\bunsen_notify.json", 1);
+    objFile.Write(str_json);
+    objFile.Close();
+    objFSO.ReleaseObject();
+    
+    objShell.CreateObject("WScript.Shell");
+    objShell.Run("curl -s -X PUT -H \x22Content-Type: application/json\x22 -d @C:\\Temp\\bunsen_notify.json http://128.137.123.141:51745/api/v1/vector/execution/input", 0, 1);
+    objShell.Run("curl -s -X POST http://128.137.123.141:51745/api/v1/vector/execution/resume", 0, 1);
+    objShell.ReleaseObject();
+}
+Trace ("Bunsen has been notified " , i_str_result);
 // {{{ 5 "notify_bunsen" "End"
 }
 // }} ""
 /* {{ 2 "SubmethodInsertLine" "" */ // }} ""
-// $$author=celltx1$$valid=0$$time=2026-06-04 14:52$$checksum=257777c7$$length=086$$
+// $$author=celltx1$$valid=0$$time=2026-06-04 16:18$$checksum=9b715180$$length=086$$
