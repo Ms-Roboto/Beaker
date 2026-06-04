@@ -95,11 +95,9 @@ TRACELEVEL::Debug_Trace2(Translate("<<<<<<Cytation CONNECTED>>>>>>"), Translate(
 // {{{ 18 1 0 "1e4f0f2b_be68_40a2_9b090ba0b21f747b" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
 Agilent_Gen5_Interface::SetTemperatureSetPoint(o_CytationID, ASWGLOBAL::BOOL::TRUE, 37, 0);
 // }} ""
-/* {{ 1 "" "0" */ if(0){  /* }} "" */
-// {{{ 19 1 0 "42a4d687_cbfa_4e5f_88b3e874967a3ccd" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+// {{{ 19 1 0 "b484ab11_9a54_4a62_bc54410a58e42db0" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
 Agilent_Gen5_Interface::GetPlateTypeNames(o_CytationID, 6, arr_str_platetypes);
 // }} ""
-/* {{ 1 "" "1" */ } /* }} "" */
 // {{{ 20 1 0 "eda9fb5b_f614_4601_8037255c4154e6a8" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
 TRACELEVEL::Debug_Trace2(Translate("<<<<DEVICE STATUS>>>>"), int_devicestatus);
 // }} ""
@@ -252,4 +250,4 @@ Agilent_Gen5_Interface::Disconnect(o_CytationID);
 // {{{ 5 "main" "End"
 } }
 // }} ""
-// $$author=celltx1$$valid=0$$time=2026-05-29 16:42$$checksum=a59e019e$$length=086$$
+// $$author=celltx1$$valid=0$$time=2026-06-03 13:07$$checksum=20a3bcea$$length=086$$
