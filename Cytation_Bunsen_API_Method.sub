@@ -20,34 +20,47 @@ private function open_door(  ) void {
 private variable loopCounter1;
 // {{ 5 "open_door" "InitLocals"
 // }} ""
-// {{{ 83 1 0 "fdc8f00c_2d75_4baa_bf064fed65e7d1c9" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+// {{{ 87 1 0 "fdc8f00c_2d75_4baa_bf064fed65e7d1c9" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
 Agilent_Gen5_Interface::CarrierOut(GV_CytationID);
 // }} ""
-// {{ 84 1 0 "e1a41c7c_92c4_456b_a5aed3508ba69f61" "{B31F3532-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 88 1 0 "e1a41c7c_92c4_456b_a5aed3508ba69f61" "{B31F3532-5D80-11d4-A5EB-0050DA737D89}"
 {
 loopCounter1 = 0;
 while (1 == 1)
 {
 loopCounter1 = loopCounter1 + 1;
 // }} ""
-// {{{ 85 1 0 "88ff79c9_65ba_449b_a1816614477a1df7" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+// {{{ 89 1 0 "88ff79c9_65ba_449b_a1816614477a1df7" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
 Agilent_Gen5_Interface::GetDeviceStatus(GV_CytationID, int_status);
 // }} ""
-// {{ 86 1 0 "c722af66_bf9b_4895_ba98a262c72b0770" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
-if (int_status == 0|| int_status == -2|| int_status == -3)
+// {{ 90 1 0 "ebb4da15_5a34_457c_8f9e49fd4e96841d" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (int_status == 0)
 {
 // }} ""
-// {{ 87 1 0 "f4bd370c_fca2_4d31_a033a10c44be9245" "{B31F3533-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 91 1 0 "43f48be9_66e6_4159_95c5797d545cfc69" "{B31F3533-5D80-11d4-A5EB-0050DA737D89}"
 break;
 // }} ""
-// {{ 88 1 0 "c722af66_bf9b_4895_ba98a262c72b0770" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 92 1 0 "ebb4da15_5a34_457c_8f9e49fd4e96841d" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 }
 // }} ""
-// {{ 89 1 0 "e1a41c7c_92c4_456b_a5aed3508ba69f61" "{B31F3532-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 93 1 0 "eb9fb47a_6534_4381_a650284d6dbfcbd3" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (int_status == -2|| int_status == -3)
+{
+// }} ""
+// {{{ 94 1 0 "f47cfcbf_3ae0_4a77_800a09f40db3b044" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+notify_bunsen(Translate("READERNOTWORKING"));
+// }} ""
+// {{{ 95 1 0 "5645ad74_e16e_4b85_a8ce331c022fd76d" "{9EC997CD-FD3B-4280-811B-49E99DCF062C}"
+return;
+// }} ""
+// {{ 96 1 0 "eb9fb47a_6534_4381_a650284d6dbfcbd3" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 97 1 0 "e1a41c7c_92c4_456b_a5aed3508ba69f61" "{B31F3532-5D80-11d4-A5EB-0050DA737D89}"
 }
 }
 // }} ""
-// {{{ 90 1 0 "1bfe6058_0229_4899_804c3814cf162caf" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+// {{{ 98 1 0 "1bfe6058_0229_4899_804c3814cf162caf" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
 notify_bunsen(Translate("OK"));
 // }} ""
 // {{{ 5 "open_door" "End"
@@ -72,21 +85,34 @@ loopCounter1 = loopCounter1 + 1;
 // {{{ 68 1 0 "b0a82e56_0e05_4e10_8eb95b8c55118db5" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
 Agilent_Gen5_Interface::GetDeviceStatus(GV_CytationID, int_status);
 // }} ""
-// {{ 69 1 0 "4f43563c_aca0_4813_975e98e98505bded" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
-if (int_status == 0|| int_status == -2|| int_status == -3)
+// {{ 69 1 0 "83bad2b7_85a6_4841_93909429a06874d2" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (int_status == 0)
 {
 // }} ""
 // {{ 70 1 0 "59ff3559_7a91_4a68_a48929680924cff8" "{B31F3533-5D80-11d4-A5EB-0050DA737D89}"
 break;
 // }} ""
-// {{ 71 1 0 "4f43563c_aca0_4813_975e98e98505bded" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 71 1 0 "83bad2b7_85a6_4841_93909429a06874d2" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 }
 // }} ""
-// {{ 72 1 0 "124d8565_fa26_44ce_bd63e354d92a633a" "{B31F3532-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 72 1 0 "a4dd1420_be01_4368_95cc7a3ec7cfe417" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+if (int_status == -2|| int_status == -3)
+{
+// }} ""
+// {{{ 73 1 0 "9ba09eec_865c_4e83_a444a5bc6d54ed50" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+notify_bunsen(Translate("READERNOTWORKING"));
+// }} ""
+// {{{ 74 1 0 "5382767f_6c06_46b6_a329a0ae9570fcbe" "{9EC997CD-FD3B-4280-811B-49E99DCF062C}"
+return;
+// }} ""
+// {{ 75 1 0 "a4dd1420_be01_4368_95cc7a3ec7cfe417" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+}
+// }} ""
+// {{ 76 1 0 "124d8565_fa26_44ce_bd63e354d92a633a" "{B31F3532-5D80-11d4-A5EB-0050DA737D89}"
 }
 }
 // }} ""
-// {{{ 73 1 0 "0bff62e9_8923_4907_bc81655e1cf7aa18" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+// {{{ 77 1 0 "0bff62e9_8923_4907_bc81655e1cf7aa18" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
 notify_bunsen(Translate("OK"));
 // }} ""
 // {{{ 5 "close_door" "End"
@@ -261,10 +287,10 @@ private function get_plate_type(  ) void {
 private variable arr_plate_type_names[];
 // {{ 5 "get_plate_type" "InitLocals"
 // }} ""
-// {{{ 75 1 0 "6ba5044a_73e9_48e0_bc6ae8ef6996a4ec" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+// {{{ 79 1 0 "6ba5044a_73e9_48e0_bc6ae8ef6996a4ec" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
 Agilent_Gen5_Interface::GetPlateTypeNames(GV_CytationID, 6, arr_plate_type_names);
 // }} ""
-// {{{ 76 1 0 "0690d68f_a4a2_4983_846b48f0d9377007" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+// {{{ 80 1 0 "0690d68f_a4a2_4983_846b48f0d9377007" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
 TRACELEVEL::Debug_TraceArray(arr_plate_type_names, Translate("the plate names in the machine "));
 // }} ""
 // {{{ 5 "get_plate_type" "End"
@@ -278,10 +304,10 @@ private variable ret_Val;
 private variable str_json_file;
 // {{ 5 "notify_bunsen" "InitLocals"
 // }} ""
-// {{ 78 1 0 "f9abaacc_43e1_4696_b073d3d53d423754" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 82 1 0 "f9abaacc_43e1_4696_b073d3d53d423754" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
 str_cmd = Translate("");
 // }} ""
-// {{ 79 1 0 "c3228121_7919_4a03_a9b0c4579babbf13" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 83 1 0 "c3228121_7919_4a03_a9b0c4579babbf13" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
 str_json_file = Translate("C:\Temp\bunsen_notify.json");
 // }} ""
 {
@@ -308,4 +334,4 @@ Trace ("Bunsen has been notified " , i_str_result);
 }
 // }} ""
 /* {{ 2 "SubmethodInsertLine" "" */ // }} ""
-// $$author=celltx1$$valid=0$$time=2026-06-05 09:37$$checksum=fa437c77$$length=086$$
+// $$author=celltx1$$valid=0$$time=2026-06-05 09:52$$checksum=dfec6387$$length=086$$
