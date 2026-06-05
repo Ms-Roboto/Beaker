@@ -3,6 +3,7 @@
  namespace _Method { #include "ASWStandard\\TraceLevel\\TraceLevel.hsl" } 
 /* {{ 2 "LibraryInsertLine" "" */ // }} ""
 
+variable str_cmd_copy;
 /* {{ 2 "VariableInsertLine" "" */ // }} ""
 // {{ 2 "TemplateIncludeBlock" ""
  namespace _Method { #include "HSLMETEDLib.hs_" } 
@@ -22,57 +23,63 @@ namespace _Method { method main(  ) void {
 // {{ 2 "AutoInitBlock" ""
 ::RegisterAbortHandler( "OnAbort");
 // }} ""
+// {{ 1 1 0 "5baaea7d_52f2_4309_b530d5cd8bb3f3e9" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
+str_cmd_copy = Translate("");
+// }} ""
 if (GV_str_command == "")
 {
     // No command — exit immediately
     return;
 }
+// Copy and clear immediately
+str_cmd_copy = GV_str_command
+GV_str_command = ""
 /* {{ 1 "" "0" */ if(0){  /* }} "" */
-// {{{ 2 1 0 "b1bcdfb9_133f_45c5_a389aa6bcb75e22a" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+// {{{ 4 1 0 "b1bcdfb9_133f_45c5_a389aa6bcb75e22a" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
 get_plate_type();
 // }} ""
 /* {{ 1 "" "1" */ } /* }} "" */
-// {{ 3 1 0 "c70fddc2_88ec_4887_a5e238eadaf31c48" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 5 1 0 "c70fddc2_88ec_4887_a5e238eadaf31c48" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 if (GV_str_command == "")
 {
 // }} ""
-// {{{ 4 1 0 "c56ddc5d_992e_4718_8b7f49c8ab020594" "{9EC997CD-FD3B-4280-811B-49E99DCF062C}"
+// {{{ 6 1 0 "c56ddc5d_992e_4718_8b7f49c8ab020594" "{9EC997CD-FD3B-4280-811B-49E99DCF062C}"
 return;
 // }} ""
-// {{ 5 1 0 "c70fddc2_88ec_4887_a5e238eadaf31c48" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 7 1 0 "c70fddc2_88ec_4887_a5e238eadaf31c48" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 }
 // }} ""
-// {{ 6 1 0 "4038866b_b82b_4468_aae350a0c59575be" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 8 1 0 "4038866b_b82b_4468_aae350a0c59575be" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 if (GV_str_command == "open_door")
 {
 // }} ""
-// {{{ 7 1 0 "edf4f856_6a74_4b4d_80cd79a128dd2437" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+// {{{ 9 1 0 "edf4f856_6a74_4b4d_80cd79a128dd2437" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
 open_door();
 // }} ""
-// {{ 8 1 0 "4038866b_b82b_4468_aae350a0c59575be" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 10 1 0 "4038866b_b82b_4468_aae350a0c59575be" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 }
 // }} ""
-// {{ 9 1 0 "0104d00d_27e5_4e14_a5cd5dadacad201b" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 11 1 0 "0104d00d_27e5_4e14_a5cd5dadacad201b" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 if (GV_str_command == "close_door")
 {
 // }} ""
-// {{{ 10 1 0 "9f4679e6_4e15_48ba_a56fbbebe4ab92f5" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+// {{{ 12 1 0 "9f4679e6_4e15_48ba_a56fbbebe4ab92f5" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
 close_door();
 // }} ""
-// {{ 11 1 0 "0104d00d_27e5_4e14_a5cd5dadacad201b" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 13 1 0 "0104d00d_27e5_4e14_a5cd5dadacad201b" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 }
 // }} ""
-// {{ 12 1 0 "d09776c9_9daf_42ee_ba2893c1ddf00773" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 14 1 0 "d09776c9_9daf_42ee_ba2893c1ddf00773" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 if (GV_str_command == "close_and_read")
 {
 // }} ""
-// {{{ 13 1 0 "53622fa6_92e9_4348_b08388dcfbf866d9" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+// {{{ 15 1 0 "53622fa6_92e9_4348_b08388dcfbf866d9" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
 close_and_read();
 // }} ""
-// {{ 14 1 0 "d09776c9_9daf_42ee_ba2893c1ddf00773" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 16 1 0 "d09776c9_9daf_42ee_ba2893c1ddf00773" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 }
 // }} ""
-// {{{ 15 1 0 "d416be5c_f885_49fd_a31808c2d2e4b844" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+// {{{ 17 1 0 "d416be5c_f885_49fd_a31808c2d2e4b844" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
 notify_bunsen(Translate("OK"));
 // }} ""
 // {{ 2 "AutoExitBlock" ""
@@ -80,4 +87,4 @@ notify_bunsen(Translate("OK"));
 // {{{ 5 "main" "End"
 } }
 // }} ""
-// $$author=celltx1$$valid=0$$time=2026-06-04 16:18$$checksum=c5be4478$$length=086$$
+// $$author=celltx1$$valid=0$$time=2026-06-04 17:03$$checksum=a2b9d5ca$$length=086$$

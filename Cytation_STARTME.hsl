@@ -160,6 +160,7 @@ else
 schedule
 {
 // }} ""
+/* {{ 1 "" "0" */ if(0){  /* }} "" */
 // {{ 32 1 0 "9b273b7d_1780_449e_aa1887c25e5b4266" "{B31F353E-5D80-11d4-A5EB-0050DA737D89}"
 timer1.SetTimerViewName("wait");
 if( 0 == timer1.SetTimer(10) )
@@ -167,18 +168,21 @@ if( 0 == timer1.SetTimer(10) )
     MECC::RaiseRuntimeErrorEx(-1355939584, MECC::IDS::stepNameTimerStart, MECC::IDS::errorStepFailed, "", "HxMetEdCompCmd");
 }
 // }} ""
+/* {{ 1 "" "1" */ } /* }} "" */
 // {{ 33 1 0 "90828275_3b55_4766_82dee443e5aad831" "{530F2E68-A55F-4cef-9F72-762A0497173E}"
 SchedCCLib::SchedStartActivate();
 SchedCCLib::SchedPreActivate( 0, hslSchedulingStart, Cytation_Bunsen_API_Method_id, Translate("Task 1"), taskid_1, hslFalse );
 SchedCCLib::SchedPostActivate( ActivateDelay( 0, hslSchedulingStart, Cytation_Bunsen_API_Method_id, Translate("Task 1"), taskid_1, hslFalse ) );
 SchedCCLib::SchedEndActivate();
 // }} ""
+/* {{ 1 "" "0" */ if(0){  /* }} "" */
 // {{ 34 1 0 "43757dfa_7238_4cc8_8dc8a62d038fea6b" "{B31F353F-5D80-11d4-A5EB-0050DA737D89}"
 if( 0 == timer1.WaitTimer(hslTrue, hslTrue) )
 {
     MECC::RaiseRuntimeErrorEx(-1339162368, MECC::IDS::stepNameTimerWait, MECC::IDS::errorStepFailed, "", "HxMetEdCompCmd");
 }
 // }} ""
+/* {{ 1 "" "1" */ } /* }} "" */
 // {{ 35 1 0 "77ff5c0b_7c47_453e_95280bf77543dba0" "{AF67BD92-5D7C-4031-BECC-B5ADDAC7F229}"
 }
 // }} ""
@@ -197,4 +201,4 @@ if( 0 == timer1.WaitTimer(hslTrue, hslTrue) )
 // {{{ 5 "main" "End"
 } }
 // }} ""
-// $$author=celltx1$$valid=0$$time=2026-06-04 16:18$$checksum=dd3d127b$$length=086$$
+// $$author=celltx1$$valid=0$$time=2026-06-04 17:01$$checksum=d4483ce4$$length=086$$
