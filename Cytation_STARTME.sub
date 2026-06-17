@@ -6,14 +6,14 @@ function OnAbort(  ) void {
 // }} ""
 // {{ 5 "OnAbort" "InitLocals"
 // }} ""
-// {{{ 39 1 0 "bae0eda5_82fa_43be_90d4f6b2c1fc611f" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+// {{{ 40 1 0 "bae0eda5_82fa_43be_90d4f6b2c1fc611f" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
 Agilent_Gen5_Interface::AbortReadPlate(GV_CytationID);
 // }} ""
-// {{{ 40 1 0 "153a6337_a82a_4bba_b0f8ab7dd4c3ede5" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+// {{{ 41 1 0 "153a6337_a82a_4bba_b0f8ab7dd4c3ede5" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
 Agilent_Gen5_Interface::Disconnect(GV_CytationID);
 // }} ""
 // {{{ 5 "OnAbort" "End"
 }
 // }} ""
 /* {{ 2 "SubmethodInsertLine" "" */ // }} ""
-// $$author=celltx1$$valid=0$$time=2026-06-05 10:03$$checksum=169e1fdf$$length=086$$
+// $$author=celltx1$$valid=0$$time=2026-06-17 15:05$$checksum=0f575d17$$length=086$$

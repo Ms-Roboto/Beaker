@@ -1,6 +1,7 @@
  namespace _Method { #include "Agilent Gen5 Interface\\Agilent Gen5 Interface.hsl" } 
  namespace _Method { #include "ASWStandard\\ASWGlobal\\ASWGlobal.hsl" } 
  namespace _Method { #include "ASWStandard\\TraceLevel\\TraceLevel.hsl" } 
+ namespace _Method { #include "HSLTimLib.hsl" } 
 /* {{ 2 "LibraryInsertLine" "" */ // }} ""
 
 variable str_cmd_copy;
@@ -36,64 +37,64 @@ if (GV_str_command == "")
 str_cmd_copy = GV_str_command;
 GV_str_command = "";
 /* {{ 1 "" "0" */ if(0){  /* }} "" */
-// {{{ 4 1 0 "b1bcdfb9_133f_45c5_a389aa6bcb75e22a" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+// {{{ 3 1 0 "b1bcdfb9_133f_45c5_a389aa6bcb75e22a" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
 get_plate_type();
 // }} ""
-// {{ 5 1 0 "dc16c43c_8f85_4514_9ef4ce638ef4c675" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 4 1 0 "dc16c43c_8f85_4514_9ef4ce638ef4c675" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 if (str_cmd_copy == "")
 {
 // }} ""
-// {{{ 6 1 0 "c56ddc5d_992e_4718_8b7f49c8ab020594" "{9EC997CD-FD3B-4280-811B-49E99DCF062C}"
+// {{{ 5 1 0 "c56ddc5d_992e_4718_8b7f49c8ab020594" "{9EC997CD-FD3B-4280-811B-49E99DCF062C}"
 return;
 // }} ""
-// {{ 7 1 0 "dc16c43c_8f85_4514_9ef4ce638ef4c675" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 6 1 0 "dc16c43c_8f85_4514_9ef4ce638ef4c675" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 }
 // }} ""
 /* {{ 1 "" "1" */ } /* }} "" */
-// {{{ 8 1 0 "136fae31_fb56_4f1c_9a4412a9c13ce0c5" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+// {{{ 7 1 0 "136fae31_fb56_4f1c_9a4412a9c13ce0c5" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
 Agilent_Gen5_Interface::GetDeviceStatus(GV_CytationID, int_status);
 // }} ""
-// {{ 9 1 0 "c3c7c980_4236_48b0_ba91101bb08f4a76" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 8 1 0 "c3c7c980_4236_48b0_ba91101bb08f4a76" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 if (int_status == -2|| int_status == -3)
 {
 // }} ""
-// {{{ 10 1 0 "ac365f95_d02a_4d90_a5a5ea7f0a85ab47" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+// {{{ 9 1 0 "ac365f95_d02a_4d90_a5a5ea7f0a85ab47" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
 notify_bunsen(Translate("READERNOTWORKING"));
 // }} ""
-// {{{ 11 1 0 "56bc865a_ff80_4926_a40b2abdd6d37013" "{9EC997CD-FD3B-4280-811B-49E99DCF062C}"
+// {{{ 10 1 0 "56bc865a_ff80_4926_a40b2abdd6d37013" "{9EC997CD-FD3B-4280-811B-49E99DCF062C}"
 return;
 // }} ""
-// {{ 12 1 0 "c3c7c980_4236_48b0_ba91101bb08f4a76" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 11 1 0 "c3c7c980_4236_48b0_ba91101bb08f4a76" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 }
 // }} ""
-// {{ 13 1 0 "bba353de_4bb2_4755_92ec05fb41c14bf9" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 12 1 0 "bba353de_4bb2_4755_92ec05fb41c14bf9" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 if (str_cmd_copy == "open_door")
 {
 // }} ""
-// {{{ 14 1 0 "edf4f856_6a74_4b4d_80cd79a128dd2437" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+// {{{ 13 1 0 "edf4f856_6a74_4b4d_80cd79a128dd2437" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
 open_door();
 // }} ""
-// {{ 15 1 0 "bba353de_4bb2_4755_92ec05fb41c14bf9" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 14 1 0 "bba353de_4bb2_4755_92ec05fb41c14bf9" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 }
 // }} ""
-// {{ 16 1 0 "2881509d_651a_4939_8278a64594192b99" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 15 1 0 "2881509d_651a_4939_8278a64594192b99" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 if (str_cmd_copy == "close_door")
 {
 // }} ""
-// {{{ 17 1 0 "9f4679e6_4e15_48ba_a56fbbebe4ab92f5" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+// {{{ 16 1 0 "9f4679e6_4e15_48ba_a56fbbebe4ab92f5" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
 close_door();
 // }} ""
-// {{ 18 1 0 "2881509d_651a_4939_8278a64594192b99" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 17 1 0 "2881509d_651a_4939_8278a64594192b99" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 }
 // }} ""
-// {{ 19 1 0 "98c97da5_dfae_40f3_b43642966e985d74" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 18 1 0 "98c97da5_dfae_40f3_b43642966e985d74" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 if (str_cmd_copy == "close_and_read")
 {
 // }} ""
-// {{{ 20 1 0 "53622fa6_92e9_4348_b08388dcfbf866d9" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
+// {{{ 19 1 0 "53622fa6_92e9_4348_b08388dcfbf866d9" "{7C4EF7A7-39BE-406a-897F-71F3A35B4093}"
 close_and_read();
 // }} ""
-// {{ 21 1 0 "98c97da5_dfae_40f3_b43642966e985d74" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 20 1 0 "98c97da5_dfae_40f3_b43642966e985d74" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 }
 // }} ""
 // {{ 2 "AutoExitBlock" ""
@@ -101,4 +102,4 @@ close_and_read();
 // {{{ 5 "main" "End"
 } }
 // }} ""
-// $$author=celltx1$$valid=0$$time=2026-06-05 10:03$$checksum=1b0988a6$$length=086$$
+// $$author=celltx1$$valid=0$$time=2026-06-17 15:23$$checksum=69b669e1$$length=086$$
