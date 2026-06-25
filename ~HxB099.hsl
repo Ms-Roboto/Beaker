@@ -51,7 +51,7 @@ return;
 }
 // }} ""
 /* {{ 1 "" "1" */ } /* }} "" */
-// {{{ 7 1 0 "136fae31_fb56_4f1c_9a4412a9c13ce0c5" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+// {{{ 7 1 0 "0bc9511f_f731_430a_88bf4a61a1fb58e7" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
 Agilent_Gen5_Interface::GetDeviceStatus(GV_CytationID, int_status);
 // }} ""
 // {{ 8 1 0 "c3c7c980_4236_48b0_ba91101bb08f4a76" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
@@ -102,4 +102,4 @@ close_and_read();
 // {{{ 5 "main" "End"
 } }
 // }} ""
-// $$author=celltx1$$valid=0$$time=2026-06-17 15:22$$checksum=f213258e$$length=086$$
+// $$author=celltx1$$valid=0$$time=2026-06-24 13:54$$checksum=be2f3635$$length=086$$

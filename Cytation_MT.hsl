@@ -227,22 +227,19 @@ TRACELEVEL::Debug_Trace2(Translate("<<<<READ IS COMPLETE>>>>"), int_readstatus);
 // {{{ 56 1 0 "e29edeb9_23cc_4149_9dc4ebd15a83a03f" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
 TRACELEVEL::Debug_Trace2(Translate("<<<<SAVING EXPERIMENT>>>>"), str_SaveFilePathNameFULL);
 // }} ""
-// {{{ 57 1 0 "db4d5690_ed12_45aa_aa41607b1afc7e86" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
-Agilent_Gen5_Interface::SaveExperimentAs(o_CytationID, str_SaveFilePathNameFULL);
-// }} ""
-// {{{ 58 1 0 "f66be8d7_882c_435e_9dee167772b1e8f4" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+// {{{ 57 1 0 "f66be8d7_882c_435e_9dee167772b1e8f4" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
 TRACELEVEL::Debug_Trace2(Translate("<<<<CARRIER OUT TO REMOVE PLATE>>>>"), Translate(""));
 // }} ""
-// {{{ 59 1 0 "9088f64b_50f9_447a_bafa601f49da29d9" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+// {{{ 58 1 0 "9088f64b_50f9_447a_bafa601f49da29d9" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
 Agilent_Gen5_Interface::CarrierOut(o_CytationID);
 // }} ""
-// {{{ 60 1 0 "a5cf8d15_8070_4094_bc884ff47eab68af" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+// {{{ 59 1 0 "a5cf8d15_8070_4094_bc884ff47eab68af" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
 TRACELEVEL::Debug_Trace2(Translate("<<<<DISCONNECTING FROM CYTATION>>>"), str_SaveFilePathNameFULL);
 // }} ""
-// {{{ 61 1 0 "21ba7fe7_1a36_4ac1_b169bf576a9eeb23" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
+// {{{ 60 1 0 "21ba7fe7_1a36_4ac1_b169bf576a9eeb23" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
 Agilent_Gen5_Interface::Disconnect(o_CytationID);
 // }} ""
-// {{ 62 1 0 "ee69b4b8_a658_489b_9d05c35e3d792ad8" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
+// {{ 61 1 0 "ee69b4b8_a658_489b_9d05c35e3d792ad8" "{B31F3531-5D80-11d4-A5EB-0050DA737D89}"
 }
 // }} ""
 // {{ 2 "AutoExitBlock" ""
@@ -250,4 +247,4 @@ Agilent_Gen5_Interface::Disconnect(o_CytationID);
 // {{{ 5 "main" "End"
 } }
 // }} ""
-// $$author=celltx1$$valid=0$$time=2026-06-03 13:07$$checksum=20a3bcea$$length=086$$
+// $$author=celltx1$$valid=0$$time=2026-06-18 14:12$$checksum=10fe7b37$$length=086$$
