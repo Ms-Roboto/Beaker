@@ -147,7 +147,7 @@ arr_str_platetypes.SetSize(1);
 // {{{ 23 1 0 "ec49d725_a813_4e04_ad3698c434176b3d" "{C1F3C015-47B3-4514-9407-AC2E65043419}"
 TRACELEVEL::SetTraceLevel(2);
 // }} ""
-str_ProtocolPath = "C:\\Users\\Public\\Documents\\Protocols\\" + GV_str_protocol;
+str_ProtocolPath = "C:\\Users\\Public\\Documents\\Protocols\\" + GV_str_protocol + ".prt";
 // {{ 25 1 0 "6b3ff0a6_222b_47b3_8ad4a8e4ab7179d8" "{B31F3543-5D80-11d4-A5EB-0050DA737D89}"
 str_SaveFilePathNameFULL = Translate("");
 // }} ""
@@ -346,4 +346,4 @@ Trace ("Bunsen has been notified " , i_str_result);
 }
 // }} ""
 /* {{ 2 "SubmethodInsertLine" "" */ // }} ""
-// $$author=celltx1$$valid=0$$time=2026-06-25 15:56$$checksum=38172bac$$length=086$$
+// $$author=celltx1$$valid=0$$time=2026-08-03 15:47$$checksum=2e331894$$length=086$$
