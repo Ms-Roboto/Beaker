@@ -12,7 +12,11 @@ Exit codes: 0 = success, 1 = failure
 """
 
 import sys
+import time
 import json
+
+HTTP_RETRIES = 3
+HTTP_RETRY_DELAY = 5
 
 try:
     import requests
@@ -30,14 +34,19 @@ except ImportError:
         def _call(self, method, url, json_data=None):
             headers = {"Content-Type": "application/json"}
             body = json.dumps(json_data).encode() if json_data else None
-            req = urllib.request.Request(url, data=body, headers=headers, method=method)
-            try:
-                with urllib.request.urlopen(req, timeout=10) as resp:
-                    return self.Response(resp.read().decode(), resp.status)
-            except urllib.error.HTTPError as e:
-                return self.Response(e.read().decode(), e.code)
-            except urllib.error.URLError as e:
-                return self.Response(str(e), 0)
+            for attempt in range(HTTP_RETRIES):
+                req = urllib.request.Request(url, data=body, headers=headers, method=method)
+                try:
+                    with urllib.request.urlopen(req, timeout=30) as resp:
+                        return self.Response(resp.read().decode(), resp.status)
+                except urllib.error.HTTPError as e:
+                    return self.Response(e.read().decode(), e.code)
+                except (urllib.error.URLError, OSError) as e:
+                    if attempt < HTTP_RETRIES - 1:
+                        print("HTTP retry {}/{}: {}".format(attempt + 1, HTTP_RETRIES, e))
+                        time.sleep(HTTP_RETRY_DELAY)
+                    else:
+                        return self.Response(str(e), 0)
 
         def put(self, url, json=None):
             return self._call("PUT", url, json)
@@ -45,6 +54,19 @@ except ImportError:
             return self._call("POST", url, json)
 
     requests = SimpleRequests()
+
+
+def _http(fn):
+    exc = None
+    for i in range(HTTP_RETRIES):
+        try:
+            return fn()
+        except Exception as e:
+            exc = e
+            if i < HTTP_RETRIES - 1:
+                print("HTTP retry {}/{}: {}".format(i + 1, HTTP_RETRIES, e))
+                time.sleep(HTTP_RETRY_DELAY)
+    raise exc
 
 
 if __name__ == "__main__":
@@ -67,17 +89,25 @@ if __name__ == "__main__":
         values.append(v)
 
     # Set variables
-    r = requests.put("{}/execution/input".format(api), json={
-        "variableNames": names,
-        "variableValues": values
-    })
+    try:
+        r = _http(lambda: requests.put("{}/execution/input".format(api), json={
+            "variableNames": names,
+            "variableValues": values
+        }))
+    except Exception as e:
+        print("ERROR set connection: {}".format(e))
+        sys.exit(1)
     if not r.ok:
         print("ERROR set: {} {}".format(r.status_code, r.text))
         sys.exit(1)
 
     # Resume if requested
     if do_resume:
-        r = requests.post("{}/execution/resume".format(api))
+        try:
+            r = _http(lambda: requests.post("{}/execution/resume".format(api)))
+        except Exception as e:
+            print("ERROR resume connection: {}".format(e))
+            sys.exit(1)
         if not r.ok:
             print("ERROR resume: {} {}".format(r.status_code, r.text))
             sys.exit(1)
